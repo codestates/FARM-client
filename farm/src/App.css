@@ -13,6 +13,22 @@
   }
 }
 
+.farmerFields {
+  display: flex;
+  margin: 10px;
+}
+.farmerDuty {
+  display: flex;
+  flex-direction: column;
+}
+.eachFarmer {
+  margin: 10px;
+}
+
+.seedInFarmer {
+  display: flex;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
