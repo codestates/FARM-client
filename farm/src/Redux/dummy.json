@@ -1,0 +1,50 @@
+{
+  "projectStartDate": "2020-01-01",
+  "cropsCnt": 3,
+  "crops": [
+    {
+      "id": 1,
+      "name": "농작물 1",
+      "icon": "url....",
+      "seedsCnt": 1,
+      "seeds": [
+        {
+          "id": 1,
+          "name": "농작물 1의 씨앗 1",
+          "desc": "설명설명",
+          "startDate": "",
+          "dueDate": ""
+        },
+        {
+          "id": 2,
+          "name": "농작물 1의 씨앗 1",
+          "desc": "설명설명",
+          "startDate": "",
+          "dueDate": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "농작물 2",
+      "icon": "url....",
+      "seedsCnt": 1,
+      "seeds": [
+        {
+          "id": 1,
+          "name": "농작물 2의 씨앗 1",
+          "desc": "설명설명",
+          "startDate": "",
+          "dueDate": ""
+        },
+        {
+          "id": 2,
+          "name": "농작물 2의 씨앗 1",
+          "desc": "설명설명",
+          "startDate": "",
+          "dueDate": ""
+        }
+      ]
+    }
+  ]
+}
