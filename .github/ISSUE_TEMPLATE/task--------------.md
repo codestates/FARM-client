@@ -2,7 +2,7 @@
 name: Task 이슈카드 마크다운 템플릿
 about: Suggest a Task for this project
 title: ''
-labels: ''
+labels: Front-End
 assignees: ''
 
 ---
