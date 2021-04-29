@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "username": "김윤영",
+  "email": "rladuddbs@naver.com",
+  "projectList": [
+    {
+      "farm_id": 1,
+      "farm_name": "부자가 될꺼야!",
+      "image": "url..."
+    }
+  ]
+}

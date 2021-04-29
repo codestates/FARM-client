@@ -24,6 +24,7 @@ export const deleteSeed = (farmerId, seedId) => {
     },
   };
 };
+
 export const addSeeds = (id, name) => {
   return {
     type: ADD_SEEDS,
