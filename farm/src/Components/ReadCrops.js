@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { memo } from "react";
 
+import ReadSeeds from "./ReadSeeds";
+
 function ReadCrops() {
   const crops = useSelector((state) => {
     return state.farmReducer.crops;
@@ -12,8 +14,10 @@ function ReadCrops() {
           <div className="Crops_Base" key={idx}>
             <span className="Corps_Icon">{el.icon}</span>
             <span className="Corps_Name">{el.name}</span>
-            {/* ReadSeeds 컴포넌트가 호출되어야 합니다. */}
-            {/* AddSeeds 컴포넌트가 호출되어야 합니다. */}
+            <div>
+              <ReadSeeds id={el.id} />
+              {/* AddSeeds 컴포넌트가 호출되어야 합니다. */}
+            </div>
           </div>
         );
       })}
