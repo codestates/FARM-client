@@ -4,7 +4,11 @@ export const DELETE_SEED = "DELETE_SEED";
 
 export const ADD_SEEDS = "ADD_SEEDS";
 
+
 export const MOVE_TO_STORAGE = "MOVE_TO_STORAGE";
+
+export const GIVE_SEED = "GIVE_SEED";
+
 
 export const addCrops = (name, icon, idx) => {
   return {
@@ -26,6 +30,7 @@ export const deleteSeed = (farmerId, seedId) => {
     },
   };
 };
+
 export const addSeeds = (id, name) => {
   return {
     type: ADD_SEEDS,
@@ -36,6 +41,7 @@ export const addSeeds = (id, name) => {
   };
 };
 
+
 export const moveToStorage = (icon, id, name) => {
   return {
     type: MOVE_TO_STORAGE,
@@ -43,6 +49,17 @@ export const moveToStorage = (icon, id, name) => {
       icon,
       id,
       name,
+    },
+  };
+};
+export const giveSeed = (cropsId, seedId, userId) => {
+  return {
+    type: GIVE_SEED,
+    payload: {
+      cropsId,
+      seedId,
+      userId,
+
     },
   };
 };

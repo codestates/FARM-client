@@ -4,6 +4,7 @@ import {
   ADD_SEEDS,
   DELETE_SEED,
   MOVE_TO_STORAGE,
+  GIVE_SEED,
 } from "../actions/actions";
 
 const farmReducer = (state = dummy, action) => {
@@ -58,6 +59,7 @@ const farmReducer = (state = dummy, action) => {
         ],
       });
 
+
     case MOVE_TO_STORAGE:
       const cropIcon = action.payload.icon;
       const seedId = action.payload.id;
@@ -95,6 +97,41 @@ const farmReducer = (state = dummy, action) => {
           ],
         });
       }
+
+
+    case GIVE_SEED:
+      let objSeed = {};
+      return Object.assign({}, state, {
+        crops: [
+          ...state.crops.map((el) => {
+            if (el.id === action.payload.cropsId) {
+              el.seeds = [
+                ...el.seeds.filter((data) => {
+                  if (data.id === action.payload.seedId) {
+                    objSeed = { ...data, CropIcon: el.icon };
+                    return false;
+                  } else {
+                    return true;
+                  }
+                }),
+              ];
+              return el;
+            } else {
+              return el;
+            }
+          }),
+        ],
+        farmers: [
+          ...state.farmers.map((el) => {
+            if (el.id === action.payload.userId) {
+              el.seeds = [...el.seeds, objSeed];
+              return el;
+            } else {
+              return el;
+            }
+          }),
+        ],
+      });
 
     default:
       return state;

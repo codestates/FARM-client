@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { memo } from "react";
+import GiveSeedToFarmers from "./GiveSeedToFarmers";
 
 function ReadSeeds({ id }) {
   const seeds = useSelector((state) => {
@@ -15,6 +16,7 @@ function ReadSeeds({ id }) {
         return (
           <div className="Seed_Base" key={idx}>
             <span className="Seed_Name">{el.name}</span>
+            <GiveSeedToFarmers corpsId={id} seedId={el.id}></GiveSeedToFarmers>
           </div>
         );
       })}
