@@ -7,9 +7,11 @@ function AddCrops({ id }) {
   const iconList = useSelector((state) => {
     return state.farmReducer.iconList;
   });
+  console.log(`iconList`, iconList);
   const [isAdd, setIsAdd] = useState(false);
   const [strName, setStrName] = useState("");
   const [strIcon, setStrIcon] = useState(iconList[0]);
+  console.log(`strIcon`, strIcon);
   const [numIcon, setNumIcon] = useState(0);
   const Ref = useRef(null);
   const dispatch = useDispatch();
@@ -39,29 +41,34 @@ function AddCrops({ id }) {
     setNumIcon(idx);
   };
 
-  const addCrops2 = (e) => {
+  const addCropsToFarm = (e) => {
     e.preventDefault();
     if (strName === "") {
-      console.log(`ddd`);
-      return;
+      return alert("농작물 이름을 작성해주세요");
     }
     dispatch(addCrops(strName, strIcon, numIcon));
     setIsAdd(false);
     setStrName("");
+
+    let icon = iconList.filter((el, idx) => {
+      if (idx !== numIcon) {
+        return el;
+      }
+    });
+    setStrIcon(icon[0]);
   };
 
   return (
     <>
       {isAdd ? (
         <div ref={Ref}>
-          <form onSubmit={addCrops2}>
+          <form onSubmit={addCropsToFarm}>
             <SelectIcon
               setIcon={setIcon}
               iconList={iconList}
               strIcon={strIcon}
             ></SelectIcon>
             <input value={strName} onChange={changeName}></input>
-
             <button type="submit">추가하기</button>
           </form>
         </div>
