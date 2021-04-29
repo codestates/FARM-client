@@ -3,16 +3,18 @@
   "farmName": "첫 번째 밭",
   "farmImage": "url1",
   "projectStartDate": "2020-01-01",
+  "farmerCnt": 3,
   "farmers": [
     {
+      "id": 1,
       "userName": "류코딩",
       "email": "abc1234@gmail.com",
       "cnt": 1,
       "isOwner": true,
       "seeds": [
         {
-          "id": 3,
-          "CropId": 3,
+          "id": 5,
+          "CropIcon": "🍐",
           "seedId": 1,
           "name": "농작물 3의 씨앗 1",
           "desc": "류설명설명",
@@ -22,14 +24,15 @@
       ]
     },
     {
+      "id": 2,
       "userName": "김코딩",
       "email": "ab123@gmail.com",
       "cnt": 1,
       "isOwner": true,
       "seeds": [
         {
-          "id": 3,
-          "CropId": 3,
+          "id": 7,
+          "CropIcon": "🍊",
           "seedId": 1,
           "name": "농작물 2의 씨앗 1",
           "desc": "김설명설명",
@@ -45,7 +48,7 @@
     {
       "id": 1,
       "name": "농작물 1",
-      "icon": "url....",
+      "icon": "🍎",
       "seedsCnt": 1,
       "seeds": [
         {
@@ -67,7 +70,7 @@
     {
       "id": 2,
       "name": "농작물 2",
-      "icon": "url....",
+      "icon": "🍏",
       "seedsCnt": 1,
       "seeds": [
         {

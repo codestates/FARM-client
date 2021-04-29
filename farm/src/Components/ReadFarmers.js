@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { useState, memo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ReadFarmerSeed from "./ReadFarmerSeed";
 
@@ -10,14 +10,18 @@ function ReadFarmers() {
   });
 
   return (
-    <div className="farmerFields">
+    <div className="Farmer_Fields">
       {state.farmers.map((farmer) => {
         return (
-          <div className="farmerDuty">
-            <div className="eachFarmer">{farmer.userName}</div>
-            <div>
+          <div className="Farmer_Duty">
+            <div className="Farmer_Name">{farmer.userName}</div>
+            <div className="Seeds_In_Farmer">
               {farmer.seeds.map((seed) => (
-                <ReadFarmerSeed key={seed.id} seed={seed} />
+                <ReadFarmerSeed
+                  key={seed.id}
+                  seed={seed}
+                  farmerId={farmer.id}
+                />
               ))}
             </div>
           </div>
