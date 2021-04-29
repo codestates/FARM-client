@@ -13,20 +13,45 @@
   }
 }
 
-.farmerFields {
+.Farmer_Fields {
   display: flex;
   margin: 10px;
+  border: 1px solid black;
+  width: 60%;
 }
-.farmerDuty {
+.Farmer_Duty {
   display: flex;
   flex-direction: column;
-}
-.eachFarmer {
+  padding: 10px;
+  border: 1px solid black;
   margin: 10px;
 }
+.Farmer_Name {
+  margin: 10px;
+}
+.Crop_Icon_In_Farmer {
+  padding-right: 10px;
+}
 
-.seedInFarmer {
+.Seed_In_Farmer {
   display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Seeds_In_Farmer {
+  border: 1px solid black;
+  padding: 10px;
+}
+.Complete_Btn {
+  margin-left: 5px;
+}
+
+.Seed_In_Farmer:hover .Complete_Btn {
+  display: inline;
+}
+.Complete_Btn {
+  display: none;
 }
 
 .App-header {
