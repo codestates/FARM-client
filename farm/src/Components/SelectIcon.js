@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { useState, useRef, useEffect } from "react";
 
 function SelectIcon({ setIcon, iconList, strIcon }) {

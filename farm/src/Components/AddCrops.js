@@ -3,16 +3,15 @@ import { useState, useRef, useEffect } from "react";
 import { addCrops } from "../Redux/actions/actions";
 import SelectIcon from "./SelectIcon";
 
-function AddCrops({ id }) {
+function AddCrops() {
   const iconList = useSelector((state) => {
     return state.farmReducer.iconList;
   });
-  console.log(`iconList`, iconList);
   const [isAdd, setIsAdd] = useState(false);
   const [strName, setStrName] = useState("");
   const [strIcon, setStrIcon] = useState(iconList[0]);
-  console.log(`strIcon`, strIcon);
   const [numIcon, setNumIcon] = useState(0);
+  const [strWarning, setStrWarning] = useState("");
   const Ref = useRef(null);
   const dispatch = useDispatch();
 
@@ -44,12 +43,13 @@ function AddCrops({ id }) {
   const addCropsToFarm = (e) => {
     e.preventDefault();
     if (strName === "") {
-      return alert("농작물 이름을 작성해주세요");
+      setStrWarning("농작물 이름을 입력해주세요!");
+      return;
     }
     dispatch(addCrops(strName, strIcon, numIcon));
     setIsAdd(false);
     setStrName("");
-
+    setStrWarning("");
     let icon = iconList.filter((el, idx) => {
       if (idx !== numIcon) {
         return el;
@@ -70,6 +70,7 @@ function AddCrops({ id }) {
             ></SelectIcon>
             <input value={strName} onChange={changeName}></input>
             <button type="submit">추가하기</button>
+            <div>{strWarning}</div>
           </form>
         </div>
       ) : (
