@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteSeed } from "../Redux/actions/actions";
+import { deleteSeed, moveToStorage } from "../Redux/actions/actions";
 
 export default function ReadFarmerSeed({ seed, farmerId }) {
   const { CropIcon, name, id } = seed;
   const dispatch = useDispatch();
-  console.log(`farmerId`, farmerId);
+
   const harvestCrop = () => {
+    // 곳간으로 복사 작업 후 삭제
+    dispatch(moveToStorage(CropIcon, id, name));
     dispatch(deleteSeed(farmerId, id));
-    console.log(`수확된 id는 `, id);
   };
   return (
     <div className="Seed_In_Farmer">
