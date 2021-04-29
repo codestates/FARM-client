@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <FarmPage />
 
           {/* 테스트를 위해 임시로 root path / 에 FarmPage 설정. 추후 변경 예정 */}
@@ -17,7 +17,6 @@ function App() {
         <Route path="/mypage">
           <MyPage />
         </Route>
-
         {/* <Route path="/farmpage">
           <FarmPage />
         </Route> */}
