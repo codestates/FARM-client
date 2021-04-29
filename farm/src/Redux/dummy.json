@@ -1,6 +1,7 @@
 {
   "projectStartDate": "2020-01-01",
   "cropsCnt": 3,
+  "iconList": ["🍎", "🍏", "🍐", "🍊", "🍋"],
   "crops": [
     {
       "id": 1,
@@ -43,6 +44,18 @@
           "desc": "설명설명",
           "startDate": "",
           "dueDate": ""
+        }
+      ]
+    }
+  ],
+  "farmer": [
+    {
+      "userName": "dd",
+      "seeds": [
+        {
+          "cropsID": 1,
+          "seedsID": 1,
+          "icon": ""
         }
       ]
     }
