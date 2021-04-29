@@ -4,6 +4,8 @@ export const DELETE_SEED = "DELETE_SEED";
 
 export const ADD_SEEDS = "ADD_SEEDS";
 
+export const GIVE_SEED = "GIVE_SEED";
+
 export const addCrops = (name, icon, idx) => {
   return {
     type: ADD_CROPS,
@@ -31,6 +33,17 @@ export const addSeeds = (id, name) => {
     payload: {
       id,
       name,
+    },
+  };
+};
+
+export const giveSeed = (cropsId, seedId, userId) => {
+  return {
+    type: GIVE_SEED,
+    payload: {
+      cropsId,
+      seedId,
+      userId,
     },
   };
 };
