@@ -46,7 +46,7 @@
       "id": 1,
       "name": "농작물 1",
       "icon": "🍎",
-      "seedsCnt": 1,
+      "seedsCnt": 3,
       "seeds": [
         {
           "id": 1,
@@ -68,7 +68,7 @@
       "id": 2,
       "name": "농작물 2",
       "icon": "🍏",
-      "seedsCnt": 1,
+      "seedsCnt": 3,
       "seeds": [
         {
           "id": 1,

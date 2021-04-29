@@ -1,5 +1,5 @@
 import dummy from "../dummy.json";
-import { ADD_CROPS } from "../actions/actions";
+import { ADD_CROPS, ADD_SEEDS } from "../actions/actions";
 
 const farmReducer = (state = dummy, action) => {
   switch (action.type) {
@@ -20,6 +20,23 @@ const farmReducer = (state = dummy, action) => {
         iconList: icon,
         cropsCnt: state.cropsCnt + 1,
         crops: [...state.crops, crops],
+      });
+    case ADD_SEEDS:
+      return Object.assign({}, state, {
+        crops: [
+          ...state.crops.map((el) => {
+            if (el.id === action.payload.id) {
+              el.seeds = [
+                ...el.seeds,
+                { id: el.seedsCnt, name: action.payload.name },
+              ];
+              el.seedsCnt++;
+              return el;
+            } else {
+              return el;
+            }
+          }),
+        ],
       });
     default:
       return state;
