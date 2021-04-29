@@ -12,17 +12,13 @@ function ReadFarmers() {
 
   return (
     <div className="Farmer_Fields">
-      {state.farmers.map((farmer) => {
+      {state.farmers.map((farmer, idx) => {
         return (
-          <div className="Farmer_Duty">
+          <div className="Farmer_Duty" key={idx}>
             <div className="Farmer_Name">{farmer.userName}</div>
             <div className="Seeds_In_Farmer">
-              {farmer.seeds.map((seed) => (
-                <ReadFarmerSeed
-                  key={seed.id}
-                  seed={seed}
-                  farmerId={farmer.id}
-                />
+              {farmer.seeds.map((seed, idx) => (
+                <ReadFarmerSeed key={idx} seed={seed} farmerId={farmer.id} />
               ))}
             </div>
           </div>

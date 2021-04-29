@@ -3,6 +3,7 @@ import {
   ADD_CROPS,
   ADD_SEEDS,
   DELETE_SEED,
+  MOVE_TO_STORAGE,
   GIVE_SEED,
 } from "../actions/actions";
 
@@ -57,6 +58,47 @@ const farmReducer = (state = dummy, action) => {
           }),
         ],
       });
+
+
+    case MOVE_TO_STORAGE:
+      const cropIcon = action.payload.icon;
+      const seedId = action.payload.id;
+      const seedName = action.payload.name;
+      // 추가된 작물종류가 이미 존재하면, seeds안에 추가만 해주고
+      // 작물종류가 곳간에 존재하지 않으면, CropIcon이랑 seeds 모두 추가.
+      const numIdx = state.storage.findIndex(
+        (crop) => crop.CropIcon === cropIcon
+      );
+
+      if (numIdx !== -1) {
+        // 동일한 작물종류가 이미 존재한다면
+        const arrCopiedStorage = state.storage.slice();
+        arrCopiedStorage[numIdx].seeds.push({
+          seedId: seedId,
+          name: seedName,
+        });
+        return Object.assign({}, state, {
+          storage: arrCopiedStorage,
+        });
+      } else {
+        // 동일한 작물종류가 없다면 CropIcon까지 추가
+        return Object.assign({}, state, {
+          storage: [
+            ...state.storage,
+            {
+              CropIcon: cropIcon,
+              seeds: [
+                {
+                  seedId: seedId,
+                  name: seedName,
+                },
+              ],
+            },
+          ],
+        });
+      }
+
+
     case GIVE_SEED:
       let objSeed = {};
       return Object.assign({}, state, {
@@ -90,6 +132,7 @@ const farmReducer = (state = dummy, action) => {
           }),
         ],
       });
+
     default:
       return state;
   }

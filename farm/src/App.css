@@ -86,6 +86,38 @@
   color: white;
 }
 
+.Sub_Nav {
+  display: flex;
+  background-color: #cbc693;
+  align-items: center;
+  padding: 5px;
+}
+
+.Sub_Nav > .Farm_Name {
+  margin: 5px 25px 5px 5px;
+  cursor: pointer;
+}
+.Sub_Nav > .Storage {
+  cursor: pointer;
+}
+
+.Whole_Storage {
+  display: flex;
+  width: 70%;
+  border: 1px solid black;
+}
+.Storage_Part {
+  display: flex;
+  border: 1px solid black;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+}
+.Storage_Seed {
+  background-color: #aed581;
+  padding: 5px;
+  margin: 5px;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
