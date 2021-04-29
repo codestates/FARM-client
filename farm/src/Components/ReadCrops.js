@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { memo } from "react";
 
 import ReadSeeds from "./ReadSeeds";
+import AddSeeds from "./AddSeeds";
 
 function ReadCrops() {
   const crops = useSelector((state) => {
@@ -16,7 +17,7 @@ function ReadCrops() {
             <span className="Corps_Name">{el.name}</span>
             <div>
               <ReadSeeds id={el.id} />
-              {/* AddSeeds 컴포넌트가 호출되어야 합니다. */}
+              <AddSeeds id={el.id} />
             </div>
           </div>
         );
