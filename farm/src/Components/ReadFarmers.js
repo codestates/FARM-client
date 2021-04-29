@@ -1,6 +1,7 @@
 import { useState, memo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ReadFarmerSeed from "./ReadFarmerSeed";
+import InviteFarmers from "./InviteFarmers";
 
 import React from "react";
 
@@ -27,6 +28,7 @@ function ReadFarmers() {
           </div>
         );
       })}
+      <InviteFarmers />
     </div>
   );
 }
