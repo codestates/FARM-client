@@ -9,7 +9,6 @@ function ReadSeeds({ id }) {
       }
     })[0].seeds;
   });
-  console.log(`seeds`, seeds);
   return (
     <div>
       {seeds.map((el, idx) => {
