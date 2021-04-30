@@ -1,25 +1,68 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import FarmPage from "./Pages/FarmPage";
 import MyPage from "./Pages/MyPage";
+import SignInPage from "./Pages/SignInPage";
+import React, { useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router";
+import SignUp from "./Components/SignUp";
 
 function App() {
+  const [islogin, setIslogin] = useState(false);
+  const [userinfo, setUserinfo] = useState(null);
+  const history = useHistory();
+  const handleResponseSuccess = () => {
+    axios
+      .get("url/users/info", {
+        "Content-Type": "application/json",
+        withCredentials: true,
+      })
+      .then((res) => {
+        setIslogin(true);
+        setUserinfo(res.data.userInfo);
+      })
+      .then(() => {
+        history.push("/");
+      });
+  };
+
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          <FarmPage />
-
-          {/* 테스트를 위해 임시로 root path / 에 FarmPage 설정. 추후 변경 예정 */}
-        </Route>
-        <Route path="/signin">{/* 로그인 컴포넌트 */}</Route>
-        <Route path="/signup">{/* 회원가입 컴포넌트 */}</Route>
-        <Route path="/mypage">
-          <MyPage />
-        </Route>
-        {/* <Route path="/farmpage">
-          <FarmPage />
-        </Route> */}
+        <Route
+          path="/signin"
+          render={() => (
+            <SignInPage handleResponseSuccess={handleResponseSuccess} />
+          )}
+        />
+        <Route path="/signup" render={() => <SignUp />} />
+        <Route
+          path="/mypage"
+          render={() => {
+            if (!islogin) return <Redirect to="/signin" />;
+            else return <MyPage userinfo={userinfo} />;
+          }}
+        />
+        <Route
+          path="/farmpage"
+          render={() => {
+            if (islogin) return <FarmPage userinfo={userinfo} />;
+            else return <Redirect to="/signin" />;
+          }}
+        />
+        <Route
+          path="/"
+          render={() => {
+            if (islogin) return <Redirect to="/mypage" />;
+            else return <Redirect to="/signin" />;
+          }}
+        />
       </Switch>
     </Router>
   );
