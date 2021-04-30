@@ -4,11 +4,11 @@ export const DELETE_SEED = "DELETE_SEED";
 
 export const ADD_SEEDS = "ADD_SEEDS";
 
-
 export const MOVE_TO_STORAGE = "MOVE_TO_STORAGE";
 
 export const GIVE_SEED = "GIVE_SEED";
 
+export const CREATE_FARM = "CREATE_FARM";
 
 export const addCrops = (name, icon, idx) => {
   return {
@@ -41,7 +41,6 @@ export const addSeeds = (id, name) => {
   };
 };
 
-
 export const moveToStorage = (icon, id, name) => {
   return {
     type: MOVE_TO_STORAGE,
@@ -59,7 +58,17 @@ export const giveSeed = (cropsId, seedId, userId) => {
       cropsId,
       seedId,
       userId,
+    },
+  };
+};
 
+export const createFarm = (id, name, image) => {
+  return {
+    type: CREATE_FARM,
+    payload: {
+      id,
+      name,
+      image,
     },
   };
 };

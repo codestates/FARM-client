@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { memo } from "react";
+import CreateFarm from "./CreateFarm";
 
 function ReadFarmList() {
   const arrFarmList = useSelector((state) => {
@@ -8,7 +9,7 @@ function ReadFarmList() {
 
   return (
     <div>
-      {arrFarmList !== undefined ? (
+      {arrFarmList.length !== 0 ? (
         <div>
           {arrFarmList.map((el, idx) => {
             return (
@@ -18,9 +19,10 @@ function ReadFarmList() {
               </div>
             );
           })}
+          <CreateFarm isFarm={true}></CreateFarm>
         </div>
       ) : (
-        <div>여기를 눌러 추가하십쇼</div>
+        <CreateFarm isFarm={false}></CreateFarm>
       )}
     </div>
   );
