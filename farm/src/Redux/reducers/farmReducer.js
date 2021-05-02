@@ -5,10 +5,15 @@ import {
   DELETE_SEED,
   MOVE_TO_STORAGE,
   GIVE_SEED,
+  SET_FARM,
 } from "../actions/actions";
 
 const farmReducer = (state = dummy, action) => {
   switch (action.type) {
+    case SET_FARM:
+      console.log(`action.payload.obj`, action.payload.obj);
+      return action.payload.obj;
+
     case ADD_CROPS:
       let crops = {
         id: state.cropsCnt,
@@ -59,7 +64,6 @@ const farmReducer = (state = dummy, action) => {
         ],
       });
 
-
     case MOVE_TO_STORAGE:
       const cropIcon = action.payload.icon;
       const seedId = action.payload.id;
@@ -97,7 +101,6 @@ const farmReducer = (state = dummy, action) => {
           ],
         });
       }
-
 
     case GIVE_SEED:
       let objSeed = {};
