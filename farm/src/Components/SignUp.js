@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 
-export default function SignUp({ handleLoginWindow }) {
+export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
   const emailInput = useRef();
   const nameInput = useRef();
   const pwInput = useRef();
@@ -46,30 +46,59 @@ export default function SignUp({ handleLoginWindow }) {
 
   const handleSignUp = (e) => {
     e.preventDefault();
+    if (!email || !name || !pw || !pwCheck) {
+      setMemberCheckMsg("모든 항목은 필수로 입력되어야 합니다.");
+    }
     let validEmail = isValidEmail(email);
     let validName = isValidName(name);
     let validPw = isValidPw(pw);
     let validPwCheck = isValidPwCheck(pwCheck);
     if (validEmail && validName && validPw && validPwCheck) {
       // 서버에 회원가입 post 요청
-      // axios
-      //   .post(
-      //     "url/users/signup",
-      //     {
-      //       email: email,
-      //       password: pw,
-      //       username: name,
-      //     },
-      //     { "Content-Type": "application/json", withCredentials: true }
-      //   )
-      //   .then((res) => {
-      //     if (res.message === "Signed up successfully") {
-      //       history.push("/");
-      //     } else {
-      //       setMemberCheckMsg("이미 존재하는 회원입니다.");
-      //     }
-      //   })
-      //   .catch((err) => alert(err));
+      axios
+        .post(
+          "http://localhost:80/users/signup",
+          {
+            email: email,
+            password: pw,
+            username: name,
+          },
+          {
+            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+          }
+        )
+        .then((res) => {
+          console.log(`res`, res);
+          if (res.data.message === "Signed up successfully") {
+            alert("회원가입을 축하합니다! 마이페이지로 이동합니다.");
+            axios
+              .post(
+                "http://localhost:80/users/signin",
+                {
+                  email: email,
+                  password: pw,
+                },
+                {
+                  "Content-Type": "application/json",
+                  withCredentials: true,
+                }
+              )
+              .then((res) => {
+                console.log(`res`, res);
+                if (res.data.message === "ok")
+                  handleLoginSuccess(res.data.data.accessToken);
+                else alert("다시 로그인 해주세요");
+              })
+              .then(() => {
+                history.push("/");
+              })
+              .catch((err) => alert(err));
+          } else {
+            setMemberCheckMsg("이미 존재하는 회원입니다.");
+          }
+        })
+        .catch((err) => alert(err));
 
       setMemberCheckMsg("서버에 post요청 예정입니다.");
     }
@@ -222,7 +251,7 @@ export default function SignUp({ handleLoginWindow }) {
         </div>
         <div className="Input_Set">
           <div>비밀번호</div>
-          <input type="text" onChange={handleInputValue("pw")}></input>
+          <input type="password" onChange={handleInputValue("pw")}></input>
           {pwMessage === "유효한 비밀번호 입니다." ? (
             <div className="Ok_Msg">{pwMessage}</div>
           ) : (
@@ -231,7 +260,7 @@ export default function SignUp({ handleLoginWindow }) {
         </div>
         <div className="Input_Set">
           <div>비밀번호 확인</div>
-          <input type="text" onChange={handleInputValue("pwCheck")}></input>
+          <input type="password" onChange={handleInputValue("pwCheck")}></input>
           {pwCheckMessage === "비밀번호가 일치합니다." ? (
             <div className="Ok_Msg">{pwCheckMessage}</div>
           ) : (

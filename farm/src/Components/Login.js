@@ -4,7 +4,7 @@ import axios from "axios";
 import { useHistory } from "react-router";
 import SIgnUp from "./SignUp";
 
-function Login({ handleResponseSuccess, handleSignUpWindow }) {
+function Login({ handleLoginSuccess, handleSignUpWindow }) {
   const emailInput = useRef();
   const pwInput = useRef();
   const [email, setEmail] = useState("");
@@ -19,6 +19,9 @@ function Login({ handleResponseSuccess, handleSignUpWindow }) {
   };
   const handleLogin = (e) => {
     e.preventDefault();
+    if (!email || !pw) {
+      return setLoginResultMsg("모든 항목은 필수로 입력되어야 합니다.");
+    }
     let validEmail = isValidEmail(email);
     let validPw = isValidPw(pw);
 
@@ -26,25 +29,29 @@ function Login({ handleResponseSuccess, handleSignUpWindow }) {
       // 서버 로그인 post 요청
       // 받은 객체의 message가 "ok"면 마이페이지 이동
       // ok가 아니면 "존재하지 않는 회원입니다." 문구 띄어주기
-      // axios
-      //   .post(
-      //     "url/users/signin",
-      //     {
-      //       email: email,
-      //       password: pw,
-      //     },
-      //     { "Content-Type": "application/json", withCredentials: true }
-      //   )
-      //   .then((res) => {
-      //     if (res.message === "ok") handleResponseSuccess();
-      //     else setLoginResultMsg("존재하지 않는 회원입니다.");
-      //   })
-      //   .then(() => {
-      //     history.push("/");
-      //   })
-      //   .catch((err) => alert(err));
-
-      setErrorMessage("서버에 post요청 예정입니다."); // 서버 통신 완료 시 이부분은 삭제 예정
+      axios
+        .post(
+          "http://localhost:80/users/signin",
+          {
+            email: email,
+            password: pw,
+          },
+          {
+            "Content-Type": "application/json",
+            withCredentials: true,
+          }
+        )
+        .then((res) => {
+          console.log(`res`, res);
+          if (res.data.message === "ok") {
+            console.log(`들어왔다!!!!!!`);
+            handleLoginSuccess(res.data.data.accessToken);
+          } else setLoginResultMsg("존재하지 않는 회원입니다.");
+        })
+        .then(() => {
+          history.push("/");
+        })
+        .catch((err) => alert(err));
     } else {
       setErrorMessage("이메일과 비밀번호를 다시 확인해 주세요.");
       emailInput.current.focus();
@@ -181,7 +188,7 @@ function Login({ handleResponseSuccess, handleSignUpWindow }) {
         <div className="Input_Set">
           <div>비밀번호</div>
           <input
-            type="text"
+            type="password"
             ref={pwInput}
             onChange={handleInputValue("pw")}
           ></input>

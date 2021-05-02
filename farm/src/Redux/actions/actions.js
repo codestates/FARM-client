@@ -10,6 +10,12 @@ export const GIVE_SEED = "GIVE_SEED";
 
 export const CREATE_FARM = "CREATE_FARM";
 
+export const SET_USERINFO = "SET_USERINFO";
+
+export const SET_NO_AUTH = "SET_NO_AUTH";
+
+export const SET_AUTH = "SET_AUTH";
+
 export const addCrops = (name, icon, idx) => {
   return {
     type: ADD_CROPS,
@@ -70,5 +76,31 @@ export const createFarm = (id, name, image) => {
       name,
       image,
     },
+  };
+};
+
+export const setUserInfo = (objUserInfo, arrProjectList) => {
+  return {
+    type: SET_USERINFO,
+    payload: {
+      objUserInfo,
+      arrProjectList,
+    },
+  };
+};
+
+export const setAuth = (accessToken) => {
+  return {
+    type: SET_AUTH,
+    payload: {
+      accessToken,
+    },
+  };
+};
+
+export const setNoAuth = () => {
+  return {
+    type: SET_NO_AUTH,
+    payload: {},
   };
 };

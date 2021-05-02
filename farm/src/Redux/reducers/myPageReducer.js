@@ -1,5 +1,5 @@
 import dummy from "../userDummy.json";
-import { CREATE_FARM } from "../actions/actions";
+import { CREATE_FARM, SET_USERINFO } from "../actions/actions";
 
 const myPageReducer = (state = dummy, action) => {
   console.log(`state`, state);
@@ -15,6 +15,14 @@ const myPageReducer = (state = dummy, action) => {
           },
         ],
       });
+    case SET_USERINFO:
+      return Object.assign({}, state, {
+        id: action.payload.objUserInfo.id,
+        username: action.payload.objUserInfo.username,
+        email: action.payload.objUserInfo.email,
+        projectList: action.payload.arrProjectList,
+      });
+
     default:
       return state;
   }
