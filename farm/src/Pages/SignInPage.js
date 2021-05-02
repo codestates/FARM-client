@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Login from "../Components/Login";
 import SignUp from "../Components/SignUp";
 
-export default function SignInPage({ handleResponseSuccess }) {
+export default function SignInPage({ handleLoginSuccess }) {
   const [isClickSignUp, setIsClickSignUp] = useState(false);
 
   const handleSignUpWindow = () => {
@@ -134,11 +134,14 @@ export default function SignInPage({ handleResponseSuccess }) {
       <div>
         {!isClickSignUp ? (
           <Login
-            handleResponseSuccess={handleResponseSuccess}
+            handleLoginSuccess={handleLoginSuccess}
             handleSignUpWindow={handleSignUpWindow}
           />
         ) : (
-          <SignUp handleLoginWindow={handleLoginWindow} />
+          <SignUp
+            handleLoginSuccess={handleLoginSuccess}
+            handleLoginWindow={handleLoginWindow}
+          />
         )}
       </div>
     </div>

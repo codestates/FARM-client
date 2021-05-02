@@ -325,3 +325,6 @@
   color: red;
   font-weight: bold;
 }
+.Btn_Logout {
+  cursor: pointer;
+}
