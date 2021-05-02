@@ -1,14 +1,23 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createFarm } from "../Redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { createFarm, setFarm } from "../Redux/actions/actions";
+import { useHistory } from "react-router";
+import SetFarm from "./SetFarm";
 import Modal from "./Modal";
+import axios from "axios";
+
+const env = process.env;
 
 function CreateFarm({ isFarm }) {
+  const objUserData = useSelector((state) => {
+    return state.myPageReducer;
+  });
   const dispatch = useDispatch();
   const [isModal, setIsModal] = useState(false);
   const [strProjectName, setProjectName] = useState("");
   const [strErr, setErr] = useState("");
 
+  const histoty = useHistory();
   const projectName = (e) => {
     setProjectName(e.target.value);
   };
@@ -19,16 +28,24 @@ function CreateFarm({ isFarm }) {
     setIsModal(false);
   };
 
-  const createProject = () => {
+  const createProject = async () => {
     if (strProjectName === "") {
       setErr("밭 이름을 정확히 입력해주세요");
       return;
     } else {
       // 서버 통신 후 id와 image 받아와야 함.
-      dispatch(createFarm(10, strProjectName, "image"));
+      const objFarm = await axios.post(`http://localhost:80/farm/create`, {
+        user_id: objUserData.id,
+        farm_name: strProjectName,
+        img: "sdfa",
+      });
+      dispatch(createFarm(objFarm.data.id, strProjectName, "sdfa"));
       setErr("");
+      let data = await SetFarm(objFarm.data.id, strProjectName);
+      dispatch(setFarm(data));
       closeModal();
-      // 여기서 생성된 프로젝트로 바로 이동하는 라우터 추가 필요
+      setProjectName("");
+      histoty.push("/farmpage");
     }
   };
   return (
@@ -61,10 +78,10 @@ function CreateFarm({ isFarm }) {
           btntext="밭 갈기"
           callback={createProject}
         >
-          <from onSubmit={createProject}>
+          <form onSubmit={createProject}>
             <input className="Create_Input" onChange={projectName}></input>
             <div>{strErr}</div>
-          </from>
+          </form>
         </Modal>
       ) : (
         <></>

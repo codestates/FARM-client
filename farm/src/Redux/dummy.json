@@ -3,120 +3,88 @@
   "farmName": "첫 번째 밭",
   "farmImage": "url1",
   "projectStartDate": "2020-01-01",
-  "farmerCnt": 3,
   "farmers": [
     {
-      "id": 1,
-      "userName": "류코딩",
+      "user_id": 1,
+      "name": "1코딩",
       "email": "abc1234@gmail.com",
-      "cnt": 1,
-      "isOwner": true,
       "seeds": [
         {
-          "id": 5,
-          "CropIcon": "🍐",
-          "seedId": 1,
-          "name": "농작물 3의 씨앗 1",
-          "desc": "류설명설명",
-          "startDate": "",
-          "dueDate": ""
+          "seed_id": 5,
+          "kind": "🍐",
+          "seedname": "농작물 3의 씨앗 1"
         }
       ]
     },
     {
-      "id": 2,
-      "userName": "김코딩",
-      "email": "ab123@gmail.com",
-      "cnt": 1,
-      "isOwner": true,
+      "user_id": 1,
+      "name": "2코딩",
+      "email": "abc1234@gmail.com",
       "seeds": [
         {
-          "id": 7,
-          "CropIcon": "🍊",
-          "seedId": 1,
-          "name": "농작물 2의 씨앗 1",
-          "desc": "김설명설명",
-          "startDate": "",
-          "dueDate": ""
+          "seed_id": 5,
+          "kind": "🍐",
+          "seedname": "농작물 3의 씨앗 1"
         }
       ]
     }
   ],
-  "cropsCnt": 3,
   "iconList": ["🍎", "🍏", "🍐", "🍊", "🍋"],
   "crops": [
     {
-      "id": 1,
+      "crops_id": 1,
       "name": "농작물 1",
-      "icon": "🍎",
-      "seedsCnt": 3,
+      "kind": "🍎",
       "seeds": [
         {
-          "id": 1,
-          "name": "농작물 1의 씨앗 1",
-          "desc": "설명설명",
-          "startDate": "",
-          "dueDate": ""
+          "seed_id": 1,
+          "seed_name": "농작물 1의 씨앗 1",
+          "isHarvested": true
         },
         {
-          "id": 2,
-          "name": "농작물 1의 씨앗 2",
-          "desc": "설명설명",
-          "startDate": "",
-          "dueDate": ""
+          "seed_id": 2,
+          "seed_name": "농작물 1의 씨앗 1",
+          "isHarvested": true
         }
       ]
     },
     {
-      "id": 2,
+      "crops_id": 2,
       "name": "농작물 2",
-      "icon": "🍏",
-      "seedsCnt": 3,
+      "kind": "🍏",
       "seeds": [
         {
-          "id": 1,
-          "name": "농작물 2의 씨앗 1",
-          "desc": "설명설명",
-          "startDate": "",
-          "dueDate": ""
+          "seed_id": 1,
+          "seed_name": "농작물 2의 씨앗 1",
+          "isHarvested": true
         },
         {
-          "id": 2,
-          "name": "농작물 2의 씨앗 2",
-          "desc": "설명설명",
-          "startDate": "",
-          "dueDate": ""
+          "seed_id": 2,
+          "seed_name": "농작물 2의 씨앗 2",
+          "isHarvested": true
         }
       ]
     }
   ],
   "storage": [
     {
-      "CropIcon": "🍊",
+      "Kind": {
+        "icon": "🍊"
+      },
       "seeds": [
-        { "seedId": 11, "name": "농작물 10의 재배 1" },
-        { "seedId": 12, "name": "농작물 10의 재배 2" },
-        { "seedId": 13, "name": "농작물 10의 재배 3" }
+        { "id": 11, "name": "농작물 10의 재배 1" },
+        { "id": 12, "name": "농작물 10의 재배 2" },
+        { "id": 13, "name": "농작물 10의 재배 3" }
       ]
     },
     {
-      "CropIcon": "🍋",
+      "Kind": {
+        "icon": "🍋"
+      },
       "seeds": [
-        { "seedId": 14, "name": "농작물 11의 재배 1" },
-        { "seedId": 15, "name": "농작물 11의 재배 2" },
-        { "seedId": 16, "name": "농작물 11의 재배 3" }
-      ]
-    }
-  ],
-  "farmer": [
-    {
-      "userName": "dd",
-      "seeds": [
-        {
-          "cropsID": 1,
-          "seedsID": 1,
-          "icon": ""
-        }
+        { "id": 14, "name": "농작물 11의 재배 1" },
+        { "id": 15, "name": "농작물 11의 재배 2" },
+        { "id": 16, "name": "농작물 11의 재배 3" }
       ]
     }
   ]

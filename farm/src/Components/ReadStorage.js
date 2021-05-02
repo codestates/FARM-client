@@ -4,12 +4,16 @@ export default function ReadStorage() {
   const state = useSelector((state) => state.farmReducer);
   return (
     <div className="Whole_Storage">
-      {state.storage.map((crop) => {
+      {state.storage.map((crop, idx) => {
         return (
-          <div className="Storage_Part">
-            <div>{crop.CropIcon}</div>
-            {crop.seeds.map((seed) => {
-              return <div className="Storage_Seed">{seed.name}</div>;
+          <div key={idx} className="Storage_Part">
+            <div>{crop.Kind.icon}</div>
+            {crop.seeds.map((seed, idx) => {
+              return (
+                <div key={idx} className="Storage_Seed">
+                  {seed.name}
+                </div>
+              );
             })}
           </div>
         );

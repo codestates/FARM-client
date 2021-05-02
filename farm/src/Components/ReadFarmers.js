@@ -15,10 +15,14 @@ function ReadFarmers() {
       {state.farmers.map((farmer, idx) => {
         return (
           <div className="Farmer_Duty" key={idx}>
-            <div className="Farmer_Name">{farmer.userName}</div>
+            <div className="Farmer_Name">{farmer.name}</div>
             <div className="Seeds_In_Farmer">
               {farmer.seeds.map((seed, idx) => (
-                <ReadFarmerSeed key={idx} seed={seed} farmerId={farmer.id} />
+                <ReadFarmerSeed
+                  key={idx}
+                  seed={seed}
+                  farmerId={farmer.user_id}
+                />
               ))}
             </div>
           </div>

@@ -39,10 +39,10 @@ function GiveSeedToFarmers({ corpsId, seedId }) {
                 key={idx}
                 onClick={(e) => {
                   e.preventDefault();
-                  giveSeedFarmer(el.id);
+                  giveSeedFarmer(el.user_id);
                 }}
               >
-                {el.userName}
+                {el.name}
               </li>
             );
           })}
