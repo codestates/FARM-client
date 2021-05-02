@@ -10,6 +10,8 @@ export const GIVE_SEED = "GIVE_SEED";
 
 export const CREATE_FARM = "CREATE_FARM";
 
+export const SET_FARM = "SET_FARM";
+
 export const addCrops = (name, icon, idx) => {
   return {
     type: ADD_CROPS,
@@ -69,6 +71,15 @@ export const createFarm = (id, name, image) => {
       id,
       name,
       image,
+    },
+  };
+};
+
+export const setFarm = (obj) => {
+  return {
+    type: SET_FARM,
+    payload: {
+      obj,
     },
   };
 };

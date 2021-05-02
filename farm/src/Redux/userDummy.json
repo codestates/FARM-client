@@ -1,10 +1,10 @@
 {
-  "id": 1,
-  "username": "김윤영",
-  "email": "rladuddbs@naver.com",
+  "id": 7,
+  "username": "test01",
+  "email": "test@test.com",
   "projectList": [
     {
-      "farm_id": 1,
+      "farm_id": 12,
       "farm_name": "부자가 될꺼야!",
       "image": "url..."
     }

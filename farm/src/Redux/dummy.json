@@ -107,17 +107,5 @@
         { "seedId": 16, "name": "농작물 11의 재배 3" }
       ]
     }
-  ],
-  "farmer": [
-    {
-      "userName": "dd",
-      "seeds": [
-        {
-          "cropsID": 1,
-          "seedsID": 1,
-          "icon": ""
-        }
-      ]
-    }
   ]
 }
