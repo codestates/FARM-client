@@ -5,7 +5,7 @@ import GiveSeedToFarmers from "./GiveSeedToFarmers";
 function ReadSeeds({ id }) {
   const seeds = useSelector((state) => {
     return state.farmReducer.crops.filter((el) => {
-      if (id === el.id) {
+      if (id === el.crops_id) {
         return el;
       }
     })[0].seeds;
@@ -15,8 +15,11 @@ function ReadSeeds({ id }) {
       {seeds.map((el, idx) => {
         return (
           <div className="Seed_Base" key={idx}>
-            <span className="Seed_Name">{el.name}</span>
-            <GiveSeedToFarmers corpsId={id} seedId={el.id}></GiveSeedToFarmers>
+            <span className="Seed_Name">{el.seed_name}</span>
+            <GiveSeedToFarmers
+              corpsId={id}
+              seedId={el.seed_id}
+            ></GiveSeedToFarmers>
           </div>
         );
       })}
