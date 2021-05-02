@@ -10,9 +10,9 @@ const Modal = ({ open, close, header, btntext, callback, children }) => {
     }
   };
   return (
-    <div className={open ? "Modal_Open Modal" : "Modal"}>
+    <div className={open ? "Modal_Open Modal" : "Modal"} onClick={close}>
       {open ? (
-        <section>
+        <section onClick={(e) => e.stopPropagation()}>
           <header>
             {header}
             <button className="Modal_Close" onClick={close}>
