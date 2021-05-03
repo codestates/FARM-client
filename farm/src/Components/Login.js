@@ -1,8 +1,10 @@
 import React, { useRef, useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { useHistory } from "react-router";
-import SIgnUp from "./SignUp";
+import { useDispatch } from "react-redux";
+import SetMyPage from "./SetMyPage";
+import { setMypage } from "../Redux/actions/actions";
 
 function Login({ handleLoginSuccess, handleSignUpWindow }) {
   const emailInput = useRef();
@@ -12,12 +14,13 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
   const [errorMessage, setErrorMessage] = useState("");
   const [loginResultMsg, setLoginResultMsg] = useState("");
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleInputValue = (key) => (e) => {
     if (key === "email") setEmail(e.target.value);
     if (key === "pw") setPw(e.target.value);
   };
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if (!email || !pw) {
       return setLoginResultMsg("모든 항목은 필수로 입력되어야 합니다.");
@@ -29,8 +32,8 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
       // 서버 로그인 post 요청
       // 받은 객체의 message가 "ok"면 마이페이지 이동
       // ok가 아니면 "존재하지 않는 회원입니다." 문구 띄어주기
-      axios
-        .post(
+      try {
+        const objLogin = await axios.post(
           "http://localhost:80/users/signin",
           {
             email: email,
@@ -40,16 +43,18 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
             "Content-Type": "application/json",
             withCredentials: true,
           }
-        )
-        .then((res) => {
-          if (res.data.message === "ok") {
-            handleLoginSuccess(res.data.data.accessToken);
-          } else setLoginResultMsg("존재하지 않는 회원입니다.");
-        })
-        .then(() => {
-          history.push("/");
-        })
-        .catch((err) => alert(err));
+        );
+        if (objLogin.data.message === "ok") {
+          handleLoginSuccess(objLogin.data.data.accessToken);
+          const objSetData = await SetMyPage(objLogin.data.data.accessToken);
+          dispatch(setMypage(objSetData));
+        } else {
+          setLoginResultMsg("존재하지 않는 회원입니다.");
+        }
+        history.push("/");
+      } catch (error) {
+        alert(error);
+      }
     } else {
       setErrorMessage("이메일과 비밀번호를 다시 확인해 주세요.");
       emailInput.current.focus();
