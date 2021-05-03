@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useHistory } from "react-router";
-import { setAuth, setNoAuth } from "../Redux/actions/actions";
+import { setAuth, setNoAuth, setStorage } from "../Redux/actions/actions";
 
 export default function FarmPage() {
   const url = "http://localhost:80";
@@ -16,10 +16,23 @@ export default function FarmPage() {
   const numFarmId = useSelector((state) => {
     return state.farmReducer.farmId;
   });
+
   const [isOpenStorage, setIsOpenStorage] = useState(false);
-  const goToStorage = () => {
+  const goToStorage = async () => {
+    const objStorage = await axios.get(`${url}/storage/info/${numFarmId}`, {
+      headers: {
+        Authorization: `Bearer ${authState.accessToken}`,
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    });
+    console.log(`objStorage.data.data`, objStorage.data.data);
+    if (objStorage.data.data) {
+      dispatch(setStorage(objStorage.data.data));
+    }
     setIsOpenStorage(true);
   };
+  const state = useSelector((state) => state.farmReducer);
   const goToFarm = () => {
     setIsOpenStorage(false);
   };
@@ -55,7 +68,7 @@ export default function FarmPage() {
         </div>
       </nav>
       {isOpenStorage ? (
-        <ReadStorage />
+        <ReadStorage arrStorage={state.storage} />
       ) : (
         <div>
           <ReadFarmers />

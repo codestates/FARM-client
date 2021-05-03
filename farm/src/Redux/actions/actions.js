@@ -20,6 +20,8 @@ export const SET_FARM = "SET_FARM";
 
 export const INVITE_FARMERS = "INVITE_FARMERS";
 
+export const SET_STORAGE = "SET_STORAGE";
+
 export const addCrops = (id, name, icon, idx) => {
   return {
     type: ADD_CROPS,
@@ -36,8 +38,8 @@ export const deleteSeed = (farmerId, seedId) => {
   return {
     type: DELETE_SEED,
     payload: {
-      farmerId: farmerId,
-      seedId: seedId,
+      farmerId,
+      seedId,
     },
   };
 };
@@ -120,7 +122,6 @@ export const setFarm = (obj) => {
   };
 };
 
-
 export const inviteFarmers = (strId, strUsername, strEmail) => {
   return {
     type: INVITE_FARMERS,
@@ -132,3 +133,11 @@ export const inviteFarmers = (strId, strUsername, strEmail) => {
   };
 };
 
+export const setStorage = (arrStorage) => {
+  return {
+    type: SET_STORAGE,
+    payload: {
+      arrStorage,
+    },
+  };
+};
