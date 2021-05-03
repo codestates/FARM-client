@@ -16,10 +16,9 @@ const farmReducer = (state = dummy, action) => {
 
     case ADD_CROPS:
       let crops = {
-        id: state.cropsCnt,
+        id: action.payload.id,
         name: action.payload.name,
         icon: action.payload.icon,
-        seedsCnt: 1,
         seeds: [],
       };
       let icon = state.iconList.filter((el, idx) => {
@@ -29,7 +28,6 @@ const farmReducer = (state = dummy, action) => {
       });
       return Object.assign({}, state, {
         iconList: icon,
-        cropsCnt: state.cropsCnt + 1,
         crops: [...state.crops, crops],
       });
     case DELETE_SEED:

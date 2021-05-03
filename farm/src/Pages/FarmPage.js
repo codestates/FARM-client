@@ -3,8 +3,12 @@ import AddCrops from "../Components/AddCrops";
 import ReadCrops from "../Components/ReadCrops";
 import ReadStorage from "../Components/ReadStorage";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function FarmPage() {
+  const numFarmId = useSelector((state) => {
+    return state.farmReducer.farmId;
+  });
   const [isOpenStorage, setIsOpenStorage] = useState(false);
   const goToStorage = () => {
     setIsOpenStorage(true);
@@ -32,8 +36,8 @@ export default function FarmPage() {
       )}
 
       <div className="Farm_Crops_Field">
-        <ReadCrops />
-        <AddCrops />
+        <ReadCrops id={numFarmId} />
+        <AddCrops id={numFarmId} />
       </div>
     </div>
   );
