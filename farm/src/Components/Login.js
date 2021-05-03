@@ -67,6 +67,7 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
   return (
     <div className="Login_Window">
       <svg
+        className="Farm_Logo"
         width="167"
         height="49"
         viewBox="0 0 167 49"
@@ -176,8 +177,9 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
         <div className="Login_Text">로그인</div>
         <br></br>
         <div className="Input_Set">
-          <div>이메일</div>
+          <div>이메일 주소</div>
           <input
+            className="Input_Box"
             type="text"
             ref={emailInput}
             onChange={handleInputValue("email")}
@@ -186,6 +188,7 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
         <div className="Input_Set">
           <div>비밀번호</div>
           <input
+            className="Input_Box"
             type="password"
             ref={pwInput}
             onChange={handleInputValue("pw")}
