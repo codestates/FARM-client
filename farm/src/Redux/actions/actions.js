@@ -18,6 +18,8 @@ export const SET_AUTH = "SET_AUTH";
 
 export const SET_FARM = "SET_FARM";
 
+export const SET_MYPAGE = "SET_MYPAGE";
+
 export const addCrops = (id, name, icon, idx) => {
   return {
     type: ADD_CROPS,
@@ -112,6 +114,15 @@ export const setNoAuth = () => {
 export const setFarm = (obj) => {
   return {
     type: SET_FARM,
+    payload: {
+      obj,
+    },
+  };
+};
+
+export const setMypage = (obj) => {
+  return {
+    type: SET_MYPAGE,
     payload: {
       obj,
     },

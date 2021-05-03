@@ -1,9 +1,7 @@
 import ReadFarmerInfo from "../Components/ReadFarmerInfo";
 import ReadFarmList from "../Components/ReadFarmList";
-import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
 
-export default function myPage({ accessToken, handleLogout }) {
+function MyPage({ accessToken, handleLogout }) {
   return (
     <div>
       <nav>
@@ -16,3 +14,4 @@ export default function myPage({ accessToken, handleLogout }) {
     </div>
   );
 }
+export default MyPage;
