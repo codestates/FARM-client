@@ -18,8 +18,8 @@ const farmReducer = (state = dummy, action) => {
       let crops = {
         crops_id: action.payload.id,
         name: action.payload.name,
-        kind: action.payload.icon,
-        seeds: [],
+        Kind: action.payload.icon,
+        Seeds: [],
       };
       let icon = state.iconList.filter((el, idx) => {
         if (idx !== action.payload.idx) {
@@ -49,8 +49,8 @@ const farmReducer = (state = dummy, action) => {
         crops: [
           ...state.crops.map((el) => {
             if (el.crops_id === action.payload.id) {
-              el.seeds = [
-                ...el.seeds,
+              el.Seeds = [
+                ...el.Seeds,
                 {
                   seed_id: action.payload.seedID,
                   seed_name: action.payload.name,
@@ -108,11 +108,15 @@ const farmReducer = (state = dummy, action) => {
       return Object.assign({}, state, {
         crops: [
           ...state.crops.map((el) => {
-            if (el.id === action.payload.cropsId) {
-              el.seeds = [
-                ...el.seeds.filter((data) => {
-                  if (data.id === action.payload.seedId) {
-                    objSeed = { ...data, CropIcon: el.icon };
+            if (el.crops_id === action.payload.cropsId) {
+              el.Seeds = [
+                ...el.Seeds.filter((data) => {
+                  if (data.seed_id === action.payload.seedId) {
+                    objSeed = {
+                      seed_id: data.seed_id,
+                      seedname: data.seed_name,
+                      kind: el.Kind,
+                    };
                     return false;
                   } else {
                     return true;
@@ -127,7 +131,7 @@ const farmReducer = (state = dummy, action) => {
         ],
         farmers: [
           ...state.farmers.map((el) => {
-            if (el.id === action.payload.userId) {
+            if (el.user_id === action.payload.userId) {
               el.seeds = [...el.seeds, objSeed];
               return el;
             } else {
