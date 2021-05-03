@@ -6,6 +6,8 @@ import {
   MOVE_TO_STORAGE,
   GIVE_SEED,
   SET_FARM,
+  INVITE_FARMERS,
+  SET_STORAGE,
 } from "../actions/actions";
 
 const farmReducer = (state = dummy, action) => {
@@ -33,9 +35,9 @@ const farmReducer = (state = dummy, action) => {
       return Object.assign({}, state, {
         farmers: [
           ...state.farmers.map((farmer) => {
-            if (farmer.id === action.payload.farmerId) {
+            if (farmer.user_id === action.payload.farmerId) {
               farmer.seeds = farmer.seeds.filter(
-                (seed) => seed.id !== action.payload.seedId
+                (seed) => seed.seed_id !== action.payload.seedId
               );
             }
             return farmer;
@@ -138,6 +140,24 @@ const farmReducer = (state = dummy, action) => {
             }
           }),
         ],
+      });
+
+    case INVITE_FARMERS:
+      return Object.assign({}, state, {
+        farmers: [
+          ...state.farmers,
+          {
+            user_id: action.payload.strId,
+            name: action.payload.strUsername,
+            email: action.payload.strEmail,
+            seeds: [],
+          },
+        ],
+      });
+
+    case SET_STORAGE:
+      return Object.assign({}, state, {
+        storage: action.payload.arrStorage,
       });
 
     default:
