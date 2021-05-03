@@ -8,11 +8,13 @@ function AddCrops({ id }) {
   const iconList = useSelector((state) => {
     return state.farmReducer.iconList;
   });
+  const strAccessToken = useSelector((state) => state.authReducer.accessToken);
   const [isAdd, setIsAdd] = useState(false);
   const [strName, setStrName] = useState("");
   const [strIcon, setStrIcon] = useState(iconList[0]);
   const [numIcon, setNumIcon] = useState(0);
   const [strWarning, setStrWarning] = useState("");
+
   const Ref = useRef(null);
   const dispatch = useDispatch();
 
@@ -47,12 +49,21 @@ function AddCrops({ id }) {
       setStrWarning("농작물 이름을 입력해주세요!");
       return;
     }
-    console.log(`id`, id);
-    const objCrops = await axios.post(`http://localhost:80/crop/create`, {
-      crop_name: strName,
-      kind: strIcon,
-      farm_id: id,
-    });
+    const objCrops = await axios.post(
+      `http://localhost:80/crop/create`,
+      {
+        crop_name: strName,
+        kind: strIcon,
+        farm_id: id,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${strAccessToken}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      }
+    );
     dispatch(addCrops(objCrops.data.data.crop_id, strName, strIcon, numIcon));
     setIsAdd(false);
     setStrName("");

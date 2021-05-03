@@ -24,12 +24,12 @@ export default async function SerFarm(id, name, strAccessToken) {
     `http://localhost:80/seed/info/${id}`,
     objHeader
   );
-  const arrIcon = ["🍎", "🍏", "🍐", "🍊", "🍋"].filter((el) => {
+  const arrIcon = ["🍎", "🍐", "🥝", "🍇"].filter((el) => {
     if (objCrops.data.data.length === 0) {
       return true;
     }
-    for (let crop of objCrops.data) {
-      if (crop.icon === el) {
+    for (let crop of objCrops.data.data) {
+      if (crop.Kind === el) {
         return false;
       }
     }

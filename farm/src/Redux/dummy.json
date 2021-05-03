@@ -34,8 +34,8 @@
     {
       "crops_id": 1,
       "name": "농작물 1",
-      "kind": "🍎",
-      "seeds": [
+      "Kind": "🍎",
+      "Seeds": [
         {
           "seed_id": 1,
           "seed_name": "농작물 1의 씨앗 1",
@@ -51,8 +51,8 @@
     {
       "crops_id": 2,
       "name": "농작물 2",
-      "kind": "🍏",
-      "seeds": [
+      "Kind": "🍏",
+      "Seeds": [
         {
           "seed_id": 1,
           "seed_name": "농작물 2의 씨앗 1",

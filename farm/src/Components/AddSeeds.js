@@ -1,8 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useRef, useEffect, memo } from "react";
 import { addSeeds } from "../Redux/actions/actions";
+import axios from "axios";
 
 function AddSeeds({ id }) {
+  const strAccessToken = useSelector((state) => state.authReducer.accessToken);
   const [isAdd, setIsAdd] = useState(false);
   const [strName, setStrName] = useState("");
   const [strWarning, setStrWarning] = useState("");
@@ -29,13 +31,27 @@ function AddSeeds({ id }) {
     setStrName(e.target.value);
   };
 
-  const addSeedToCrops = (e) => {
+  const addSeedToCrops = async (e) => {
     e.preventDefault();
     if (strName === "") {
       setStrWarning("씨앗의 이름을 입력해주세요!");
       return;
     }
-    dispatch(addSeeds(id, strName));
+    const objSeed = await axios.post(
+      `http://localhost:80/seed/create`,
+      {
+        seed_name: strName,
+        crop_id: id,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${strAccessToken}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      }
+    );
+    dispatch(addSeeds(id, objSeed.data.data.seed_id, strName));
     setStrWarning("");
     setStrName("");
   };

@@ -42,11 +42,12 @@ export const deleteSeed = (farmerId, seedId) => {
   };
 };
 
-export const addSeeds = (id, name) => {
+export const addSeeds = (id, seedID, name) => {
   return {
     type: ADD_SEEDS,
     payload: {
       id,
+      seedID,
       name,
     },
   };
@@ -119,6 +120,7 @@ export const setFarm = (obj) => {
   };
 };
 
+
 export const inviteFarmers = (strId, strUsername, strEmail) => {
   return {
     type: INVITE_FARMERS,
@@ -129,3 +131,4 @@ export const inviteFarmers = (strId, strUsername, strEmail) => {
     },
   };
 };
+
