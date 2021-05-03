@@ -8,11 +8,11 @@ function ReadSeeds({ id }) {
       if (id === el.crops_id) {
         return el;
       }
-    })[0].seeds;
+    });
   });
   return (
     <div>
-      {seeds.map((el, idx) => {
+      {seeds[0].Seeds.map((el, idx) => {
         return (
           <div className="Seed_Base" key={idx}>
             <span className="Seed_Name">{el.seed_name}</span>

@@ -42,9 +42,7 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
           }
         )
         .then((res) => {
-          console.log(`res`, res);
           if (res.data.message === "ok") {
-            console.log(`들어왔다!!!!!!`);
             handleLoginSuccess(res.data.data.accessToken);
           } else setLoginResultMsg("존재하지 않는 회원입니다.");
         })

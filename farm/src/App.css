@@ -328,3 +328,8 @@
 .Btn_Logout {
   cursor: pointer;
 }
+.Logout_Farm {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}

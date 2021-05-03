@@ -2,13 +2,20 @@ import { useState, memo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ReadFarmerSeed from "./ReadFarmerSeed";
 import InviteFarmers from "./InviteFarmers";
-
+import { useHistory } from "react-router";
 import React from "react";
+import axios from "axios";
+import { inviteFarmers } from "../Redux/actions/actions";
 
 function ReadFarmers() {
+  const url = "http://localhost:80";
+  const authState = useSelector((state) => state.authReducer);
+  const dispatch = useDispatch();
   const state = useSelector((state) => {
     return state.farmReducer;
   });
+  console.log(`state in farmerReducer`, state);
+  const history = useHistory();
 
   return (
     <div className="Farmer_Fields">

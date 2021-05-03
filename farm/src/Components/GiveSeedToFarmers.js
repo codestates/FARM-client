@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useRef, useEffect } from "react";
 import { giveSeed } from "../Redux/actions/actions";
+import axios from "axios";
 
 function GiveSeedToFarmers({ corpsId, seedId }) {
   const userList = useSelector((state) => {
     return state.farmReducer.farmers;
   });
+  const strAccessToken = useSelector((state) => state.authReducer.accessToken);
   const [isGive, setIsGive] = useState(false);
   const dispatch = useDispatch();
   const Ref = useRef(null);
@@ -26,7 +28,21 @@ function GiveSeedToFarmers({ corpsId, seedId }) {
     setIsGive(true);
   };
 
-  const giveSeedFarmer = (id) => {
+  const giveSeedFarmer = async (id) => {
+    const objAssignSeed = await axios.post(
+      `http://localhost:80/seed/assign`,
+      {
+        user_id: id,
+        seed_id: seedId,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${strAccessToken}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      }
+    );
     dispatch(giveSeed(corpsId, seedId, id));
   };
   return (

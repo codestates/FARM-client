@@ -6,20 +6,20 @@ import {
   MOVE_TO_STORAGE,
   GIVE_SEED,
   SET_FARM,
+  INVITE_FARMERS,
 } from "../actions/actions";
 
 const farmReducer = (state = dummy, action) => {
   switch (action.type) {
     case SET_FARM:
-      console.log(`action.payload.obj`, action.payload.obj);
       return action.payload.obj;
 
     case ADD_CROPS:
       let crops = {
-        id: action.payload.id,
+        crops_id: action.payload.id,
         name: action.payload.name,
-        icon: action.payload.icon,
-        seeds: [],
+        Kind: action.payload.icon,
+        Seeds: [],
       };
       let icon = state.iconList.filter((el, idx) => {
         if (idx !== action.payload.idx) {
@@ -48,12 +48,15 @@ const farmReducer = (state = dummy, action) => {
       return Object.assign({}, state, {
         crops: [
           ...state.crops.map((el) => {
-            if (el.id === action.payload.id) {
-              el.seeds = [
-                ...el.seeds,
-                { id: el.seedsCnt, name: action.payload.name },
+            if (el.crops_id === action.payload.id) {
+              el.Seeds = [
+                ...el.Seeds,
+                {
+                  seed_id: action.payload.seedID,
+                  seed_name: action.payload.name,
+                  isHarvested: true,
+                },
               ];
-              el.seedsCnt++;
               return el;
             } else {
               return el;
@@ -105,11 +108,15 @@ const farmReducer = (state = dummy, action) => {
       return Object.assign({}, state, {
         crops: [
           ...state.crops.map((el) => {
-            if (el.id === action.payload.cropsId) {
-              el.seeds = [
-                ...el.seeds.filter((data) => {
-                  if (data.id === action.payload.seedId) {
-                    objSeed = { ...data, CropIcon: el.icon };
+            if (el.crops_id === action.payload.cropsId) {
+              el.Seeds = [
+                ...el.Seeds.filter((data) => {
+                  if (data.seed_id === action.payload.seedId) {
+                    objSeed = {
+                      seed_id: data.seed_id,
+                      seedname: data.seed_name,
+                      kind: el.Kind,
+                    };
                     return false;
                   } else {
                     return true;
@@ -124,13 +131,26 @@ const farmReducer = (state = dummy, action) => {
         ],
         farmers: [
           ...state.farmers.map((el) => {
-            if (el.id === action.payload.userId) {
+            if (el.user_id === action.payload.userId) {
               el.seeds = [...el.seeds, objSeed];
               return el;
             } else {
               return el;
             }
           }),
+        ],
+      });
+
+    case INVITE_FARMERS:
+      return Object.assign({}, state, {
+        farmers: [
+          ...state.farmers,
+          {
+            user_id: action.payload.strId,
+            name: action.payload.strUsername,
+            email: action.payload.strEmail,
+            seeds: [],
+          },
         ],
       });
 
