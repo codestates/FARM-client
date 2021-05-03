@@ -18,6 +18,8 @@ export const SET_AUTH = "SET_AUTH";
 
 export const SET_FARM = "SET_FARM";
 
+export const INVITE_FARMERS = "INVITE_FARMERS";
+
 export const addCrops = (id, name, icon, idx) => {
   return {
     type: ADD_CROPS,
@@ -117,3 +119,16 @@ export const setFarm = (obj) => {
     },
   };
 };
+
+
+export const inviteFarmers = (strId, strUsername, strEmail) => {
+  return {
+    type: INVITE_FARMERS,
+    payload: {
+      strId,
+      strUsername,
+      strEmail,
+    },
+  };
+};
+
