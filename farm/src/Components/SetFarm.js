@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default async function SerFarm(id, name, strAccessToken) {
+export default async function SetFarm(id, name, strAccessToken) {
   const objHeader = {
     headers: {
       Authorization: `Bearer ${strAccessToken}`,
