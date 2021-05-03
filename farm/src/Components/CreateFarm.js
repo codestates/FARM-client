@@ -51,7 +51,6 @@ function CreateFarm({ isFarm }) {
           withCredentials: true,
         }
       );
-      console.log(`objFarm`, objFarm);
       dispatch(createFarm(objFarm.data.id, strProjectName, "sdfa"));
       setErr("");
       let data = await SetFarm(objFarm.data.id, strProjectName, strAccessToken);

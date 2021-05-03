@@ -51,7 +51,6 @@ function AddSeeds({ id }) {
         withCredentials: true,
       }
     );
-    console.log(`objSeed`, objSeed);
     dispatch(addSeeds(id, objSeed.data.data.seed_id, strName));
     setStrWarning("");
     setStrName("");

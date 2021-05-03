@@ -14,7 +14,6 @@ export default function InviteFarmers() {
   const [strEmail, setStrEmail] = useState("");
   const handleEmail = (e) => {
     setStrEmail(e.target.value);
-    console.log(`strEmail`, strEmail);
   };
   return (
     <div

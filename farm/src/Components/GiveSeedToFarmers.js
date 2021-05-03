@@ -43,7 +43,6 @@ function GiveSeedToFarmers({ corpsId, seedId }) {
         withCredentials: true,
       }
     );
-    console.log(`objAssignSeed`, objAssignSeed);
     dispatch(giveSeed(corpsId, seedId, id));
   };
   return (

@@ -69,7 +69,6 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
           }
         )
         .then((res) => {
-          console.log(`res`, res);
           if (res.data.message === "Signed up successfully") {
             alert("회원가입을 축하합니다! 마이페이지로 이동합니다.");
             axios
@@ -85,7 +84,6 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
                 }
               )
               .then((res) => {
-                console.log(`res`, res);
                 if (res.data.message === "ok")
                   handleLoginSuccess(res.data.data.accessToken);
                 else alert("다시 로그인 해주세요");
