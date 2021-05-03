@@ -12,7 +12,6 @@ export default async function SerFarm(id, name, strAccessToken) {
     `http://localhost:80/crop/info/${id}`,
     objHeader
   );
-  console.log(`이 친구 확인해`, objCrops);
   const objFarmers = await axios.get(
     `http://localhost:80/farm/userinfo/${id}`,
     objHeader

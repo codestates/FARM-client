@@ -2,7 +2,6 @@ import dummy from "../userDummy.json";
 import { CREATE_FARM, SET_USERINFO } from "../actions/actions";
 
 const myPageReducer = (state = dummy, action) => {
-  console.log(`state`, state);
   switch (action.type) {
     case CREATE_FARM:
       return Object.assign({}, state, {

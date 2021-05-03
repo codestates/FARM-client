@@ -29,8 +29,6 @@ function App() {
     // setIslogin(true);
     // setAccessToken(accessToken);
     dispatch(setAuth(accessToken));
-    console.log(`state.isLogin`, state.isLogin);
-    console.log(`state.accessToken`, state.accessToken);
     // 로그인 및 accessToken 상태변경했으니 이제 유저정보와 farmlist 정보 요청
     axios
       .get(`${url}/users/info`, {
@@ -41,7 +39,6 @@ function App() {
         withCredentials: true,
       })
       .then((res) => {
-        console.log(`userinfo res`, res);
         if (res.data.data.message !== "ok") {
           alert("로그인 기간이 만료되었습니다. 다시 로그인 해주세요.");
           // setIslogin(false);
@@ -50,7 +47,6 @@ function App() {
         }
         // userinfo를 잘 불러 왔으면 dis
         const objUserInfo = res.data.data.data.userinfo;
-        console.log(`류제천 존잘`, res.data);
         axios
           .get(`${url}/users/farminfo`, {
             headers: {
@@ -60,9 +56,7 @@ function App() {
             withCredentials: true,
           })
           .then((res) => {
-            console.log(`farminfo res`, res);
             if (res.data.message) {
-              console.log(`res.data.data.length`, res.data.data.length);
               alert("로그인 기간이 만료되었습니다. 다시 로그인 해주세요.");
               // setIslogin(false);
               dispatch(setNoAuth());
@@ -77,7 +71,6 @@ function App() {
   };
   const handleLogout = () => {
     //로그아웃 요청
-    console.log("로그아웃요청들어옴!");
     axios
       .get(`${url}/users/signout`, {
         headers: {
@@ -87,7 +80,6 @@ function App() {
         },
       })
       .then((res) => {
-        console.log(`res in logout`, res);
         dispatch(setNoAuth());
         return history.push("/");
       });

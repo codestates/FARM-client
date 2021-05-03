@@ -11,7 +11,6 @@ import {
 const farmReducer = (state = dummy, action) => {
   switch (action.type) {
     case SET_FARM:
-      console.log(`action.payload.obj`, action.payload.obj);
       return action.payload.obj;
 
     case ADD_CROPS:

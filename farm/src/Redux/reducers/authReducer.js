@@ -2,7 +2,6 @@ import dummy from "../authDummy.json";
 import { SET_AUTH, SET_NO_AUTH } from "../actions/actions";
 
 const authReducer = (state = dummy, action) => {
-  console.log(`state`, state);
   switch (action.type) {
     case SET_AUTH:
       return Object.assign({}, state, {

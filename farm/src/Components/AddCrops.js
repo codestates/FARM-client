@@ -49,7 +49,6 @@ function AddCrops({ id }) {
       setStrWarning("농작물 이름을 입력해주세요!");
       return;
     }
-    console.log(`id`, id);
     const objCrops = await axios.post(
       `http://localhost:80/crop/create`,
       {
