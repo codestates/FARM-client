@@ -12,10 +12,11 @@ export const CREATE_FARM = "CREATE_FARM";
 
 export const SET_FARM = "SET_FARM";
 
-export const addCrops = (name, icon, idx) => {
+export const addCrops = (id, name, icon, idx) => {
   return {
     type: ADD_CROPS,
     payload: {
+      id,
       name,
       icon,
       idx,
