@@ -4,12 +4,14 @@ import GiveSeedToFarmers from "./GiveSeedToFarmers";
 
 function ReadSeeds({ id }) {
   const seeds = useSelector((state) => {
+    console.log(`이거다`, state.farmReducer);
     return state.farmReducer.crops.filter((el) => {
       if (id === el.crops_id) {
         return el;
       }
     })[0].seeds;
   });
+  console.log(`seeds`, seeds);
   return (
     <div>
       {seeds.map((el, idx) => {

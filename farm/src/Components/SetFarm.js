@@ -24,10 +24,11 @@ export default async function SerFarm(id, name, strAccessToken) {
     `http://localhost:80/seed/info/${id}`,
     objHeader
   );
-  const arrIcon = ["🍎", "🍏", "🍐", "🍊", "🍋"].filter((el) => {
+  const arrIcon = ["🍎", "🍐", "🥝", "🍇"].filter((el) => {
     if (objCrops.data.data.length === 0) {
       return true;
     }
+    console.log(`objCrops`, objCrops);
     for (let crop of objCrops.data) {
       if (crop.icon === el) {
         return false;
