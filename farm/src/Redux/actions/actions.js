@@ -10,7 +10,6 @@ export const GIVE_SEED = "GIVE_SEED";
 
 export const CREATE_FARM = "CREATE_FARM";
 
-
 export const SET_USERINFO = "SET_USERINFO";
 
 export const SET_NO_AUTH = "SET_NO_AUTH";
@@ -41,11 +40,12 @@ export const deleteSeed = (farmerId, seedId) => {
   };
 };
 
-export const addSeeds = (id, name) => {
+export const addSeeds = (id, seedID, name) => {
   return {
     type: ADD_SEEDS,
     payload: {
       id,
+      seedID,
       name,
     },
   };
@@ -83,7 +83,6 @@ export const createFarm = (id, name, image) => {
   };
 };
 
-
 export const setUserInfo = (objUserInfo, arrProjectList) => {
   return {
     type: SET_USERINFO,
@@ -118,4 +117,3 @@ export const setFarm = (obj) => {
     },
   };
 };
-
