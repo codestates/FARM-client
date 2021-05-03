@@ -7,6 +7,7 @@ function GiveSeedToFarmers({ corpsId, seedId }) {
   const userList = useSelector((state) => {
     return state.farmReducer.farmers;
   });
+  const strAccessToken = useSelector((state) => state.authReducer.accessToken);
   const [isGive, setIsGive] = useState(false);
   const dispatch = useDispatch();
   const Ref = useRef(null);
@@ -28,6 +29,21 @@ function GiveSeedToFarmers({ corpsId, seedId }) {
   };
 
   const giveSeedFarmer = async (id) => {
+    const objAssignSeed = await axios.post(
+      `http://localhost:80/seed/assign`,
+      {
+        user_id: id,
+        seed_id: seedId,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${strAccessToken}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      }
+    );
+    console.log(`objAssignSeed`, objAssignSeed);
     dispatch(giveSeed(corpsId, seedId, id));
   };
   return (

@@ -108,11 +108,15 @@ const farmReducer = (state = dummy, action) => {
       return Object.assign({}, state, {
         crops: [
           ...state.crops.map((el) => {
-            if (el.id === action.payload.cropsId) {
-              el.seeds = [
-                ...el.seeds.filter((data) => {
-                  if (data.id === action.payload.seedId) {
-                    objSeed = { ...data, CropIcon: el.icon };
+            if (el.crops_id === action.payload.cropsId) {
+              el.Seeds = [
+                ...el.Seeds.filter((data) => {
+                  if (data.seed_id === action.payload.seedId) {
+                    objSeed = {
+                      seed_id: data.seed_id,
+                      seedname: data.seed_name,
+                      kind: el.Kind,
+                    };
                     return false;
                   } else {
                     return true;
@@ -127,7 +131,7 @@ const farmReducer = (state = dummy, action) => {
         ],
         farmers: [
           ...state.farmers.map((el) => {
-            if (el.id === action.payload.userId) {
+            if (el.user_id === action.payload.userId) {
               el.seeds = [...el.seeds, objSeed];
               return el;
             } else {
