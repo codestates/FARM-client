@@ -42,14 +42,14 @@ function App() {
       })
       .then((res) => {
         console.log(`userinfo res`, res);
-        if (res.data.message !== "ok") {
+        if (res.data.data.message !== "ok") {
           alert("로그인 기간이 만료되었습니다. 다시 로그인 해주세요.");
           // setIslogin(false);
           dispatch(setNoAuth());
           return history.push("/");
         }
         // userinfo를 잘 불러 왔으면 dis
-        const objUserInfo = res.data.data.userinfo;
+        const objUserInfo = res.data.data.data.userinfo;
         axios
           .get(`${url}/users/farminfo`, {
             headers: {
@@ -129,6 +129,7 @@ function App() {
           render={() => {
             if (state.isLogin) return <Redirect to="/mypage" />;
             else return <Redirect to="/signin" />;
+            // <FarmPage />;
           }}
         />
       </Switch>
