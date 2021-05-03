@@ -2,8 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useRef, useEffect } from "react";
 import { addCrops } from "../Redux/actions/actions";
 import SelectIcon from "./SelectIcon";
+import axios from "axios";
 
-function AddCrops() {
+function AddCrops({ id }) {
   const iconList = useSelector((state) => {
     return state.farmReducer.iconList;
   });
@@ -40,13 +41,19 @@ function AddCrops() {
     setNumIcon(idx);
   };
 
-  const addCropsToFarm = (e) => {
+  const addCropsToFarm = async (e) => {
     e.preventDefault();
     if (strName === "") {
       setStrWarning("농작물 이름을 입력해주세요!");
       return;
     }
-    dispatch(addCrops(strName, strIcon, numIcon));
+    console.log(`id`, id);
+    const objCrops = await axios.post(`http://localhost:80/crop/create`, {
+      crop_name: strName,
+      kind: strIcon,
+      farm_id: id,
+    });
+    dispatch(addCrops(objCrops.data.data.crop_id, strName, strIcon, numIcon));
     setIsAdd(false);
     setStrName("");
     setStrWarning("");

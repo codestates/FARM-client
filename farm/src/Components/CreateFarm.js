@@ -12,6 +12,7 @@ function CreateFarm({ isFarm }) {
   const objUserData = useSelector((state) => {
     return state.myPageReducer;
   });
+  const strAccessToken = useSelector((state) => state.authReducer.accessToken);
   const dispatch = useDispatch();
   const [isModal, setIsModal] = useState(false);
   const [strProjectName, setProjectName] = useState("");
@@ -34,14 +35,25 @@ function CreateFarm({ isFarm }) {
       return;
     } else {
       // 서버 통신 후 id와 image 받아와야 함.
-      const objFarm = await axios.post(`http://localhost:80/farm/create`, {
-        user_id: objUserData.id,
-        farm_name: strProjectName,
-        img: "sdfa",
-      });
+
+      const objFarm = await axios.post(
+        `http://localhost:80/farm/create`,
+        {
+          user_id: objUserData.id,
+          farm_name: strProjectName,
+          img: "sdfa",
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${strAccessToken}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
       dispatch(createFarm(objFarm.data.id, strProjectName, "sdfa"));
       setErr("");
-      let data = await SetFarm(objFarm.data.id, strProjectName);
+      let data = await SetFarm(objFarm.data.id, strProjectName, strAccessToken);
       dispatch(setFarm(data));
       closeModal();
       setProjectName("");
