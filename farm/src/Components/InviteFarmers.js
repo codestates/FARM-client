@@ -1,17 +1,54 @@
 import React, { useState, useRef } from "react";
+import { useHistory } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+// import invite from "../../../../FARM-server/controllers/farm/invite";
+import axios from "axios";
+import { inviteFarmers } from "../Redux/actions/actions";
 
 export default function InviteFarmers() {
+  const url = "http://localhost:80";
   const emailInput = useRef();
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [strEmail, setStrEmail] = useState("");
+  const authState = useSelector((state) => state.authReducer);
+  const state = useSelector((state) => {
+    return state.farmReducer;
+  });
+  const dispatch = useDispatch();
+  const inviteFarmer = async (e) => {
+    e.preventDefault();
+    // 서버에 strEmail 담아서 post 요청. 요청 정보 없으면 modal창에 안내문구 추가. 있으면 추가처리하기 모달창 닫기
+    try {
+      const objRes = await axios.post(
+        `${url}/farm/invite`,
+        {
+          farm_id: state.farmId,
+          email: strEmail,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${authState.accessToken}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      console.log(`objRes`, objRes);
+      if (objRes.data.message === "new member added") {
+        console.log("여긴들어왔어!");
+        dispatch(inviteFarmers(objRes.data.id, objRes.data.username, strEmail));
+      }
+      console.log(`state in farmerReducer`, state);
+      handleModal();
+    } catch (err) {
+      console.log(`err`, err);
+      alert("이미 초대된 농부이거나 존재하지 않는 농부입니다.");
+    }
+  };
   const handleModal = () => {
     setIsOpenModal(!isOpenModal);
   };
-  const inviteFarmer = (e) => {
-    e.preventDefault();
-    // 서버에 strEmail 담아서 post 요청. 요청 정보 없으면 modal창에 안내문구 추가. 있으면 추가처리하기 모달창 닫기
-    handleModal();
-  };
-  const [strEmail, setStrEmail] = useState("");
+
   const handleEmail = (e) => {
     setStrEmail(e.target.value);
     console.log(`strEmail`, strEmail);

@@ -6,6 +6,7 @@ import {
   MOVE_TO_STORAGE,
   GIVE_SEED,
   SET_FARM,
+  INVITE_FARMERS,
 } from "../actions/actions";
 
 const farmReducer = (state = dummy, action) => {
@@ -131,6 +132,19 @@ const farmReducer = (state = dummy, action) => {
               return el;
             }
           }),
+        ],
+      });
+
+    case INVITE_FARMERS:
+      return Object.assign({}, state, {
+        farmers: [
+          ...state.farmers,
+          {
+            user_id: action.payload.strId,
+            name: action.payload.strUsername,
+            email: action.payload.strEmail,
+            seeds: [],
+          },
         ],
       });
 
