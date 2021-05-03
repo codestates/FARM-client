@@ -9,9 +9,10 @@ function ReadFarmList() {
   const arrFarmList = useSelector((state) => {
     return state.myPageReducer.projectList;
   });
+  const strAccessToken = useSelector((state) => state.authReducer.accessToken);
   const dispatch = useDispatch();
   const setFarmData = async (id, name) => {
-    const farmData = await SetFarm(id, name);
+    const farmData = await SetFarm(id, name, strAccessToken);
     dispatch(setFarm(farmData));
   };
   return (

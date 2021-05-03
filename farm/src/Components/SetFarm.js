@@ -1,10 +1,29 @@
 import axios from "axios";
 
-export default async function SerFarm(id, name) {
-  const objCrops = await axios.get(`http://localhost:80/crop/info/${id}`);
-  const objFarmers = await axios.get(`http://localhost:80/farm/userinfo/${id}`);
-  const objStorage = await axios.get(`http://localhost:80/storage/info/${id}`);
-  const objSeeds = await axios.get(`http://localhost:80/seed/info/${id}`);
+export default async function SerFarm(id, name, strAccessToken) {
+  const objHeader = {
+    headers: {
+      Authorization: `Bearer ${strAccessToken}`,
+      "Content-Type": "application/json",
+    },
+    withCredentials: true,
+  };
+  const objCrops = await axios.get(
+    `http://localhost:80/crop/info/${id}`,
+    objHeader
+  );
+  const objFarmers = await axios.get(
+    `http://localhost:80/farm/userinfo/${id}`,
+    objHeader
+  );
+  const objStorage = await axios.get(
+    `http://localhost:80/storage/info/${id}`,
+    objHeader
+  );
+  const objSeeds = await axios.get(
+    `http://localhost:80/seed/info/${id}`,
+    objHeader
+  );
   const arrIcon = ["🍎", "🍏", "🍐", "🍊", "🍋"].filter((el) => {
     if (objCrops.data.data.length === 0) {
       return true;
