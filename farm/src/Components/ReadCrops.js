@@ -13,7 +13,7 @@ function ReadCrops() {
       {crops.map((el, idx) => {
         return (
           <div className="Crops_Base" key={idx}>
-            <span className="Corps_Icon">{el.kind}</span>
+            <span className="Corps_Icon">{el.Kind}</span>
             <span className="Corps_Name">{el.name}</span>
             <div>
               <ReadSeeds id={el.crops_id} />

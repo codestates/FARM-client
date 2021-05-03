@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useRef, useEffect } from "react";
 import { giveSeed } from "../Redux/actions/actions";
+import axios from "axios";
 
 function GiveSeedToFarmers({ corpsId, seedId }) {
   const userList = useSelector((state) => {
@@ -26,7 +27,7 @@ function GiveSeedToFarmers({ corpsId, seedId }) {
     setIsGive(true);
   };
 
-  const giveSeedFarmer = (id) => {
+  const giveSeedFarmer = async (id) => {
     dispatch(giveSeed(corpsId, seedId, id));
   };
   return (

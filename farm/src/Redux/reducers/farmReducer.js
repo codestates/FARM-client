@@ -18,8 +18,8 @@ const farmReducer = (state = dummy, action) => {
       let crops = {
         crops_id: action.payload.id,
         name: action.payload.name,
-        kind: action.payload.icon,
-        seeds: [],
+        Kind: action.payload.icon,
+        Seeds: [],
       };
       let icon = state.iconList.filter((el, idx) => {
         if (idx !== action.payload.idx) {
@@ -49,8 +49,8 @@ const farmReducer = (state = dummy, action) => {
         crops: [
           ...state.crops.map((el) => {
             if (el.crops_id === action.payload.id) {
-              el.seeds = [
-                ...el.seeds,
+              el.Seeds = [
+                ...el.Seeds,
                 {
                   seed_id: action.payload.seedID,
                   seed_name: action.payload.name,

@@ -12,6 +12,7 @@ export default async function SerFarm(id, name, strAccessToken) {
     `http://localhost:80/crop/info/${id}`,
     objHeader
   );
+  console.log(`이 친구 확인해`, objCrops);
   const objFarmers = await axios.get(
     `http://localhost:80/farm/userinfo/${id}`,
     objHeader
@@ -28,9 +29,8 @@ export default async function SerFarm(id, name, strAccessToken) {
     if (objCrops.data.data.length === 0) {
       return true;
     }
-    console.log(`objCrops`, objCrops);
-    for (let crop of objCrops.data) {
-      if (crop.icon === el) {
+    for (let crop of objCrops.data.data) {
+      if (crop.Kind === el) {
         return false;
       }
     }
