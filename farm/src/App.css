@@ -720,7 +720,7 @@
 .Farm_Template {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 50%;
+  grid-auto-rows: 12em;
   margin-top: 0;
 }
 
@@ -729,7 +729,7 @@
   margin: 5%;
   cursor: pointer;
   height: 10em;
-  margin-top: 5%;
+  /* margin-top: 5%; */
 }
 .Farm_Name_Image {
   margin: 10px;
