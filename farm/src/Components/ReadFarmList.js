@@ -24,7 +24,7 @@ function ReadFarmList() {
               <div
                 key={idx}
                 onClick={(e) => {
-                  setFarmData(el.farm_id, el.farm_name);
+                  setFarmData(el.id, el.name);
                 }}
               >
                 <Link to="/farmpage">

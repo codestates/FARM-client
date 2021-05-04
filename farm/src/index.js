@@ -9,7 +9,6 @@ import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./Redux/store/store";
 require("dotenv").config();
-console.log(process.env);
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>

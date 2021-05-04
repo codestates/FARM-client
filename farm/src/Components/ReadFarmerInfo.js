@@ -5,7 +5,6 @@ function ReadFarmerInfo() {
   const objUserInfo = useSelector((state) => {
     return state.myPageReducer;
   });
-  console.log(`유저 인포란다`, objUserInfo);
   return (
     <div>
       <p>{objUserInfo.username}</p>

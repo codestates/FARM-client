@@ -24,7 +24,11 @@ export default async function SetFarm(id, name, strAccessToken) {
     `http://localhost:80/seed/info/${id}`,
     objHeader
   );
-  const arrIcon = ["🍎", "🍐", "🥝", "🍇"].filter((el) => {
+  const arrIconList = await axios.get(
+    `http://localhost:80/crop/kinds`,
+    objHeader
+  );
+  const arrIcon = arrIconList.data.data.filter((el) => {
     if (objCrops.data.data.length === 0) {
       return true;
     }
@@ -56,6 +60,5 @@ export default async function SetFarm(id, name, strAccessToken) {
     ],
     storage: [...objStorage.data.data],
   };
-  console.log(`objFarm`, objFarm);
   return objFarm;
 }

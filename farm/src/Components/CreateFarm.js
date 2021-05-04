@@ -30,7 +30,6 @@ function CreateFarm({ isFarm }) {
   };
 
   const createProject = async () => {
-    console.log(`이게 뭘까요?`);
     if (strProjectName === "") {
       setErr("밭 이름을 정확히 입력해주세요");
       return;
