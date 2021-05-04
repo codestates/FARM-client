@@ -122,6 +122,7 @@ function App() {
           render={() => {
             if (state.isLogin) return <Redirect to="/mypage" />;
             else return <Redirect to="/signin" />;
+            // <FarmPage />;
           }}
         />
       </Switch>

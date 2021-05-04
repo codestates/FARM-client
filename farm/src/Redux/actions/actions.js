@@ -18,7 +18,13 @@ export const SET_AUTH = "SET_AUTH";
 
 export const SET_FARM = "SET_FARM";
 
+
 export const SET_MYPAGE = "SET_MYPAGE";
+
+export const INVITE_FARMERS = "INVITE_FARMERS";
+
+export const SET_STORAGE = "SET_STORAGE";
+
 
 export const addCrops = (id, name, icon, idx) => {
   return {
@@ -36,8 +42,8 @@ export const deleteSeed = (farmerId, seedId) => {
   return {
     type: DELETE_SEED,
     payload: {
-      farmerId: farmerId,
-      seedId: seedId,
+      farmerId,
+      seedId,
     },
   };
 };
@@ -125,6 +131,26 @@ export const setMypage = (obj) => {
     type: SET_MYPAGE,
     payload: {
       obj,
+    },
+  };
+};
+export const inviteFarmers = (strId, strUsername, strEmail) => {
+  return {
+    type: INVITE_FARMERS,
+    payload: {
+      strId,
+      strUsername,
+      strEmail,
+    },
+  };
+};
+
+export const setStorage = (arrStorage) => {
+  return {
+    type: SET_STORAGE,
+    payload: {
+      arrStorage,
+      dev,
     },
   };
 };

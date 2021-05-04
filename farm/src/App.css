@@ -328,6 +328,7 @@
 .Btn_Logout {
   cursor: pointer;
 }
+
 .Farm_Crops_Field {
   position: fixed;
   right: 0;
@@ -458,3 +459,10 @@
 .Add_Crop_Text {
   text-align: center;
 }
+
+.Logout_Farm {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
