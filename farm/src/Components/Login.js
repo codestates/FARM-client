@@ -34,7 +34,7 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
       // ok가 아니면 "존재하지 않는 회원입니다." 문구 띄어주기
       try {
         const objLogin = await axios.post(
-          "http://localhost:80/users/signin",
+          `${process.env.REACT_APP_API_URL}/users/signin`,
           {
             email: email,
             password: pw,

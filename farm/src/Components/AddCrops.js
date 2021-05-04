@@ -50,7 +50,7 @@ function AddCrops({ id }) {
       return;
     }
     const objCrops = await axios.post(
-      `http://localhost:80/crop/create`,
+      `${process.env.REACT_APP_API_URL}/crop/create`,
       {
         crop_name: strName,
         kind: strIcon,

@@ -18,7 +18,6 @@ import { setUserInfo, setAuth, setNoAuth } from "./Redux/actions/actions";
 
 function App() {
   // const url = process.env.REACT_APP_API_URL;
-  const url = "http://localhost:80";
   // const [islogin, setIslogin] = useState(false);
   // const [accessToken, setAccessToken] = useState("");
   const state = useSelector((state) => state.authReducer);
@@ -31,7 +30,7 @@ function App() {
     dispatch(setAuth(accessToken));
     // 로그인 및 accessToken 상태변경했으니 이제 유저정보와 farmlist 정보 요청
     axios
-      .get(`${url}/users/info`, {
+      .get(`${process.env.REACT_APP_API_URL}/users/info`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
           "Content-Type": "application/json",
@@ -48,7 +47,7 @@ function App() {
         // userinfo를 잘 불러 왔으면 dis
         const objUserInfo = res.data.data.userinfo;
         axios
-          .get(`${url}/users/farminfo`, {
+          .get(`${process.env.REACT_APP_API_URL}/users/farminfo`, {
             headers: {
               Authorization: `Bearer ${accessToken}`,
               "Content-Type": "application/json",
@@ -72,7 +71,7 @@ function App() {
   const handleLogout = () => {
     //로그아웃 요청
     axios
-      .get(`${url}/users/signout`, {
+      .get(`${process.env.REACT_APP_API_URL}/users/signout`, {
         headers: {
           Authorization: `Bearer ${state.accessToken}`,
           "Content-Type": "application/json",

@@ -30,7 +30,7 @@ function GiveSeedToFarmers({ corpsId, seedId }) {
 
   const giveSeedFarmer = async (id) => {
     const objAssignSeed = await axios.post(
-      `http://localhost:80/seed/assign`,
+      `${process.env.REACT_APP_API_URL}/seed/assign`,
       {
         user_id: id,
         seed_id: seedId,

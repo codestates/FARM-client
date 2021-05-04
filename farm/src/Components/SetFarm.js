@@ -9,23 +9,23 @@ export default async function SetFarm(id, name, strAccessToken) {
     withCredentials: true,
   };
   const objCrops = await axios.get(
-    `http://localhost:80/crop/info/${id}`,
+    `${process.env.REACT_APP_API_URL}/crop/info/${id}`,
     objHeader
   );
   const objFarmers = await axios.get(
-    `http://localhost:80/farm/userinfo/${id}`,
+    `${process.env.REACT_APP_API_URL}/userinfo/${id}`,
     objHeader
   );
   const objStorage = await axios.get(
-    `http://localhost:80/storage/info/${id}`,
+    `${process.env.REACT_APP_API_URL}/storage/info/${id}`,
     objHeader
   );
   const objSeeds = await axios.get(
-    `http://localhost:80/seed/info/${id}`,
+    `${process.env.REACT_APP_API_URL}/seed/info/${id}`,
     objHeader
   );
   const arrIconList = await axios.get(
-    `http://localhost:80/crop/kinds`,
+    `${process.env.REACT_APP_API_URL}/crop/kinds`,
     objHeader
   );
   const arrIcon = arrIconList.data.data.filter((el) => {

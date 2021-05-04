@@ -57,7 +57,7 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
       // 서버에 회원가입 post 요청
       axios
         .post(
-          "http://localhost:80/users/signup",
+          `${process.env.REACT_APP_API_URL}/users/signup`,
           {
             email: email,
             password: pw,
@@ -73,7 +73,7 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
             alert("회원가입을 축하합니다! 마이페이지로 이동합니다.");
             axios
               .post(
-                "http://localhost:80/users/signin",
+                `${process.env.REACT_APP_API_URL}/users/signin`,
                 {
                   email: email,
                   password: pw,

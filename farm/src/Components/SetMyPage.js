@@ -10,11 +10,14 @@ export default async function SetMyPage(accessToken) {
   };
 
   const objFarm = await axios.get(
-    `http://localhost:80/users/farminfo`,
+    `${process.env.REACT_APP_API_URL}/users/farminfo`,
     objHeader
   );
 
-  const objUser = await axios.get(`http://localhost:80/users/info`, objHeader);
+  const objUser = await axios.get(
+    `${process.env.REACT_APP_API_URL}/users/info`,
+    objHeader
+  );
   const objUserInfo = {
     ...objUser.data.data.userinfo,
     projectList: [...objFarm.data.data],

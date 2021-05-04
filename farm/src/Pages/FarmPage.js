@@ -9,7 +9,6 @@ import { useHistory } from "react-router";
 import { setAuth, setNoAuth, setStorage } from "../Redux/actions/actions";
 
 export default function FarmPage() {
-  const url = "http://localhost:80";
   const farmState = useSelector((state) => state.farmReducer);
   console.log(`farmState`, farmState);
   const goToMypage = () => {
@@ -45,7 +44,7 @@ export default function FarmPage() {
   const handleLogout = () => {
     console.log("로그아웃요청들어옴!");
     axios
-      .get(`${url}/users/signout`, {
+      .get(`${process.env.REACT_APP_API_URL}/users/signout`, {
         headers: {
           Authorization: `Bearer ${authState.accessToken}`,
           "Content-Type": "application/json",

@@ -6,7 +6,6 @@ import axios from "axios";
 import { inviteFarmers } from "../Redux/actions/actions";
 
 export default function InviteFarmers() {
-  const url = "http://localhost:80";
   const emailInput = useRef();
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [strEmail, setStrEmail] = useState("");
@@ -20,7 +19,7 @@ export default function InviteFarmers() {
     // 서버에 strEmail 담아서 post 요청. 요청 정보 없으면 modal창에 안내문구 추가. 있으면 추가처리하기 모달창 닫기
     try {
       const objRes = await axios.post(
-        `${url}/farm/invite`,
+        `${process.env.REACT_APP_API_URL}/farm/invite`,
         {
           farm_id: state.farmId,
           email: strEmail,
