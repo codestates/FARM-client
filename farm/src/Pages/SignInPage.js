@@ -13,7 +13,7 @@ export default function SignInPage({ handleLoginSuccess }) {
   };
 
   return (
-    <div>
+    <div className="Sign_In_Page">
       <nav className="Login_SignUp_Nav">
         <svg
           className="Farm_Image"
