@@ -328,3 +328,133 @@
 .Btn_Logout {
   cursor: pointer;
 }
+.Farm_Crops_Field {
+  position: fixed;
+  right: 0;
+  top: 40px;
+  width: 356px;
+  height: 91%;
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  padding: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.Farm_Crops_Field p {
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.015em;
+  color: #222222;
+  margin: 0 0 20px 0;
+}
+
+.Farm_Field {
+  width: 356px;
+  background: #f6f8fa;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 9px;
+  padding-bottom: 20px;
+}
+.Crops_Base {
+  padding: 20px 12px 13px 12px;
+}
+
+.Crops_Icon {
+  position: relative;
+  font-size: 20px;
+  margin-right: 10px;
+  height: 20px;
+}
+
+.Crops_Name {
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 23px;
+  align-items: center;
+  letter-spacing: -0.015em;
+}
+
+.Crops_Cnt {
+  position: inline-block;
+  text-align: center;
+  float: right;
+  margin-top: 4px;
+  width: 22px;
+  height: 21px;
+  background: #e3e7e9;
+  border-radius: 9px;
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: -0.015em;
+}
+
+.Seed_Board {
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  padding: 15px;
+  justify-content: space-between;
+  margin: 9px 12px 0px 12px;
+}
+.Seed_Board .Give_Seed_Button {
+  display: none;
+}
+
+.Seed_Board:hover .Give_Seed_Button {
+  display: block;
+}
+
+.Seed_Name {
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.015em;
+
+  color: #1c723e;
+}
+
+.Seed_Board input {
+  width: 200px;
+}
+.Add_Button {
+  display: block;
+}
+
+.Add_Crop_Field {
+  background: #f6f8fa;
+  border: 1px dashed #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 17px;
+  width: 356px;
+  margin-top: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.Add_Crop_Field:hover {
+  background: #dddedf;
+}
+
+.Add_Crop_Text {
+  text-align: center;
+}

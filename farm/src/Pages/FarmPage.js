@@ -36,6 +36,7 @@ export default function FarmPage() {
       )}
 
       <div className="Farm_Crops_Field">
+        <p>씨앗 종류</p>
         <ReadCrops id={numFarmId} />
         <AddCrops id={numFarmId} />
       </div>

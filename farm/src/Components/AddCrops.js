@@ -79,7 +79,7 @@ function AddCrops({ id }) {
   return (
     <>
       {isAdd ? (
-        <div ref={Ref}>
+        <div className="Add_Crop_Field" ref={Ref}>
           <form onSubmit={addCropsToFarm}>
             <SelectIcon
               setIcon={setIcon}
@@ -92,8 +92,8 @@ function AddCrops({ id }) {
           </form>
         </div>
       ) : (
-        <div ref={Ref} onClick={handleClick}>
-          <div> 여기를 눌러서 농작물을 추가하세요 </div>
+        <div className="Add_Crop_Field" ref={Ref} onClick={handleClick}>
+          <div className="Add_Crop_Text">새로운 작물 추가하기</div>
         </div>
       )}
     </>
