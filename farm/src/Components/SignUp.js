@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
+import Modal from "./Modal";
 
 export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
   const emailInput = useRef();
@@ -96,9 +97,12 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
             setMemberCheckMsg("이미 존재하는 회원입니다.");
           }
         })
-        .catch((err) => alert(err));
-
-      setMemberCheckMsg("서버에 post요청 예정입니다.");
+        .catch((err) => {
+          console.log(`err`, err);
+          const errMsg = err.toString();
+          if (errMsg.includes("409"))
+            setMemberCheckMsg("이미 존재하는 회원입니다.");
+        });
     }
   };
   const isValidEmail = (email) => {
@@ -288,7 +292,7 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
             type="submit"
             value="회원가입"
           ></input>
-          <div>{memberCheckMsg}</div>
+          <div className="NotOk_Msg Msg">{memberCheckMsg}</div>
           <div className="Input_Btn">
             이미 계정이 있으신가요?{" "}
             <span className="SignUp_Span" onClick={handleLoginWindow}>
