@@ -377,9 +377,9 @@
 .Farm_Crops_Field {
   position: fixed;
   right: 0;
-  top: 40px;
+  top: 12.5%;
   width: 356px;
-  height: 91%;
+  height: 87.5%;
   background: #ffffff;
   border: 1px solid #c4c4c4;
   padding: 20px;
@@ -654,6 +654,7 @@
 .Kind_Icon {
   margin-top: 11px;
   margin-left: 10px;
+}
 .Header_Wrapper {
   display: flex;
   flex-direction: column;
