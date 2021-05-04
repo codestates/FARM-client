@@ -10,9 +10,9 @@ const myPageReducer = (state = dummy, action) => {
         projectList: [
           ...state.projectList,
           {
-            farm_id: action.payload.id,
-            farm_name: action.payload.name,
-            image: action.payload.image,
+            id: action.payload.id,
+            name: action.payload.name,
+            img: action.payload.image,
           },
         ],
       });

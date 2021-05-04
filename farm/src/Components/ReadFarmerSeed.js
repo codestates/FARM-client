@@ -13,11 +13,6 @@ export default function ReadFarmerSeed({ seed, farmerId }) {
   const harvestCrop = async () => {
     // 곳간으로 복사 작업 후 삭제
     const url = "http://localhost:80";
-    console.log(`kind`, kind);
-    console.log(`seed_id`, seed_id);
-    console.log(`seedname`, seedname);
-    console.log(`farmerId`, farmerId);
-    console.log(`seed_id`, seed_id);
     const objRes = await axios.post(
       `${url}/seed/harvest`,
       {
@@ -37,7 +32,6 @@ export default function ReadFarmerSeed({ seed, farmerId }) {
       history.push("/");
     }
     // dispatch(moveToStorage(kind, seed_id, seedname));
-    console.log(`state.farmers`, state.farmers);
     dispatch(deleteSeed(farmerId, seed_id));
   };
   return (

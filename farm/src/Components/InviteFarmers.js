@@ -33,15 +33,11 @@ export default function InviteFarmers() {
           withCredentials: true,
         }
       );
-      console.log(`objRes`, objRes);
       if (objRes.data.message === "new member added") {
-        console.log("여긴들어왔어!");
         dispatch(inviteFarmers(objRes.data.id, objRes.data.username, strEmail));
       }
-      console.log(`state in farmerReducer`, state);
       handleModal();
     } catch (err) {
-      console.log(`err`, err);
       alert("이미 초대된 농부이거나 존재하지 않는 농부입니다.");
     }
   };

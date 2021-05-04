@@ -14,7 +14,6 @@ function ReadFarmers() {
   const state = useSelector((state) => {
     return state.farmReducer;
   });
-  console.log(`state in farmerReducer`, state);
   const history = useHistory();
 
   return (
