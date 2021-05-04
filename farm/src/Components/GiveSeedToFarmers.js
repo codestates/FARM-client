@@ -46,7 +46,7 @@ function GiveSeedToFarmers({ corpsId, seedId }) {
     dispatch(giveSeed(corpsId, seedId, id));
   };
   return (
-    <div>
+    <>
       {isGive ? (
         <ul ref={Ref}>
           {userList.map((el, idx) => {
@@ -64,11 +64,11 @@ function GiveSeedToFarmers({ corpsId, seedId }) {
           })}
         </ul>
       ) : (
-        <button ref={Ref} onClick={handleClick}>
+        <button className="Give_Seed_Button" ref={Ref} onClick={handleClick}>
           씨앗 주기
         </button>
       )}
-    </div>
+    </>
   );
 }
 export default GiveSeedToFarmers;
