@@ -41,11 +41,10 @@ function App() {
       .then((res) => {
         if (res.data.message !== "ok") {
           alert("로그인 기간이 만료되었습니다. 다시 로그인 해주세요.");
-          // setIslogin(false);
           dispatch(setNoAuth());
           return history.push("/");
         }
-        // userinfo를 잘 불러 왔으면 dis
+
         const objUserInfo = res.data.data.userinfo;
         axios
           .get(`${url}/users/farminfo`, {
@@ -58,16 +57,14 @@ function App() {
           .then((res) => {
             if (res.data.message !== "ok") {
               alert("로그인 기간이 만료되었습니다. 다시 로그인 해주세요.");
-              // setIslogin(false);
               dispatch(setNoAuth());
               return history.push("/");
             }
             const arrProjectList = res.data.data;
             dispatch(setUserInfo(objUserInfo, arrProjectList));
-            // return history.push("/");
           });
       })
-      .catch((err) => alert(err));
+      .catch((err) => console.log(`err`, err));
   };
   const handleLogout = () => {
     //로그아웃 요청
