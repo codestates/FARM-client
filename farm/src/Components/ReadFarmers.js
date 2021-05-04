@@ -20,9 +20,10 @@ function ReadFarmers() {
     <div className="Farmer_Fields">
       {state.farmers.map((farmer, idx) => {
         return (
-          <div className="Farmer_Duty" key={idx}>
-            <div className="Farmer_Name">{farmer.name}</div>
-            <Droppable droppableId={farmer.user_id}>
+          <div className="Farmer_Wrapper" key={idx}>
+            <div className="Farmer_Content">
+              <div className="Farmer_Header">{farmer.name}</div>
+              <Droppable droppableId={farmer.user_id}>
               {(provided, snapshot) => {
                 return (
                   <div
@@ -45,6 +46,9 @@ function ReadFarmers() {
                 );
               }}
             </Droppable>
+              {/* </div>{" "} */}
+            </div>
+
           </div>
         );
       })}

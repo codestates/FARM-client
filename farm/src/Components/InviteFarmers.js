@@ -6,7 +6,6 @@ import axios from "axios";
 import { inviteFarmers } from "../Redux/actions/actions";
 
 export default function InviteFarmers() {
-  const url = "http://localhost:80";
   const emailInput = useRef();
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [strEmail, setStrEmail] = useState("");
@@ -20,7 +19,7 @@ export default function InviteFarmers() {
     // 서버에 strEmail 담아서 post 요청. 요청 정보 없으면 modal창에 안내문구 추가. 있으면 추가처리하기 모달창 닫기
     try {
       const objRes = await axios.post(
-        `${url}/farm/invite`,
+        `${process.env.REACT_APP_API_URL}/farm/invite`,
         {
           farm_id: state.farmId,
           email: strEmail,
@@ -49,24 +48,24 @@ export default function InviteFarmers() {
     setStrEmail(e.target.value);
   };
   return (
-    <div
-      className={
-        isOpenModal ? "Modal_Background" : "Farmer_Fields Invite_Farmer"
-      }
-      onClick={handleModal}
-    >
-      새로운 농부 초대하기
-      {isOpenModal ? (
-        <form
-          onSubmit={inviteFarmer}
-          className="Invite_Modal"
-          onClick={(e) => e.stopPropagation()}
-        >
-          초대할 농부의 이메일을 입력하세요
-          <input type="text" ref={emailInput} onChange={handleEmail} />
-          <input type="submit" value="초 대" className="Invite_Btn" />
-        </form>
-      ) : null}
+    <div className="Farmer_Wrapper">
+      <div
+        className={isOpenModal ? "Modal_Background" : "Farmer_Header"}
+        onClick={handleModal}
+      >
+        새로운 농부 초대하기
+        {isOpenModal ? (
+          <form
+            onSubmit={inviteFarmer}
+            className="Invite_Modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            초대할 농부의 이메일을 입력하세요
+            <input type="text" ref={emailInput} onChange={handleEmail} />
+            <input type="submit" value="초 대" className="Invite_Btn" />
+          </form>
+        ) : null}
+      </div>{" "}
     </div>
   );
 }

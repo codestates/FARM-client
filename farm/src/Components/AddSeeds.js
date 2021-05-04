@@ -38,7 +38,7 @@ function AddSeeds({ id }) {
       return;
     }
     const objSeed = await axios.post(
-      `http://localhost:80/seed/create`,
+      `${process.env.REACT_APP_API_URL}/seed/create`,
       {
         seed_name: strName,
         crop_id: id,

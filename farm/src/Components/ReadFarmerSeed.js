@@ -12,9 +12,8 @@ export default function ReadFarmerSeed({ seed, farmerId }) {
   const state = useSelector((state) => state.farmReducer);
   const harvestCrop = async () => {
     // 곳간으로 복사 작업 후 삭제
-    const url = "http://localhost:80";
     const objRes = await axios.post(
-      `${url}/seed/harvest`,
+      `${process.env.REACT_APP_API_URL}/seed/harvest`,
       {
         seed_id: seed_id,
       },

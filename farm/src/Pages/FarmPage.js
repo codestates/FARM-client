@@ -15,7 +15,6 @@ import {
 import { DragDropContext } from "react-beautiful-dnd";
 
 export default function FarmPage() {
-  const url = "http://localhost:80";
   const farmState = useSelector((state) => state.farmReducer);
   console.log(`farmState`, farmState);
   const goToMypage = () => {
@@ -30,13 +29,16 @@ export default function FarmPage() {
 
   const [isOpenStorage, setIsOpenStorage] = useState(false);
   const goToStorage = async () => {
-    const objStorage = await axios.get(`${url}/storage/info/${numFarmId}`, {
-      headers: {
-        Authorization: `Bearer ${authState.accessToken}`,
-        "Content-Type": "application/json",
-      },
-      withCredentials: true,
-    });
+    const objStorage = await axios.get(
+      `${process.env.REACT_APP_API_URL}/storage/info/${numFarmId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${authState.accessToken}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      }
+    );
     console.log(`objStorage.data.data`, objStorage.data.data);
     if (objStorage.data.data) {
       dispatch(setStorage(objStorage.data.data));
@@ -51,7 +53,7 @@ export default function FarmPage() {
   const handleLogout = () => {
     console.log("로그아웃요청들어옴!");
     axios
-      .get(`${url}/users/signout`, {
+      .get(`${process.env.REACT_APP_API_URL}/users/signout`, {
         headers: {
           Authorization: `Bearer ${authState.accessToken}`,
           "Content-Type": "application/json",

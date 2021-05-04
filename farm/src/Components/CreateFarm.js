@@ -37,7 +37,7 @@ function CreateFarm({ isFarm }) {
       // 서버 통신 후 id와 image 받아와야 함.
 
       const objFarm = await axios.post(
-        `http://localhost:80/farm/create`,
+        `${process.env.REACT_APP_API_URL}/farm/create`,
         {
           user_id: objUserData.id,
           farm_name: strProjectName,
