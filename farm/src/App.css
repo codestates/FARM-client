@@ -376,6 +376,7 @@
   color: #1c723e;
   cursor: pointer;
   font-weight: bold;
+  margin-left: 5px;
 }
 .Error_Msg {
   margin-left: 5px;
@@ -400,7 +401,7 @@
   right: 0;
   top: 12.5%;
   width: 356px;
-  height: 87.5%;
+  height: 83%;
   background: #ffffff;
   border: 1px solid #c4c4c4;
   padding: 20px;
@@ -595,7 +596,7 @@
 .Footer {
   position: absolute;
   max-width: 100%;
-  /* overflow: hidden; */
+  overflow: hidden;
   left: 0;
   bottom: 0;
 }
@@ -609,10 +610,12 @@
 }
 .Msg {
   font-size: small;
+  margin-left: 5px;
 }
 .Sign_In_Page {
   background-color: #fcfcfc;
   /* height: 100%; */
+  overflow-x: hidden;
 }
 .Other_Headers {
   background-color: #1c723e;

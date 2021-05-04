@@ -12,7 +12,7 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [loginResultMsg, setLoginResultMsg] = useState("");
+
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     if (!email || !pw) {
-      return setLoginResultMsg("모든 항목은 필수로 입력되어야 합니다.");
+      return setErrorMessage("모든 항목은 필수로 입력되어야 합니다.");
     }
     let validEmail = isValidEmail(email);
     let validPw = isValidPw(pw);
@@ -49,11 +49,12 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
           const objSetData = await SetMyPage(objLogin.data.data.accessToken);
           dispatch(setMypage(objSetData));
         } else {
-          setLoginResultMsg("존재하지 않는 회원입니다.");
+          setErrorMessage("존재하지 않는 회원입니다.");
         }
         history.push("/");
       } catch (error) {
-        alert(error);
+        setErrorMessage("이메일과 비밀번호를 다시 확인해 주세요.");
+        console.log(`error`, error);
       }
     } else {
       setErrorMessage("이메일과 비밀번호를 다시 확인해 주세요.");
@@ -206,7 +207,7 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
             type="submit"
             value="로그인"
           ></input>
-          <div>{loginResultMsg}</div>
+
           <div className="Input_Btn">
             계정이 없으신가요?{" "}
             <span className="SignUp_Span" onClick={handleSignUpWindow}>
