@@ -88,17 +88,25 @@
 
 .Sub_Nav {
   display: flex;
-  background-color: #cbc693;
+  position: static;
+  background-color: #f6f8fa;
   align-items: center;
   padding: 5px;
+  height: 2.5em;
 }
 
 .Sub_Nav > .Farm_Name {
   margin: 5px 25px 5px 5px;
   cursor: pointer;
+  color: #1c723e;
+  font-weight: bold;
 }
 .Sub_Nav > .Storage {
   cursor: pointer;
+  padding: 5px 25px 5px 25px;
+  color: #ffffff;
+  background-color: #1c723e;
+  border-radius: 5px;
 }
 
 .Whole_Storage {
@@ -246,9 +254,8 @@
 .Login_SignUp_Nav {
   display: flex;
   justify-content: flex-end;
-  position: absolute;
   width: 100%;
-  height: 8%;
+  height: 4em;
   left: 0px;
   top: 0px;
   background: #ffffff;
@@ -524,8 +531,22 @@
 }
 .Sign_In_Page {
   background-color: #fcfcfc;
+  /* height: 100%; */
 }
 .Other_Headers {
   background-color: #1c723e;
 }
-
+.Header_Wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.Nav_Wrapper {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+.Whole_Mypage {
+  width: 100%;
+  height: 100%;
+}
