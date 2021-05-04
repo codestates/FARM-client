@@ -59,11 +59,15 @@ function AddSeeds({ id }) {
   return (
     <div className="Seeds_Add_base">
       {isAdd ? (
-        <div className="Seed_Board" ref={Ref}>
+        <div className="Seed_Board Add_Seed" ref={Ref}>
           <form onSubmit={addSeedToCrops}>
-            <input value={strName} onChange={changeName}></input>
+            <input
+              placeholder="씨앗 이름을 입력해주세요"
+              value={strName}
+              onChange={changeName}
+            ></input>
             <button type="submit">추가하기</button>
-            <div>{strWarning}</div>
+            <div className="Seed_Err">{strWarning}</div>
           </form>
         </div>
       ) : (

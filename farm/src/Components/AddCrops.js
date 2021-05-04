@@ -79,14 +79,20 @@ function AddCrops({ id }) {
   return (
     <>
       {isAdd ? (
-        <div className="Add_Crop_Field" ref={Ref}>
-          <form onSubmit={addCropsToFarm}>
-            <SelectIcon
-              setIcon={setIcon}
-              iconList={iconList}
-              strIcon={strIcon}
-            ></SelectIcon>
-            <input value={strName} onChange={changeName}></input>
+        <div className="Add_Crop_Field On_Add" ref={Ref}>
+          <form className="Add_Crop_From" onSubmit={addCropsToFarm}>
+            <div className="Add_Crop_Data">
+              <SelectIcon
+                setIcon={setIcon}
+                iconList={iconList}
+                strIcon={strIcon}
+              ></SelectIcon>
+              <input
+                placeholder="작물 이름을 입력해주세요"
+                value={strName}
+                onChange={changeName}
+              ></input>
+            </div>
             <button type="submit">추가하기</button>
             <div>{strWarning}</div>
           </form>

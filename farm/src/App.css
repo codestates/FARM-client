@@ -457,12 +457,68 @@
   justify-content: space-between;
   margin: 9px 12px 0px 12px;
 }
+.Add_Seed {
+  padding: 10px;
+}
 .Seed_Board .Give_Seed_Button {
+  position: absolute;
   display: none;
+  left: 160px;
+  margin-top: -3px;
 }
 
 .Seed_Board:hover .Give_Seed_Button {
   display: block;
+}
+.Seed_Board:hover {
+  background: rgba(149, 149, 149, 0.5);
+}
+.Farmer_List {
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 230px;
+  padding: 6px;
+  right: 30px;
+  margin-top: 10px;
+}
+.Farmer_List li {
+  background-color: #e2e2e280;
+  list-style: none;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: auto;
+  padding: 6px;
+}
+
+.Farmer_List li:hover {
+  background-color: #b1b0b080;
+}
+
+.Seed_Board input {
+  border: 0px;
+}
+.Seed_Board input:focus {
+  outline: none;
+}
+.Seed_Err {
+  color: red;
+  font-size: 13px;
+}
+.Seed_Board button {
+  color: #ffffff;
+  background: #1c723e;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 4px 10px;
+  float: right;
 }
 
 .Seed_Name {
@@ -479,7 +535,8 @@
 }
 
 .Seed_Board input {
-  width: 200px;
+  margin-top: 7px;
+  width: 230px;
 }
 .Add_Button {
   display: block;
@@ -490,11 +547,14 @@
   border: 1px dashed #c4c4c4;
   box-sizing: border-box;
   border-radius: 5px;
-  padding: 17px;
+  padding: 12px;
   width: 356px;
   margin-top: 10px;
   transition: 0.5s;
   cursor: pointer;
+}
+.On_Add {
+  height: 123px;
 }
 
 .Add_Crop_Field:hover {
@@ -536,6 +596,64 @@
 .Other_Headers {
   background-color: #1c723e;
 }
+
+.Kind_Base {
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 10px;
+  margin: 0;
+}
+.Kind_Seed {
+  list-style: none;
+  margin: 2px;
+}
+.Kind_Seed:hover {
+  background: #bebebe;
+  border: 1px solid #c4c4c4;
+  margin: 1px;
+  border-radius: 3px;
+  padding: 0;
+}
+
+.Add_Crop_From button {
+  color: #ffffff;
+  background: #1c723e;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 5px 10px;
+  margin-top: 11px;
+  float: right;
+}
+.Add_Crop_From .Add_Crop_Data {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding-left: 5px;
+  height: 54px;
+}
+.Add_Crop_From input {
+  border: 0px;
+  background: #ffffff;
+  width: 100%;
+  margin-left: 10px;
+}
+.Add_Crop_From input:focus {
+  outline: none;
+}
+.Kind_Icon {
+  margin-top: 11px;
+  margin-left: 10px;
 .Header_Wrapper {
   display: flex;
   flex-direction: column;
