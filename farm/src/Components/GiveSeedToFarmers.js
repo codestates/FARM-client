@@ -48,7 +48,7 @@ function GiveSeedToFarmers({ corpsId, seedId }) {
   return (
     <>
       {isGive ? (
-        <ul ref={Ref}>
+        <ul className="Farmer_List" ref={Ref}>
           {userList.map((el, idx) => {
             return (
               <li

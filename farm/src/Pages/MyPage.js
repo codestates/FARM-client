@@ -85,9 +85,14 @@ function MyPage({ accessToken, handleLogout }) {
           </div>
         </div>
       </nav>
-
-      <ReadFarmerInfo />
-      <ReadFarmList accessToken={accessToken} />
+      <div className="Mypage_Body">
+        <div className="Mypage_Userinfo">
+          <ReadFarmerInfo />
+        </div>
+        <div className="Mypage_Farmlist">
+          <ReadFarmList accessToken={accessToken} />
+        </div>
+      </div>
     </div>
   );
 }

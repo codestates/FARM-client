@@ -23,24 +23,28 @@ function SelectIcon({ setIcon, iconList, strIcon }) {
   return (
     <>
       {isSelect ? (
-        <ul ref={Ref}>
-          {iconList.map((el, idx) => {
-            return (
-              <li
-                key={idx}
-                onClick={(e) => {
-                  setIcon(el, idx);
-                  setIsSelect(false);
-                }}
-              >
-                {el}
-              </li>
-            );
-          })}
-        </ul>
+        <>
+          <div className="Kind_Icon">{strIcon}</div>
+          <ul className="Kind_Base" ref={Ref}>
+            {iconList.map((el, idx) => {
+              return (
+                <li
+                  className="Kind_Seed"
+                  key={idx}
+                  onClick={(e) => {
+                    setIcon(el, idx);
+                    setIsSelect(false);
+                  }}
+                >
+                  {el}
+                </li>
+              );
+            })}
+          </ul>
+        </>
       ) : (
-        <div ref={Ref} onClick={handleClick}>
-          <div>{strIcon}</div>
+        <div className="Kind_Icon" ref={Ref} onClick={handleClick}>
+          {strIcon}
         </div>
       )}
     </>
