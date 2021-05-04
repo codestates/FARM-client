@@ -23,13 +23,16 @@ export default function FarmPage() {
 
   const [isOpenStorage, setIsOpenStorage] = useState(false);
   const goToStorage = async () => {
-    const objStorage = await axios.get(`${url}/storage/info/${numFarmId}`, {
-      headers: {
-        Authorization: `Bearer ${authState.accessToken}`,
-        "Content-Type": "application/json",
-      },
-      withCredentials: true,
-    });
+    const objStorage = await axios.get(
+      `${process.env.REACT_APP_API_URL}/storage/info/${numFarmId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${authState.accessToken}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      }
+    );
     console.log(`objStorage.data.data`, objStorage.data.data);
     if (objStorage.data.data) {
       dispatch(setStorage(objStorage.data.data));

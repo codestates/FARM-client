@@ -13,7 +13,7 @@ export default async function SetFarm(id, name, strAccessToken) {
     objHeader
   );
   const objFarmers = await axios.get(
-    `${process.env.REACT_APP_API_URL}/userinfo/${id}`,
+    `${process.env.REACT_APP_API_URL}/farm/userinfo/${id}`,
     objHeader
   );
   const objStorage = await axios.get(
