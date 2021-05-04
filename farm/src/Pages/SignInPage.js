@@ -131,6 +131,7 @@ export default function SignInPage({ handleLoginSuccess }) {
           </div>
         </div>
       </nav>
+
       <div>
         {!isClickSignUp ? (
           <Login
