@@ -82,7 +82,7 @@
   left: 30%;
   width: 30%;
   padding: 20px;
-  background-color: green;
+  background-color: #1c723e;
   color: white;
 }
 
@@ -248,16 +248,16 @@
   justify-content: flex-end;
   position: absolute;
   width: 100%;
-  height: 60px;
+  height: 8%;
   left: 0px;
   top: 0px;
-  background: #fff9c4;
+  background: #ffffff;
 }
 .Farm_Image {
   position: absolute;
   left: 1.25%;
   right: 93.28%;
-  top: 20px;
+  top: 15px;
   bottom: 95.76%;
 }
 .Login_SignUp {
@@ -267,49 +267,87 @@
 .SignUp {
   margin: 20px;
   cursor: pointer;
+  background-color: #1c723e;
+  color: white;
+  padding: 7px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.MyPage_Btn {
+  background-color: white;
+  color: #1c723e;
 }
 .Login {
   cursor: pointer;
+  color: #1c723e;
+  font-weight: bold;
+}
+.Logout_Btn {
+  color: #ffffff;
 }
 .Login_Window {
-  position: fixed;
-  top: 30%;
-  left: 35%;
-  width: 25%;
-  border: 1px solid black;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  top: 12%;
+  left: 40%;
+  width: 20%;
+  height: 65%;
 }
 .Login_Wrapper {
-  border: 1px solid black;
-  padding: 15px;
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 100%;
+  padding: 35px;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.07);
+  background-color: #ffffff;
 }
 .Farm_Logo_In_Login {
   padding: 15px;
+}
+.Login_Window > .Farm_Logo {
+  margin-bottom: 30px;
 }
 .Input_Set {
   display: flex;
   flex-direction: column;
   margin: 5px;
+  margin-bottom: 15px;
 }
 .Btns_Login_SignUp {
   display: flex;
   flex-direction: column;
+  height: 20%;
 }
 .Btn_Login {
-  background-color: green;
+  background-color: #1c723e;
   color: white;
   cursor: pointer;
+  font-weight: bold;
 }
 .Input_Btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
   margin: 5px;
-  border: 1px solid black;
+  border: 1px solid #1c723e;
   text-align: center;
+  padding: 5px;
+  border-radius: 5px;
 }
 .Login_Text {
-  margin: 5px;
+  margin-left: 5px;
+  font-size: 30px;
+  color: #1c723e;
+  font-weight: bold;
 }
 .SignUp_Span {
-  color: green;
+  color: #1c723e;
   cursor: pointer;
+  font-weight: bold;
 }
 .Error_Msg {
   margin-left: 5px;
@@ -318,7 +356,7 @@
   font-weight: bold;
 }
 .Ok_Msg {
-  color: green;
+  color: #1c723e;
   font-weight: bold;
 }
 .NotOk_Msg {
@@ -464,5 +502,30 @@
   position: absolute;
   right: 10px;
   cursor: pointer;
+}
+
+.Footer {
+  position: absolute;
+  max-width: 100%;
+  /* overflow: hidden; */
+  left: 0;
+  bottom: 0;
+}
+.Input_Box {
+  border: 1px solid #1c723e;
+  border-radius: 5px;
+  border-width: 1.8px;
+  height: 2em;
+  background-color: #ffffff;
+  font-size: 1rem;
+}
+.Msg {
+  font-size: small;
+}
+.Sign_In_Page {
+  background-color: #fcfcfc;
+}
+.Other_Headers {
+  background-color: #1c723e;
 }
 

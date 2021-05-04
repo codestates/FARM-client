@@ -13,7 +13,7 @@ export default function SignInPage({ handleLoginSuccess }) {
   };
 
   return (
-    <div>
+    <div className="Sign_In_Page">
       <nav className="Login_SignUp_Nav">
         <svg
           className="Farm_Image"
@@ -143,6 +143,17 @@ export default function SignInPage({ handleLoginSuccess }) {
             handleLoginWindow={handleLoginWindow}
           />
         )}
+      </div>
+      <div className="Footer">
+        <svg
+          width="1917"
+          height="60"
+          viewBox="0 0 1917 60"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="1920" height="60" fill="#198342" />
+        </svg>
       </div>
     </div>
   );

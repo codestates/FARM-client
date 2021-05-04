@@ -121,6 +121,7 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
   return (
     <div className="Login_Window">
       <svg
+        className="Farm_Logo"
         width="167"
         height="49"
         viewBox="0 0 167 49"
@@ -231,38 +232,54 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
         <br></br>
         <div className="Input_Set">
           <div>이메일</div>
-          <input type="text" onChange={handleInputValue("email")}></input>
+          <input
+            className="Input_Box"
+            type="text"
+            onChange={handleInputValue("email")}
+          ></input>
           {emailMessage === "유효한 이메일 입니다." ? (
-            <div className="Ok_Msg">{emailMessage}</div>
+            <div className="Ok_Msg Msg">{emailMessage}</div>
           ) : (
-            <div className="NotOk_Msg">{emailMessage}</div>
+            <div className="NotOk_Msg Msg">{emailMessage}</div>
           )}
         </div>
         <div className="Input_Set">
           <div>이름</div>
-          <input type="text" onChange={handleInputValue("name")}></input>
+          <input
+            className="Input_Box"
+            type="text"
+            onChange={handleInputValue("name")}
+          ></input>
           {nameMessage === "유효한 이름 입니다." ? (
-            <div className="Ok_Msg">{nameMessage}</div>
+            <div className="Ok_Msg Msg">{nameMessage}</div>
           ) : (
-            <div className="NotOk_Msg">{nameMessage}</div>
+            <div className="NotOk_Msg Msg">{nameMessage}</div>
           )}
         </div>
         <div className="Input_Set">
           <div>비밀번호</div>
-          <input type="password" onChange={handleInputValue("pw")}></input>
+          <input
+            className="Input_Box"
+            type="password"
+            onChange={handleInputValue("pw")}
+          ></input>
           {pwMessage === "유효한 비밀번호 입니다." ? (
-            <div className="Ok_Msg">{pwMessage}</div>
+            <div className="Ok_Msg Msg Msg">{pwMessage}</div>
           ) : (
-            <div className="NotOk_Msg">{pwMessage}</div>
+            <div className="NotOk_Msg Msg">{pwMessage}</div>
           )}
         </div>
         <div className="Input_Set">
           <div>비밀번호 확인</div>
-          <input type="password" onChange={handleInputValue("pwCheck")}></input>
+          <input
+            className="Input_Box"
+            type="password"
+            onChange={handleInputValue("pwCheck")}
+          ></input>
           {pwCheckMessage === "비밀번호가 일치합니다." ? (
-            <div className="Ok_Msg">{pwCheckMessage}</div>
+            <div className="Ok_Msg Msg">{pwCheckMessage}</div>
           ) : (
-            <div className="NotOk_Msg">{pwCheckMessage}</div>
+            <div className="NotOk_Msg Msg">{pwCheckMessage}</div>
           )}
         </div>
         <div className="Btns_Login_SignUp">
