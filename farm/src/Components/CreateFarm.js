@@ -30,6 +30,7 @@ function CreateFarm({ isFarm }) {
   };
 
   const createProject = async () => {
+    console.log(`이게 뭘까요?`);
     if (strProjectName === "") {
       setErr("밭 이름을 정확히 입력해주세요");
       return;
@@ -90,7 +91,12 @@ function CreateFarm({ isFarm }) {
           btntext="밭 갈기"
           callback={createProject}
         >
-          <form onSubmit={createProject}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              createProject();
+            }}
+          >
             <input className="Create_Input" onChange={projectName}></input>
             <div>{strErr}</div>
           </form>

@@ -11,10 +11,10 @@ function ReadSeeds({ id }) {
     });
   });
   return (
-    <div>
+    <>
       {seeds[0].Seeds.map((el, idx) => {
         return (
-          <div className="Seed_Base" key={idx}>
+          <div className="Seed_Board" key={idx}>
             <span className="Seed_Name">{el.seed_name}</span>
             <GiveSeedToFarmers
               corpsId={id}
@@ -23,7 +23,7 @@ function ReadSeeds({ id }) {
           </div>
         );
       })}
-    </div>
+    </>
   );
 }
 

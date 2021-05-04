@@ -28,8 +28,8 @@ function ReadFarmList() {
                 }}
               >
                 <Link to="/farmpage">
-                  <p>{el.farm_name}</p>
-                  <img src={el.image} />
+                  <p>{el.name}</p>
+                  <img src={el.img} />
                 </Link>
               </div>
             );

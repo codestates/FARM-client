@@ -56,5 +56,6 @@ export default async function SetFarm(id, name, strAccessToken) {
     ],
     storage: [...objStorage.data.data],
   };
+  console.log(`objFarm`, objFarm);
   return objFarm;
 }

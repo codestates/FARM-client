@@ -4,11 +4,12 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 
-export default function MyPage({ accessToken, handleLogout }) {
+function MyPage({ accessToken, handleLogout }) {
   const history = useHistory();
   const goToMypage = () => {
     history.push("/");
   };
+
   return (
     <div>
       <nav className="Login_SignUp_Nav Other_Headers">
@@ -90,3 +91,4 @@ export default function MyPage({ accessToken, handleLogout }) {
     </div>
   );
 }
+export default MyPage;
