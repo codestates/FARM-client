@@ -48,24 +48,24 @@ export default function InviteFarmers() {
     setStrEmail(e.target.value);
   };
   return (
-    <div
-      className={
-        isOpenModal ? "Modal_Background" : "Farmer_Fields Invite_Farmer"
-      }
-      onClick={handleModal}
-    >
-      새로운 농부 초대하기
-      {isOpenModal ? (
-        <form
-          onSubmit={inviteFarmer}
-          className="Invite_Modal"
-          onClick={(e) => e.stopPropagation()}
-        >
-          초대할 농부의 이메일을 입력하세요
-          <input type="text" ref={emailInput} onChange={handleEmail} />
-          <input type="submit" value="초 대" className="Invite_Btn" />
-        </form>
-      ) : null}
+    <div className="Farmer_Wrapper">
+      <div
+        className={isOpenModal ? "Modal_Background" : "Farmer_Header"}
+        onClick={handleModal}
+      >
+        새로운 농부 초대하기
+        {isOpenModal ? (
+          <form
+            onSubmit={inviteFarmer}
+            className="Invite_Modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            초대할 농부의 이메일을 입력하세요
+            <input type="text" ref={emailInput} onChange={handleEmail} />
+            <input type="submit" value="초 대" className="Invite_Btn" />
+          </form>
+        ) : null}
+      </div>{" "}
     </div>
   );
 }
