@@ -11,7 +11,7 @@ function MyPage({ accessToken, handleLogout }) {
   };
 
   return (
-    <div>
+    <div className="Whole_Mypage">
       <nav className="Login_SignUp_Nav Other_Headers">
         <svg
           className="Farm_Image"
@@ -85,7 +85,7 @@ function MyPage({ accessToken, handleLogout }) {
           </div>
         </div>
       </nav>
-      <nav></nav>
+
       <ReadFarmerInfo />
       <ReadFarmList accessToken={accessToken} />
     </div>
