@@ -8,14 +8,17 @@ export default async function SetMyPage(accessToken) {
     },
     withCredentials: true,
   };
+
   const objFarm = await axios.get(
     `http://localhost:80/users/farminfo`,
     objHeader
   );
+  console.log(`objFarm`, objFarm);
+
   const objUser = await axios.get(`http://localhost:80/users/info`, objHeader);
-  console.log("으아아아아", objUser.data.data.data.userinfo);
+  console.log(`objUser`, objUser);
   const objUserInfo = {
-    ...objUser.data.data.data.userinfo,
+    ...objUser.data.data.userinfo,
     projectList: [...objFarm.data.data],
   };
   console.log(`이건 뭔데?`, objUserInfo);

@@ -39,14 +39,16 @@ function App() {
         withCredentials: true,
       })
       .then((res) => {
-        if (res.data.data.message !== "ok") {
+        console.log(`res in userinfo`, res);
+        if (res.data.message !== "ok") {
           alert("로그인 기간이 만료되었습니다. 다시 로그인 해주세요.");
           // setIslogin(false);
           dispatch(setNoAuth());
           return history.push("/");
         }
         // userinfo를 잘 불러 왔으면 dis
-        const objUserInfo = res.data.data.data.userinfo;
+        const objUserInfo = res.data.data.userinfo;
+        console.log(`objUserInfo`, objUserInfo);
         axios
           .get(`${url}/users/farminfo`, {
             headers: {
@@ -56,13 +58,15 @@ function App() {
             withCredentials: true,
           })
           .then((res) => {
-            if (res.data.message) {
+            console.log(`res in farminfo`, res);
+            if (res.data.message !== "ok") {
               alert("로그인 기간이 만료되었습니다. 다시 로그인 해주세요.");
               // setIslogin(false);
               dispatch(setNoAuth());
               return history.push("/");
             }
             const arrProjectList = res.data.data;
+            console.log(`arrProjectList`, arrProjectList);
             dispatch(setUserInfo(objUserInfo, arrProjectList));
             // return history.push("/");
           });

@@ -44,6 +44,7 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
             withCredentials: true,
           }
         );
+        console.log(`objLogin`, objLogin);
         if (objLogin.data.message === "ok") {
           handleLoginSuccess(objLogin.data.data.accessToken);
           const objSetData = await SetMyPage(objLogin.data.data.accessToken);
