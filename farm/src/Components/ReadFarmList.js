@@ -4,8 +4,10 @@ import { memo } from "react";
 import CreateFarm from "./CreateFarm";
 import { Link } from "react-router-dom";
 import SetFarm from "./SetFarm";
+import { useHistory } from "react-router";
 
 function ReadFarmList() {
+  const history = useHistory();
   const arrFarmList = useSelector((state) => {
     return state.myPageReducer.projectList;
   });
@@ -14,23 +16,26 @@ function ReadFarmList() {
   const setFarmData = async (id, name) => {
     const farmData = await SetFarm(id, name, strAccessToken);
     dispatch(setFarm(farmData));
+    history.push("/farmpage");
   };
   return (
     <div>
+      <div className="Farmer_Info Farm_List">농장 목록</div>
       {arrFarmList.length !== 0 ? (
-        <div>
+        <div className="Farm_Template">
           {arrFarmList.map((el, idx) => {
             return (
               <div
+                className="Farm_Item"
                 key={idx}
                 onClick={(e) => {
                   setFarmData(el.id, el.name);
                 }}
               >
-                <Link to="/farmpage">
+                <div className="Farm_Name_Image">
                   <p>{el.name}</p>
                   <img src={el.img} />
-                </Link>
+                </div>
               </div>
             );
           })}

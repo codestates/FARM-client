@@ -207,12 +207,14 @@
   animation: modal-bg-show 0.3s;
 }
 .Create_Farm {
-  width: 280px;
-  height: 171px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   left: 664px;
   top: 178px;
   cursor: pointer;
-
   background: linear-gradient(73.94deg, #1c723e 0%, #b6c61a 133.37%);
   border-radius: 1px;
 }
@@ -668,4 +670,73 @@
 .Whole_Mypage {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Mypage_Body {
+  display: flex;
+  width: 65%;
+}
+.Mypage_Userinfo {
+  flex: 1;
+  background-color: #ffffff;
+  margin-right: 2.56%;
+}
+.Mypage_Farmlist {
+  flex: 3;
+  background-color: #ffffff;
+}
+
+.Farmer_Info {
+  font-weight: bold;
+  margin-top: 3em;
+  margin-bottom: 1.2em;
+}
+.Farm_List {
+  margin-left: 2%;
+  margin-bottom: 0.4%;
+}
+
+.Userinfo_Wrapper {
+  border: 1px solid #c4c4c4;
+  padding: 1em;
+}
+
+.Userinfo_Name {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.Userinfo_Email {
+  margin-top: 0.5em;
+  font-size: 80%;
+}
+.Userinfo_Farms {
+  color: #1c723e;
+  font-weight: bold;
+}
+
+.Farm_Template {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 50%;
+  margin-top: 0;
+}
+
+.Farm_Item {
+  border: 1px solid black;
+  margin: 5%;
+  cursor: pointer;
+  height: 10em;
+  margin-top: 5%;
+}
+.Farm_Name_Image {
+  margin: 10px;
+}
+.Creat_Farm_Image {
+  block-size: 3em;
+}
+.No_Farm {
+  margin: 0;
 }
