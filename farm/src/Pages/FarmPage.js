@@ -184,12 +184,13 @@ export default function FarmPage() {
             <ReadFarmers />
           </div>
         )}
-
-        <div className="Farm_Crops_Field">
-          <p>씨앗 종류</p>
-          <ReadCrops id={numFarmId} />
-          <AddCrops id={numFarmId} />
-        </div>
+        {!isOpenStorage ? (
+          <div className="Farm_Crops_Field">
+            <p>씨앗 종류</p>
+            <ReadCrops id={numFarmId} />
+            <AddCrops id={numFarmId} />
+          </div>
+        ) : null}
       </div>
     </DragDropContext>
   );
