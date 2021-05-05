@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -15,7 +16,8 @@
 /* 민석 시작 */
 .Farmer_Fields {
   white-space: nowrap;
-  width: calc(100vw - 410px);
+  width: calc(100vw - 380px);
+  padding-right: 380px;
   overflow-y: scroll;
   padding-bottom: 40px;
 }
@@ -29,15 +31,18 @@
   background: #f6f8fa;
   border-radius: 5px;
   flex-direction: column;
-  white-space: normal;
+  /* white-space: normal; */
+  border: 3px solid #c4c4c4;
 }
 .Farmer_Header {
-  background-color: #f6f8fa;
   font-size: 20px;
   line-height: 23px;
   height: 25px;
   align-items: center;
-  padding: 20px;
+  padding: 10px 10px 10px 15px;
+  margin-top: 4%;
+  color: #1c723e;
+  font-weight: bold;
 }
 .Invite_Farmer {
   background: #f6f8fa;
@@ -76,6 +81,7 @@
 .Crop_Icon_In_Farmer {
   padding-right: 10px;
   display: block;
+  margin-bottom: 5px;
 }
 .Complete_Btn {
   margin: 0;
@@ -409,7 +415,7 @@
   right: 0;
   top: 12.5%;
   width: 356px;
-  height: 83%;
+  height: 80vh;
   background: #ffffff;
   border: 1px solid #c4c4c4;
   padding: 20px;
@@ -623,7 +629,7 @@
 .Sign_In_Page {
   background-color: #fcfcfc;
   /* height: 100%; */
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .Other_Headers {
   background-color: #1c723e;
@@ -778,6 +784,42 @@
   margin: 0;
 }
 
+
+.Seedname_In_Farmer {
+  color: #1c723e;
+  font-weight: bold;
+}
+.Whole_Farm_Page {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.Invite_New {
+  /* border: 3px dotted #c4c4c4;
+  font-size: 20px;
+  line-height: 23px;
+  height: 25px;*/
+  color: #1c723e;
+  font-weight: bold;
+}
+.New_Farmer_Btn {
+  text-align: center;
+  border: 3px dotted #c4c4c4;
+  border-radius: 5px;
+  font-size: 20px;
+  line-height: 23px;
+  height: 25px;
+  color: #1c723e;
+  font-weight: bold;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  background-color: #f6f8fa;
+  cursor: pointer;
+}
+.New_Farmer_Btn:hover {
+  background-color: #c4c4c4;
+}
 .Farm_Img {
   width: 1em;
 }
@@ -949,4 +991,5 @@
   line-height: 29px;
   letter-spacing: -0.015em;
   color: #222222;
+
 }

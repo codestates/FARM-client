@@ -36,7 +36,7 @@ export default function ReadFarmerSeed({ seed, farmerId }) {
   return (
     <div className="Seed_In_Farmer">
       <div className="Crop_Icon_In_Farmer">{kind}</div>
-      <div>{seedname}</div>
+      <div className="Seedname_In_Farmer">{seedname}</div>
       <button className="Complete_Btn" onClick={harvestCrop}>
         수확하기
       </button>

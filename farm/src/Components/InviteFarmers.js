@@ -54,7 +54,7 @@ export default function InviteFarmers() {
     setStrErr("");
   };
   return (
-    <div className="Farmer_Wrapper">
+    <div className="Farmer_Wrapper Invite_New">
       <div
         className={isModal ? "Modal_Background" : "Farmer_Header"}
         onClick={openModal}
