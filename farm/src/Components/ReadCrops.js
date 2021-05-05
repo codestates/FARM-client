@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
-import { memo } from "react";
+import { memo, useState } from "react";
 
 import ReadSeeds from "./ReadSeeds";
 import AddSeeds from "./AddSeeds";
 
+import ReadCropInfo from "./ReadCropInfo";
 function ReadCrops() {
   const crops = useSelector((state) => {
     return state.farmReducer.crops;
@@ -13,11 +14,7 @@ function ReadCrops() {
       {crops.map((el, idx) => {
         return (
           <div className="Farm_Field">
-            <div className="Crops_Base" key={idx}>
-              <span className="Crops_Icon">{el.Kind}</span>
-              <span className="Crops_Name">{el.name}</span>
-              <span className="Crops_Cnt">{el.Seeds.length}</span>
-            </div>
+            <ReadCropInfo key={idx} cropInfo={el} />
             <div className="Seeds_Base">
               <ReadSeeds id={el.crops_id} />
               <AddSeeds id={el.crops_id} />
