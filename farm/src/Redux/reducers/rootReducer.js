@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import farmReducer from "./farmReducer";
 import myPageReducer from "./myPageReducer";
 import authReducer from "./authReducer";
+import loginSignupReducer from "./loginSignupReducer";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage/session";
 
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   farmReducer,
   myPageReducer,
   authReducer,
+  loginSignupReducer,
 });
 
 // export default rootReducer;

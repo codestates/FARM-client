@@ -24,6 +24,8 @@ export const INVITE_FARMERS = "INVITE_FARMERS";
 
 export const SET_STORAGE = "SET_STORAGE";
 
+export const HANDLE_SIGNUP = "HANDLE_SIGNUP";
+
 export const addCrops = (id, name, icon, idx) => {
   return {
     type: ADD_CROPS,
@@ -148,6 +150,15 @@ export const setStorage = (arrStorage) => {
     type: SET_STORAGE,
     payload: {
       arrStorage,
+    },
+  };
+};
+
+export const openSignup = (boolean) => {
+  return {
+    type: HANDLE_SIGNUP,
+    payload: {
+      boolean,
     },
   };
 };

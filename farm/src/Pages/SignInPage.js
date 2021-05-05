@@ -1,22 +1,33 @@
 import React, { useState } from "react";
 import Login from "../Components/Login";
 import SignUp from "../Components/SignUp";
+import { useHistory } from "react-router";
+import { openSignup } from "../Redux/actions/actions";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function SignInPage({ handleLoginSuccess }) {
-  const [isClickSignUp, setIsClickSignUp] = useState(false);
-
+  // const [isClickSignUp, setIsClickSignUp] = useState(false);
+  const history = useHistory();
+  const pageState = useSelector((state) => state.loginSignupReducer);
+  const dispatch = useDispatch();
   const handleSignUpWindow = () => {
-    setIsClickSignUp(true);
+    // setIsClickSignUp(true);
+    dispatch(openSignup(true));
   };
   const handleLoginWindow = () => {
-    setIsClickSignUp(false);
+    // setIsClickSignUp(false);
+    dispatch(openSignup(false));
   };
-
+  const goToLandingpage = () => {
+    console.log("랜딩페이지로가자!");
+    history.push("/landingpage");
+  };
   return (
     <div className="Sign_In_Page">
       <nav className="Login_SignUp_Nav">
         <svg
           className="Farm_Image"
+          onClick={goToLandingpage}
           width="105"
           height="31"
           viewBox="0 0 105 31"
@@ -133,7 +144,7 @@ export default function SignInPage({ handleLoginSuccess }) {
       </nav>
 
       <div>
-        {!isClickSignUp ? (
+        {!pageState.isClickSignUp ? (
           <Login
             handleLoginSuccess={handleLoginSuccess}
             handleSignUpWindow={handleSignUpWindow}

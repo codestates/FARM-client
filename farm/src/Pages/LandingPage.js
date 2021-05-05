@@ -1,7 +1,18 @@
 import React from "react";
+import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
+import { openSignup } from "../Redux/actions/actions";
 
-// ! App.js 절대로 커밋 금지
-export const LandingPage = () => {
+export default function LandingPage() {
+  const goToLogin = () => {
+    history.push("/signin");
+  };
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const goToSignup = () => {
+    dispatch(openSignup(true));
+    history.push("/signin");
+  };
   return (
     <div className="Landing_Container">
       <nav className="Login_SignUp_Nav Other_Headers">
@@ -69,10 +80,10 @@ export const LandingPage = () => {
         </svg>
 
         <div className="Login_SignUp">
-          <div className="Login Logout_Btn" /*onClick={로그인페이지로}*/>
+          <div className="Login Logout_Btn" onClick={goToLogin}>
             로그인
           </div>
-          <div className="SignUp MyPage_Btn" /*onClick={회원가입으로}*/>
+          <div className="SignUp MyPage_Btn" onClick={goToSignup}>
             회원가입
           </div>
         </div>
@@ -100,7 +111,9 @@ export const LandingPage = () => {
           <br />
           협업 툴입니다
         </div>
-        <div className="Landing_Btn" /*onClick={로그인페이지로}*/>시작하기</div>
+        <div className="Landing_Btn" onClick={goToLogin}>
+          시작하기
+        </div>
         <svg
           className="Landing_Image"
           width="679"
@@ -1423,4 +1436,4 @@ export const LandingPage = () => {
       </div>
     </div>
   );
-};
+}

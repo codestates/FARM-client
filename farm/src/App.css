@@ -292,6 +292,7 @@
   right: 93.28%;
   top: 15px;
   bottom: 95.76%;
+  cursor: pointer;
 }
 .Login_SignUp {
   display: flex;
@@ -775,7 +776,6 @@
   margin: 0;
 }
 
-
 .Seedname_In_Farmer {
   color: #1c723e;
   font-weight: bold;
@@ -982,5 +982,4 @@
   line-height: 29px;
   letter-spacing: -0.015em;
   color: #222222;
-
 }

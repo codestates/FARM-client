@@ -2,7 +2,6 @@ import { useState, memo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ReadFarmerSeed from "./ReadFarmerSeed";
 import InviteFarmers from "./InviteFarmers";
-import { useHistory } from "react-router";
 import React from "react";
 import axios from "axios";
 import { inviteFarmers } from "../Redux/actions/actions";
@@ -14,7 +13,6 @@ function ReadFarmers() {
   const state = useSelector((state) => {
     return state.farmReducer;
   });
-  const history = useHistory();
 
   return (
     <div className="Farmer_Fields">
