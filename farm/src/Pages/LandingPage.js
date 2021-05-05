@@ -988,9 +988,9 @@ export default function LandingPage() {
             />
           </svg>
 
-          <div className="Section2_Item_Title">밭</div>
+          <div className="Section2_Item_Title">농장</div>
           <div className="Section2_Item_Desc">
-            밭은 공동의 워크스페이스입니다.
+            농장은 공동의 워크스페이스입니다.
             <br />
             자유롭게 생성하고 팀원을 추가해보세요.
           </div>
@@ -1180,8 +1180,8 @@ export default function LandingPage() {
               협업 공간을 만들 수 있습니다.
             </div>
             <div className="Section3_Item1_Desc">
-              Farm에서는 공동으로 관리하는 밭을 손쉽게 만들 수 있습니다.
-              <br />그 밭에서 서로의 목표를 공유하고 효과적으로 일해보세요.
+              Farm에서는 공동으로 관리하는 농장을 손쉽게 만들 수 있습니다.
+              <br />그 농장에서 서로의 목표를 공유하고 효과적으로 일해보세요.
             </div>
           </div>
           <div className="Section3_Item1_Img">
