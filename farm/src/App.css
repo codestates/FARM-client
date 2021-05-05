@@ -69,10 +69,17 @@
   width: 98%;
 }
 .Seeds_In_Farmer {
-  padding: 10px;
+  color: #1c723e;
+  padding: 20px;
   max-height: calc(100vh - 235px);
   overflow-x: auto;
+
   border-radius: 5px;
+
+  text-align: center;
+  color: #222222;
+  font-weight: 600;
+
 }
 .Seed_In_Farmer {
   display: flex;
@@ -97,12 +104,25 @@
 .Complete_Btn {
   margin: 0;
   display: none;
-  left: 130px;
-  top: 30px;
+  left: 100px;
+  top: 27px;
   position: absolute;
+  color: #ffffff;
+  background: #1c723e;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 4px 10px;
+  float: right;
 }
 .Seed_In_Farmer:hover .Complete_Btn {
   display: inline;
+}
+.Seed_In_Farmer:hover {
+  background: rgba(149, 149, 149, 0.5);
 }
 
 /* 민석 끝 */
@@ -145,7 +165,7 @@
   color: #1c723e;
   font-weight: bold;
 }
-.Sub_Nav > .Storage {
+.Sub_Nav > .Open_Storage {
   cursor: pointer;
   padding: 5px 25px 5px 25px;
   color: #ffffff;

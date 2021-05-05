@@ -22,6 +22,5 @@ export default async function SetMyPage(accessToken) {
     ...objUser.data.data.userinfo,
     projectList: [...objFarm.data.data],
   };
-
   return objUserInfo;
 }

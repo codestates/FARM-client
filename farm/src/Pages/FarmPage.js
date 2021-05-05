@@ -16,7 +16,6 @@ import { DragDropContext } from "react-beautiful-dnd";
 
 export default function FarmPage() {
   const farmState = useSelector((state) => state.farmReducer);
-  console.log(`farmState`, farmState);
   const goToMypage = () => {
     history.push("/");
   };
@@ -39,7 +38,6 @@ export default function FarmPage() {
         withCredentials: true,
       }
     );
-    console.log(`objStorage.data.data`, objStorage.data.data);
     if (objStorage.data.data) {
       dispatch(setStorage(objStorage.data.data));
     }
@@ -51,7 +49,6 @@ export default function FarmPage() {
   };
   //"밭 이름" 부분은 useSelector로 state접근해서 현재 Farm 연결해줘야함. 이건 MyPage에서 Props넘겨 줘야 함.
   const handleLogout = () => {
-    console.log("로그아웃요청들어옴!");
     axios
       .get(`${process.env.REACT_APP_API_URL}/users/signout`, {
         headers: {
@@ -61,7 +58,6 @@ export default function FarmPage() {
         },
       })
       .then((res) => {
-        console.log(`res in logout`, res);
         dispatch(setNoAuth());
         return history.push("/");
       })
@@ -169,10 +165,16 @@ export default function FarmPage() {
             </div>
           </nav>
           <nav className="Sub_Nav">
-            <div className="Farm_Name" onClick={goToFarm}>
+            <div
+              className={isOpenStorage ? "Farm_Name" : "Farm_Name Open_Storage"}
+              onClick={goToFarm}
+            >
               {farmState.farmName}
             </div>
-            <div className="Storage" onClick={goToStorage}>
+            <div
+              className={isOpenStorage ? "Storage Open_Storage" : "Storage"}
+              onClick={goToStorage}
+            >
               곳간
             </div>
           </nav>
