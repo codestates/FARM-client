@@ -1,11 +1,11 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteSeed, moveToStorage } from "../Redux/actions/actions";
 import { useHistory } from "react-router";
 import Modal from "./Modal";
 
-export default function ReadFarmerSeed({ seed, farmerId }) {
+function ReadFarmerSeed({ seed, farmerId }) {
   const { kind, seedname, seed_id } = seed;
   const dispatch = useDispatch();
   const history = useHistory();
@@ -61,3 +61,4 @@ export default function ReadFarmerSeed({ seed, farmerId }) {
     </div>
   );
 }
+export default memo(ReadFarmerSeed);

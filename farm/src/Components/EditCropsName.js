@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeCropsName } from "../Redux/actions/actions";
 import axios from "axios";
 
-export default function EditCropsName({ handleClick, defaultName, crops_id }) {
+function EditCropsName({ handleClick, defaultName, crops_id }) {
   const strAccessToken = useSelector((state) => state.authReducer.accessToken);
   const [inputValue, setInputValue] = useState(defaultName);
   const dispatch = useDispatch();
@@ -70,3 +70,4 @@ export default function EditCropsName({ handleClick, defaultName, crops_id }) {
     ></input>
   );
 }
+export default memo(EditCropsName);

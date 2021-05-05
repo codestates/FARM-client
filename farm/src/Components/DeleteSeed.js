@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, memo } from "react";
 import { deleteSeed, deleteSeedFromCrop } from "../Redux/actions/actions";
 import axios from "axios";
 
@@ -51,4 +51,4 @@ function DeleteSeed({ cropsId, seedId }) {
   );
 }
 
-export default DeleteSeed;
+export default memo(DeleteSeed);

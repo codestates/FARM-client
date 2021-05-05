@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, memo } from "react";
 
 function SelectIcon({ setIcon, iconList, strIcon }) {
   const [isSelect, setIsSelect] = useState(false);
@@ -51,4 +51,4 @@ function SelectIcon({ setIcon, iconList, strIcon }) {
   );
 }
 
-export default SelectIcon;
+export default memo(SelectIcon);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const Modal = ({ open, close, header, btntext, callback, children }) => {
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
@@ -31,4 +31,4 @@ const Modal = ({ open, close, header, btntext, callback, children }) => {
   );
 };
 
-export default Modal;
+export default memo(Modal);

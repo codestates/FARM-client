@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, memo } from "react";
 import { giveSeed } from "../Redux/actions/actions";
 import axios from "axios";
 
@@ -71,4 +71,4 @@ function GiveSeedToFarmers({ corpsId, seedId }) {
     </>
   );
 }
-export default GiveSeedToFarmers;
+export default memo(GiveSeedToFarmers);

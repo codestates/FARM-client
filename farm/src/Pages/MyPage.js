@@ -4,6 +4,7 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 
+import { memo } from "react";
 function MyPage({ accessToken, handleLogout }) {
   const history = useHistory();
   const goToMypage = () => {
@@ -96,4 +97,4 @@ function MyPage({ accessToken, handleLogout }) {
     </div>
   );
 }
-export default MyPage;
+export default memo(MyPage);
