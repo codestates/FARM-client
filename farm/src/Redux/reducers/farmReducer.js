@@ -162,12 +162,7 @@ const farmReducer = (state = dummy, action) => {
       });
 
     case DELETE_SEED_FROM_CROP:
-      // let cropArr = state.crops.filter(
-      //   (crop) => (crop.crops_id === action.payload.cropsId)
-      // );
-
       return Object.assign({}, state, {
-        // cropArr.Seeds.filter(el => el.seed_id !== action.payload.seedId )
         crops: state.crops.map((crop) => {
           if (crop.crops_id === action.payload.cropsId) {
             return {
