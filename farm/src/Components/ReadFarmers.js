@@ -31,7 +31,7 @@ function ReadFarmers() {
                       style={{
                         backgroundColor: snapshot.isDraggingOver
                           ? "#e0e0e0"
-                          : "#ffffff",
+                          : "#f6f8fa",
                       }}
                       className="Seeds_In_Farmer"
                     >
