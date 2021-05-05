@@ -6,6 +6,7 @@ import {
   Redirect,
   withRouter,
 } from "react-router-dom";
+import LandingPage from "./Pages/LandingPage";
 import FarmPage from "./Pages/FarmPage";
 import MyPage from "./Pages/MyPage";
 import SignInPage from "./Pages/SignInPage";
@@ -15,6 +16,7 @@ import { useHistory } from "react-router";
 import SignUp from "./Components/SignUp";
 import { useSelector, useDispatch } from "react-redux";
 import { setUserInfo, setAuth, setNoAuth } from "./Redux/actions/actions";
+// import { LandingPage } from "./Pages/LandingPage";
 
 function App() {
   // const url = process.env.REACT_APP_API_URL;
@@ -41,7 +43,7 @@ function App() {
         if (res.data.message !== "ok") {
           alert("로그인 기간이 만료되었습니다. 다시 로그인 해주세요.");
           dispatch(setNoAuth());
-          return history.push("/");
+          return history.push("/signin");
         }
 
         const objUserInfo = res.data.data.userinfo;
@@ -57,7 +59,7 @@ function App() {
             if (res.data.message !== "ok") {
               alert("로그인 기간이 만료되었습니다. 다시 로그인 해주세요.");
               dispatch(setNoAuth());
-              return history.push("/");
+              return history.push("/signin");
             }
             const arrProjectList = res.data.data;
             dispatch(setUserInfo(objUserInfo, arrProjectList));
@@ -84,6 +86,7 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route exact path="/landingpage" render={() => <LandingPage />} />
         <Route
           path="/signin"
           render={() => <SignInPage handleLoginSuccess={handleLoginSuccess} />}
@@ -117,8 +120,7 @@ function App() {
           path="/"
           render={() => {
             if (state.isLogin) return <Redirect to="/mypage" />;
-            else return <Redirect to="/signin" />;
-            // <FarmPage />;
+            else return <Redirect to="/landingpage" />;
           }}
         />
       </Switch>

@@ -70,7 +70,7 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
     } else {
       alert("다시 로그인 해주세요");
     }
-    history.push("/");
+    history.push("/signin");
   };
 
   const handleSignUp = (e) => {
