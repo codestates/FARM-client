@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, memo } from "react";
 import { addCrops } from "../Redux/actions/actions";
 import SelectIcon from "./SelectIcon";
 import axios from "axios";
@@ -111,4 +111,4 @@ function AddCrops({ id }) {
   );
 }
 
-export default AddCrops;
+export default memo(AddCrops);

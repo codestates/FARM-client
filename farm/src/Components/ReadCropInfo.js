@@ -2,7 +2,7 @@ import React from "react";
 import { memo, useState } from "react";
 import EditCropsName from "./EditCropsName";
 import edit from "../icons/edit.svg";
-export default function ReadCropInfo({ cropInfo }) {
+function ReadCropInfo({ cropInfo }) {
   const [isClicked, setIsClicked] = useState(false);
   const toggleIsClicked = () => {
     setIsClicked((state) => !state);
@@ -29,3 +29,4 @@ export default function ReadCropInfo({ cropInfo }) {
     </div>
   );
 }
+export default memo(ReadCropInfo);

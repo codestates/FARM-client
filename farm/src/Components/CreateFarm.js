@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createFarm, setFarm } from "../Redux/actions/actions";
 import { useHistory } from "react-router";
@@ -151,4 +151,4 @@ function CreateFarm({ isFarm }) {
   );
 }
 
-export default CreateFarm;
+export default memo(CreateFarm);

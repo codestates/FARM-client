@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, memo } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 import Modal from "./Modal";
 
-export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
+function SignUp({ handleLoginWindow, handleLoginSuccess }) {
   const emailInput = useRef();
   const nameInput = useRef();
   const pwInput = useRef();
@@ -325,3 +325,4 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
     </div>
   );
 }
+export default memo(SignUp);

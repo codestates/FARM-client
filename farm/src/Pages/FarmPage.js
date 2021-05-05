@@ -2,7 +2,7 @@ import ReadFarmers from "../Components/ReadFarmers";
 import AddCrops from "../Components/AddCrops";
 import ReadCrops from "../Components/ReadCrops";
 import ReadStorage from "../Components/ReadStorage";
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useHistory } from "react-router";
@@ -14,7 +14,7 @@ import {
 } from "../Redux/actions/actions";
 import { DragDropContext } from "react-beautiful-dnd";
 
-export default function FarmPage() {
+function FarmPage() {
   const farmState = useSelector((state) => state.farmReducer);
   const goToMypage = () => {
     history.push("/");
@@ -197,3 +197,4 @@ export default function FarmPage() {
     </DragDropContext>
   );
 }
+export default memo(FarmPage);

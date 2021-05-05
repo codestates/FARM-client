@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, memo } from "react";
 import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 // import invite from "../../../../FARM-server/controllers/farm/invite";
@@ -6,7 +6,7 @@ import axios from "axios";
 import { inviteFarmers } from "../Redux/actions/actions";
 import Modal from "./Modal";
 
-export default function InviteFarmers() {
+function InviteFarmers() {
   const emailInput = useRef();
   const [isModal, setIsModal] = useState(false);
   const [strEmail, setStrEmail] = useState("");
@@ -92,3 +92,4 @@ export default function InviteFarmers() {
     </div>
   );
 }
+export default memo(InviteFarmers);

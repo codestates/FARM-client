@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import Login from "../Components/Login";
 import SignUp from "../Components/SignUp";
 import { useHistory } from "react-router";
 import { openSignup } from "../Redux/actions/actions";
 import { useSelector, useDispatch } from "react-redux";
 
-export default function SignInPage({ handleLoginSuccess }) {
+function SignInPage({ handleLoginSuccess }) {
   // const [isClickSignUp, setIsClickSignUp] = useState(false);
   const history = useHistory();
   const pageState = useSelector((state) => state.loginSignupReducer);
@@ -170,3 +170,4 @@ export default function SignInPage({ handleLoginSuccess }) {
     </div>
   );
 }
+export default memo(SignInPage);
