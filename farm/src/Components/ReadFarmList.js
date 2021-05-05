@@ -28,13 +28,13 @@ function ReadFarmList() {
               <div
                 className="Farm_Item"
                 key={idx}
+                style={{ "background-image": `url(${el.img})` }}
                 onClick={(e) => {
                   setFarmData(el.id, el.name);
                 }}
               >
                 <div className="Farm_Name_Image">
                   <p>{el.name}</p>
-                  <img src={el.img} />
                 </div>
               </div>
             );

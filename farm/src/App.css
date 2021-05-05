@@ -746,20 +746,31 @@
 }
 
 .Farm_Item {
-  border: 1px solid black;
   margin: 5%;
   cursor: pointer;
   height: 10em;
+  background-size: 100%;
+  transition: 0.5s;
   /* margin-top: 5%; */
 }
+.Farm_Item:hover {
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 3px rgba(172, 172, 172, 0.692);
+}
+
 .Farm_Name_Image {
   margin: 10px;
+  color: #ffffff;
 }
 .Creat_Farm_Image {
   block-size: 3em;
 }
 .No_Farm {
   margin: 0;
+}
+
+.Farm_Img {
+  width: 1em;
 }
 .Landing_Container {
   width: 100%;
