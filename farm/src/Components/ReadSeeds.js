@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { memo } from "react";
 import GiveSeedToFarmers from "./GiveSeedToFarmers";
 import { Draggable, Droppable } from "react-beautiful-dnd";
+import DeleteSeed from "./DeleteSeed";
 
 function ReadSeeds({ id }) {
   const seeds = useSelector((state) => {
@@ -35,10 +36,10 @@ function ReadSeeds({ id }) {
                         key={idx}
                       >
                         <span className="Seed_Name">{el.seed_name}</span>
-                        <GiveSeedToFarmers
-                          corpsId={id}
+                        <DeleteSeed
                           seedId={el.seed_id}
-                        ></GiveSeedToFarmers>
+                          cropsId={id}
+                        ></DeleteSeed>
                       </div>
                     );
                   }}

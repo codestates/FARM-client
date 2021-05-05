@@ -26,6 +26,8 @@ export const SET_STORAGE = "SET_STORAGE";
 
 export const HANDLE_SIGNUP = "HANDLE_SIGNUP";
 
+export const DELETE_SEED_FROM_CROP = "DELETE_SEED_FROM_CROP";
+
 export const addCrops = (id, name, icon, idx) => {
   return {
     type: ADD_CROPS,
@@ -159,6 +161,16 @@ export const openSignup = (boolean) => {
     type: HANDLE_SIGNUP,
     payload: {
       boolean,
+    },
+  };
+};
+
+export const deleteSeedFromCrop = (cropsId, seedId) => {
+  return {
+    type: DELETE_SEED_FROM_CROP,
+    payload: {
+      cropsId,
+      seedId,
     },
   };
 };
