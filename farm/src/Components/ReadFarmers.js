@@ -13,7 +13,7 @@ function ReadFarmers() {
   const state = useSelector((state) => {
     return state.farmReducer;
   });
-
+  console.log(`state`, state.farmers);
   return (
     <div className="Farmer_Fields">
       {state.farmers.map((farmer, idx) => {
@@ -33,6 +33,9 @@ function ReadFarmers() {
                       }}
                       className="Seeds_In_Farmer"
                     >
+                      {state.farmers[idx].seeds.length === 0
+                        ? "🌱 씨앗을 드래그해서 심어주세요"
+                        : ""}
                       {farmer.seeds.map((seed, idx) => (
                         <ReadFarmerSeed
                           key={idx}
