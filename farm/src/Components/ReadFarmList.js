@@ -34,7 +34,7 @@ function ReadFarmList() {
                 }}
               >
                 <div className="Farm_Name_Image">
-                  <p>{el.name}</p>
+                  <p className="Farm_Name_Text">{el.name}</p>
                 </div>
               </div>
             );

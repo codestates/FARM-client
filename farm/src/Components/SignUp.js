@@ -316,7 +316,7 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
           callback={handleSignIn}
         >
           <p style={{ color: "black" }}>
-            회원 가입이 완료 되었습니다. <br></br>로그인 페이지로 이동합니다.
+            회원 가입이 완료 되었습니다. <br></br>마이페이지로 이동합니다.
           </p>
         </Modal>
       ) : (
