@@ -1,5 +1,7 @@
 export const ADD_CROPS = "ADD_CROPS";
 
+export const CHANGE_CROPS_NAME = "CHANGE_CROPS_NAME";
+
 export const DELETE_SEED = "DELETE_SEED";
 
 export const ADD_SEEDS = "ADD_SEEDS";
@@ -36,6 +38,15 @@ export const addCrops = (id, name, icon, idx) => {
       name,
       icon,
       idx,
+    },
+  };
+};
+export const changeCropsName = (crops_id, newName) => {
+  return {
+    type: CHANGE_CROPS_NAME,
+    payload: {
+      crops_id,
+      newName,
     },
   };
 };

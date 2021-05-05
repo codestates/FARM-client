@@ -1,6 +1,7 @@
 import dummy from "../dummy.json";
 import {
   ADD_CROPS,
+  CHANGE_CROPS_NAME,
   ADD_SEEDS,
   DELETE_SEED,
   MOVE_TO_STORAGE,
@@ -32,6 +33,18 @@ const farmReducer = (state = dummy, action) => {
         iconList: icon,
         crops: [...state.crops, crops],
       });
+
+    case CHANGE_CROPS_NAME:
+      return {
+        ...state,
+        crops: state.crops.map((crop) => {
+          if (crop.crops_id === action.payload.crops_id) {
+            return { ...crop, name: action.payload.newName };
+          }
+          return crop;
+        }),
+      };
+
     case DELETE_SEED:
       return Object.assign({}, state, {
         farmers: [
