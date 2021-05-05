@@ -49,6 +49,15 @@
   border: 1px solid #c4c4c4;
   border-radius: 5px;
 }
+.Invite_Farmer_Form p {
+  margin: 10px 0px;
+}
+.Invite_Farmer_Form input {
+  border-radius: 3px;
+  border: 1px solid rgba(131, 131, 131, 0.61);
+  height: 30px;
+  width: 98%;
+}
 .Seeds_In_Farmer {
   padding: 10px;
   max-height: calc(100vh - 235px);
