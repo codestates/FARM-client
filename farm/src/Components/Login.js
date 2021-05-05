@@ -51,7 +51,7 @@ function Login({ handleLoginSuccess, handleSignUpWindow }) {
         } else {
           setErrorMessage("존재하지 않는 회원입니다.");
         }
-        history.push("/signin");
+        history.push("/");
       } catch (error) {
         setErrorMessage("이메일과 비밀번호를 다시 확인해 주세요.");
         console.log(`error`, error);
