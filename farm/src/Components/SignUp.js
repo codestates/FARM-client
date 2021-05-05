@@ -18,6 +18,7 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
   const [memberCheckMsg, setMemberCheckMsg] = useState("");
   const [pwCheck, setPwCheck] = useState("");
   const history = useHistory();
+  const [isModal, setIsModal] = useState(false);
 
   const handleInputValue = (key) => (e) => {
     if (key === "email") {
@@ -43,6 +44,33 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
       else setPwCheckMessage("비밀번호가 다릅니다.");
       setPwCheck(e.target.value);
     }
+  };
+  const openModal = () => {
+    setIsModal(true);
+  };
+  const closeModal = () => {
+    setIsModal(false);
+  };
+
+  const handleSignIn = async () => {
+    const objUserInfo = await axios.post(
+      `${process.env.REACT_APP_API_URL}/users/signin`,
+      {
+        email: email,
+        password: pw,
+      },
+      {
+        "Content-Type": "application/json",
+        withCredentials: true,
+      }
+    );
+
+    if (objUserInfo.data.message === "ok") {
+      handleLoginSuccess(objUserInfo.data.data.accessToken);
+    } else {
+      alert("다시 로그인 해주세요");
+    }
+    history.push("/");
   };
 
   const handleSignUp = (e) => {
@@ -71,34 +99,12 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
         )
         .then((res) => {
           if (res.data.message === "Signed up successfully") {
-            alert("회원가입을 축하합니다! 마이페이지로 이동합니다.");
-            axios
-              .post(
-                `${process.env.REACT_APP_API_URL}/users/signin`,
-                {
-                  email: email,
-                  password: pw,
-                },
-                {
-                  "Content-Type": "application/json",
-                  withCredentials: true,
-                }
-              )
-              .then((res) => {
-                if (res.data.message === "ok")
-                  handleLoginSuccess(res.data.data.accessToken);
-                else alert("다시 로그인 해주세요");
-              })
-              .then(() => {
-                history.push("/");
-              })
-              .catch((err) => alert(err));
+            setIsModal(true);
           } else {
             setMemberCheckMsg("이미 존재하는 회원입니다.");
           }
         })
         .catch((err) => {
-          console.log(`err`, err);
           const errMsg = err.toString();
           if (errMsg.includes("409"))
             setMemberCheckMsg("이미 존재하는 회원입니다.");
@@ -301,6 +307,21 @@ export default function SignUp({ handleLoginWindow, handleLoginSuccess }) {
           </div>
         </div>
       </form>
+      {isModal ? (
+        <Modal
+          open={openModal}
+          close={closeModal}
+          header="회원 가입 완료"
+          btntext="확인"
+          callback={handleSignIn}
+        >
+          <p style={{ color: "black" }}>
+            회원 가입이 완료 되었습니다. <br></br>로그인 페이지로 이동합니다.
+          </p>
+        </Modal>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
