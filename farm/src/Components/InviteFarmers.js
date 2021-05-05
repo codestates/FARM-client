@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 // import invite from "../../../../FARM-server/controllers/farm/invite";
@@ -15,6 +15,11 @@ export default function InviteFarmers() {
   const state = useSelector((state) => {
     return state.farmReducer;
   });
+  useEffect(() => {
+    if (emailInput.current) {
+      emailInput.current.focus();
+    }
+  }, [isModal]);
   const dispatch = useDispatch();
   const inviteFarmer = async () => {
     // 서버에 strEmail 담아서 post 요청. 요청 정보 없으면 modal창에 안내문구 추가. 있으면 추가처리하기 모달창 닫기

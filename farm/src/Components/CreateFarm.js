@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createFarm, setFarm } from "../Redux/actions/actions";
 import { useHistory } from "react-router";
@@ -18,7 +18,7 @@ function CreateFarm({ isFarm }) {
   const [isModal, setIsModal] = useState(false);
   const [strProjectName, setProjectName] = useState("");
   const [strErr, setErr] = useState("");
-
+  const projectInputRef = useRef();
   const history = useHistory();
   const projectName = (e) => {
     setProjectName(e.target.value);
@@ -29,7 +29,11 @@ function CreateFarm({ isFarm }) {
   const closeModal = () => {
     setIsModal(false);
   };
-
+  useEffect(() => {
+    if (projectInputRef.current) {
+      projectInputRef.current.focus();
+    }
+  }, [isModal]);
   const createProject = async () => {
     if (strProjectName === "") {
       setErr("밭 이름을 정확히 입력해주세요");
@@ -132,7 +136,11 @@ function CreateFarm({ isFarm }) {
               createProject();
             }}
           >
-            <input className="Create_Input" onChange={projectName}></input>
+            <input
+              ref={projectInputRef}
+              className="Create_Input"
+              onChange={projectName}
+            ></input>
             <div>{strErr}</div>
           </form>
         </Modal>

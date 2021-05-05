@@ -9,8 +9,13 @@ function AddSeeds({ id }) {
   const [strName, setStrName] = useState("");
   const [strWarning, setStrWarning] = useState("");
   const dispatch = useDispatch();
+  const inputFocusRef = useRef(null);
   const Ref = useRef(null);
-
+  useEffect(() => {
+    if (inputFocusRef.current) {
+      inputFocusRef.current.focus();
+    }
+  }, [isAdd]);
   useEffect(() => {
     const handleClick = (e) => {
       if (Ref.current && !Ref.current.contains(e.target)) {
@@ -62,6 +67,7 @@ function AddSeeds({ id }) {
         <div className="Seed_Board Add_Seed" ref={Ref}>
           <form onSubmit={addSeedToCrops}>
             <input
+              ref={inputFocusRef}
               placeholder="씨앗 이름을 입력해주세요"
               value={strName}
               onChange={changeName}

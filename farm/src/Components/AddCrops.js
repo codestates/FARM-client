@@ -14,10 +14,14 @@ function AddCrops({ id }) {
   const [strIcon, setStrIcon] = useState(iconList[0]);
   const [numIcon, setNumIcon] = useState(0);
   const [strWarning, setStrWarning] = useState("");
-
+  const inputFocusRef = useRef(null);
   const Ref = useRef(null);
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    if (inputFocusRef.current) {
+      inputFocusRef.current.focus();
+    }
+  }, [isAdd]);
   useEffect(() => {
     const handleClick = (e) => {
       if (Ref.current && !Ref.current.contains(e.target)) {
@@ -88,6 +92,7 @@ function AddCrops({ id }) {
                 strIcon={strIcon}
               ></SelectIcon>
               <input
+                ref={inputFocusRef}
                 placeholder="작물 이름을 입력해주세요"
                 value={strName}
                 onChange={changeName}
