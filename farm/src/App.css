@@ -20,6 +20,7 @@
   padding-right: 380px;
   overflow-y: scroll;
   padding-bottom: 40px;
+  height: 100vh;
 }
 .Farmer_Wrapper {
   margin: 1rem;

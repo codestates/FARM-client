@@ -56,7 +56,7 @@ export default function InviteFarmers() {
   return (
     <div className="Farmer_Wrapper Invite_New">
       <div
-        className={isModal ? "Modal_Background" : "Farmer_Header"}
+        className={isModal ? "Modal_Background" : "New_Farmer_Btn"}
         onClick={openModal}
       >
         새로운 농부 초대하기

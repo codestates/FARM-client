@@ -5,6 +5,7 @@ import { openSignup } from "../Redux/actions/actions";
 
 export default function LandingPage() {
   const goToLogin = () => {
+    dispatch(openSignup(false));
     history.push("/signin");
   };
   const history = useHistory();
