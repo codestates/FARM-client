@@ -768,6 +768,176 @@
 .No_Farm {
   margin: 0;
 }
+
 .Farm_Img {
   width: 1em;
+}
+.Landing_Container {
+  width: 100%;
+  height: 100%;
+}
+.Backgroud_Path {
+  width: 100%;
+}
+.Section1 {
+  position: relative;
+  width: 100%;
+}
+.Landing_Title {
+  position: absolute;
+  width: 517px;
+  height: 210px;
+  left: 20%;
+  top: 20%;
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 70px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.015em;
+
+  color: #ffffff;
+}
+
+.Landing_Image {
+  position: absolute;
+  width: 678.21px;
+  height: 544.23px;
+  left: 50%;
+  top: 10%;
+}
+
+.Landing_Btn {
+  text-align: center;
+  width: 5%;
+  height: 20px;
+  position: absolute;
+  left: 20%;
+  top: 44%;
+  background-color: white;
+  color: #1c723e;
+  cursor: pointer;
+  padding: 7px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.Section2 {
+  display: flex;
+  left: 20%;
+  margin: 5% 0;
+  align-content: center;
+  justify-content: center;
+}
+
+.Section2_Item {
+  margin: 0 4%;
+}
+.Section2_Item_Title {
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 35px;
+  /* identical to box height */
+  letter-spacing: -0.015em;
+  color: #1c723e;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+
+.Section2_Item_Desc {
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 29px;
+  letter-spacing: -0.015em;
+
+  color: #222222;
+}
+
+.Section3 {
+  position: relative;
+  width: 100%;
+}
+.Section3_Item1 {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  width: 80%;
+  height: 210px;
+  left: 20%;
+  top: 20%;
+}
+
+.Section3_Item1_Textbox {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+.Section3_Item1_Title {
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 70px;
+  letter-spacing: -0.015em;
+  color: #1c723e;
+}
+
+.Section3_Item1_Desc {
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 29px;
+  letter-spacing: -0.015em;
+
+  color: #222222;
+}
+.Section3_Item1_Img {
+  margin-left: 5%;
+  width: 40%;
+}
+
+.Section3_Item2_Textbox {
+  margin-left: 15%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.Section3_Item2_Img {
+  width: 30%;
+}
+.Section3_Item2 {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  width: 80%;
+  height: 210px;
+  left: 25%;
+  top: 60%;
+}
+
+.Section3_Item2_Title {
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 70px;
+  letter-spacing: -0.015em;
+  color: #1c723e;
+}
+
+.Section3_Item2_Desc {
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 29px;
+  letter-spacing: -0.015em;
+  color: #222222;
 }
