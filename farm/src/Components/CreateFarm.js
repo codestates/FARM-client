@@ -19,7 +19,7 @@ function CreateFarm({ isFarm }) {
   const [strProjectName, setProjectName] = useState("");
   const [strErr, setErr] = useState("");
 
-  const histoty = useHistory();
+  const history = useHistory();
   const projectName = (e) => {
     setProjectName(e.target.value);
   };
@@ -38,7 +38,6 @@ function CreateFarm({ isFarm }) {
       // 서버 통신 후 id와 image 받아와야 함.
       const numImg = Math.floor(Math.random() * backImage.image.length);
       const strImg = backImage.image[numImg];
-
       const objFarm = await axios.post(
         `${process.env.REACT_APP_API_URL}/farm/create`,
         {
@@ -60,7 +59,7 @@ function CreateFarm({ isFarm }) {
       dispatch(setFarm(data));
       closeModal();
       setProjectName("");
-      histoty.push("/farmpage");
+      history.push("/farmpage");
     }
   };
   return (
