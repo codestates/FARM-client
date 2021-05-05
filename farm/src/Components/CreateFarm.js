@@ -123,8 +123,8 @@ function CreateFarm({ isFarm }) {
         <Modal
           open={openModal}
           close={closeModal}
-          header="프로젝트 이름을 입력해주세요"
-          btntext="밭 갈기"
+          header="농장 이름을 입력해주세요"
+          btntext="농장 만들기"
           callback={createProject}
         >
           <form
