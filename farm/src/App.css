@@ -18,7 +18,7 @@
   white-space: nowrap;
   width: calc(100vw - 380px);
   padding-right: 380px;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-bottom: 40px;
   height: 100vh;
 }
@@ -145,20 +145,40 @@
 
 .Whole_Storage {
   display: flex;
-  width: 70%;
-  border: 1px solid black;
+  width: 98.7%;
+  margin: 5px;
+  height: 87vh;
+  overflow-x: scroll;
+  padding: 10px;
+  /* background-image: url(https://unsplash.com/photos/M_xIaxQE3Ms);
+   */
+  /* background-image: url(https://images.unsplash.com/photo-1610832958506-aa56368176cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80); */
+  /* background-repeat: no-repeat; */
+  background-image: url(https://images.unsplash.com/photo-1565118531796-763e5082d113?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80);
 }
 .Storage_Part {
   display: flex;
-  border: 1px solid black;
+  border: 1px solid #c4c4c4;
   flex-direction: column;
   padding: 10px;
   margin: 10px;
+  min-width: 15%;
+  background-color: #f6f8fa;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .Storage_Seed {
-  background-color: #aed581;
-  padding: 5px;
+  background-color: #ffffff;
+  padding: 10px;
   margin: 5px;
+  border: 1px solid #c4c4c4;
+  color: #1c723e;
+  font-weight: bold;
+  overflow: auto;
+  min-height: 7%;
+}
+.Storage_Kindicon {
+  padding-left: 5px;
 }
 .App-header {
   background-color: #282c34;
@@ -421,7 +441,7 @@
   background: #ffffff;
   border: 1px solid #c4c4c4;
   padding: 20px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 .Farm_Crops_Field p {
@@ -1001,4 +1021,13 @@
   font-weight: bold;
   margin: 20px 0 0 10px;
   font-size: 1.3rem;
+}
+.Storage_Icon_And_Name {
+  display: flex;
+  align-items: center;
+}
+.Storage_Cropname {
+  margin-left: 10px;
+  color: #1c723e;
+  font-weight: bold;
 }
