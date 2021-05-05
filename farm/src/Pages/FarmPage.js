@@ -93,7 +93,7 @@ export default function FarmPage() {
 
   return (
     <DragDropContext onDragEnd={dragEnd}>
-      <div>
+      <div className="Whole_Farm_Page">
         <head className="Header_Wrapper">
           <nav className="Login_SignUp_Nav Other_Headers">
             <svg
@@ -174,9 +174,6 @@ export default function FarmPage() {
             </div>
             <div className="Storage" onClick={goToStorage}>
               곳간
-            </div>
-            <div className="Logout_Farm" onClick={handleLogout}>
-              로그아웃
             </div>
           </nav>
         </head>

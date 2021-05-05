@@ -48,9 +48,9 @@ export default function InviteFarmers() {
     setStrEmail(e.target.value);
   };
   return (
-    <div className="Farmer_Wrapper">
+    <div className="Farmer_Wrapper Invite_New">
       <div
-        className={isOpenModal ? "Modal_Background" : "Farmer_Header"}
+        className={isOpenModal ? "Modal_Background" : "New_Farmer_Btn"}
         onClick={handleModal}
       >
         새로운 농부 초대하기

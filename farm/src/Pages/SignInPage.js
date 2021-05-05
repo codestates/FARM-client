@@ -147,13 +147,13 @@ export default function SignInPage({ handleLoginSuccess }) {
       </div>
       <div className="Footer">
         <svg
-          width="1917"
+          width="100vw"
           height="60"
-          viewBox="0 0 1917 60"
+          viewBox="0 0 100vw 60"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect width="1920" height="60" fill="#198342" />
+          <rect width="100vw" height="60" fill="#198342" />
         </svg>
       </div>
     </div>
