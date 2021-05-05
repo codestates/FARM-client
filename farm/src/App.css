@@ -73,13 +73,10 @@
   padding: 20px;
   max-height: calc(100vh - 235px);
   overflow-x: auto;
-
   border-radius: 5px;
-
-  text-align: center;
+  /* text-align: center; */
   color: #222222;
   font-weight: 600;
-
 }
 .Seed_In_Farmer {
   display: flex;
