@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import SetFarm from "./SetFarm";
 import Modal from "./Modal";
 import axios from "axios";
+import backImage from "../Redux/image.json";
 
 const env = process.env;
 
@@ -35,13 +36,15 @@ function CreateFarm({ isFarm }) {
       return;
     } else {
       // 서버 통신 후 id와 image 받아와야 함.
+      const numImg = Math.floor(Math.random() * backImage.image.length);
+      const strImg = backImage.image[numImg];
 
       const objFarm = await axios.post(
         `${process.env.REACT_APP_API_URL}/farm/create`,
         {
           user_id: objUserData.id,
           farm_name: strProjectName,
-          img: "sdfa",
+          img: strImg,
         },
         {
           headers: {
@@ -51,7 +54,7 @@ function CreateFarm({ isFarm }) {
           withCredentials: true,
         }
       );
-      dispatch(createFarm(objFarm.data.id, strProjectName, "sdfa"));
+      dispatch(createFarm(objFarm.data.id, strProjectName, strImg));
       setErr("");
       let data = await SetFarm(objFarm.data.id, strProjectName, strAccessToken);
       dispatch(setFarm(data));
