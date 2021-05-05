@@ -8,6 +8,7 @@ import {
   SET_FARM,
   INVITE_FARMERS,
   SET_STORAGE,
+  DELETE_SEED_FROM_CROP,
 } from "../actions/actions";
 
 const farmReducer = (state = dummy, action) => {
@@ -158,6 +159,27 @@ const farmReducer = (state = dummy, action) => {
     case SET_STORAGE:
       return Object.assign({}, state, {
         storage: action.payload.arrStorage,
+      });
+
+    case DELETE_SEED_FROM_CROP:
+      // let cropArr = state.crops.filter(
+      //   (crop) => (crop.crops_id === action.payload.cropsId)
+      // );
+
+      return Object.assign({}, state, {
+        // cropArr.Seeds.filter(el => el.seed_id !== action.payload.seedId )
+        crops: state.crops.map((crop) => {
+          if (crop.crops_id === action.payload.cropsId) {
+            return {
+              ...crop,
+              Seeds: crop.Seeds.filter((seed) => {
+                return seed.seed_id !== action.payload.seedId;
+              }),
+            };
+          } else {
+            return crop;
+          }
+        }),
       });
 
     default:
