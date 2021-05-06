@@ -16,6 +16,7 @@ function MyPage({ accessToken, handleLogout }) {
       <nav className="Login_SignUp_Nav Other_Headers">
         <svg
           className="Farm_Image"
+          onClick={goToMypage}
           width="105"
           height="31"
           viewBox="0 0 105 31"
