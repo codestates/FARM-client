@@ -7,13 +7,12 @@ function EditCropsName({ handleClick, defaultName, crops_id }) {
   const strAccessToken = useSelector((state) => state.authReducer.accessToken);
   const [inputValue, setInputValue] = useState(defaultName);
   const dispatch = useDispatch();
-  const inputValueContainer = useRef(defaultName);
+  const inputValueContainer = useRef(inputValue);
   const Ref = useRef(null);
   const onInputValueCahnge = (e) => {
     setInputValue(e.target.value);
     inputValueContainer.current = e.target.value;
   };
-
   useEffect(() => {
     // 커서 이동
 
@@ -33,11 +32,11 @@ function EditCropsName({ handleClick, defaultName, crops_id }) {
         handleClick();
       }
     };
-    document.addEventListener("keydown", handleDocumentClick);
+    document.addEventListener("keypress", handleDocumentClick);
     document.addEventListener("mousedown", handleDocumentClick);
     return async () => {
       //documentClick 제거
-      document.removeEventListener("keydown", handleDocumentClick);
+      document.removeEventListener("keypress", handleDocumentClick);
       document.removeEventListener("mousedown", handleDocumentClick);
       const newName = inputValueContainer.current;
       //documentClick이 일어나면
@@ -57,6 +56,7 @@ function EditCropsName({ handleClick, defaultName, crops_id }) {
           withCredentials: true,
         }
       );
+      console.log(newName);
       dispatch(changeCropsName(crops_id, newName));
     };
   }, []);
