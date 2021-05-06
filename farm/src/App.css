@@ -161,6 +161,13 @@
   cursor: pointer;
   color: #1c723e;
   font-weight: bold;
+  padding: 5px 0px 5px 25px;
+}
+
+.Sub_Nav > .Storage {
+  color: #1c723e;
+  font-weight: bold;
+  cursor: pointer;
 }
 .Sub_Nav > .Open_Storage {
   cursor: pointer;
@@ -169,7 +176,6 @@
   background-color: #1c723e;
   border-radius: 5px;
 }
-
 .Whole_Storage {
   display: flex;
   width: 98.7%;

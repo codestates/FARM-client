@@ -43,7 +43,7 @@ function App() {
         if (res.data.message !== "ok") {
           alert("로그인 기간이 만료되었습니다. 다시 로그인 해주세요.");
           dispatch(setNoAuth());
-          return history.push("/signin");
+          return history.push("/");
         }
 
         const objUserInfo = res.data.data.userinfo;
