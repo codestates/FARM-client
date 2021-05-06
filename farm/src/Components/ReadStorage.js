@@ -5,7 +5,7 @@ export default function ReadStorage({ arrStorage }) {
   return (
     <div className="Whole_Storage">
       {arrStorage.length === 0 ? (
-        <div>곳간이 비었습니다.</div>
+        <div className="Storage_Empty">곳간이 비었습니다.</div>
       ) : (
         arrStorage.map((crop, idx) => {
           const arrTheCrop = state.crops.filter(

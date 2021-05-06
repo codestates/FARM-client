@@ -15,7 +15,12 @@ import axios from "axios";
 import { useHistory } from "react-router";
 import SignUp from "./Components/SignUp";
 import { useSelector, useDispatch } from "react-redux";
-import { setUserInfo, setAuth, setNoAuth } from "./Redux/actions/actions";
+import {
+  setUserInfo,
+  setAuth,
+  setNoAuth,
+  openSignup,
+} from "./Redux/actions/actions";
 // import { LandingPage } from "./Pages/LandingPage";
 
 function App() {
@@ -79,7 +84,8 @@ function App() {
       })
       .then((res) => {
         dispatch(setNoAuth());
-        return history.push("/");
+        dispatch(openSignup(false));
+        return history.push("/signin");
       });
   };
 

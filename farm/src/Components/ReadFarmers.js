@@ -33,7 +33,7 @@ function ReadFarmers() {
                       }}
                       className="Seeds_In_Farmer"
                     >
-                      {state.farmers[idx].seeds.length === 0
+                      {farmer.seeds.length === 0
                         ? "🌱 씨앗을 드래그해서 심어주세요"
                         : ""}
                       {farmer.seeds.map((seed, idx) => (
