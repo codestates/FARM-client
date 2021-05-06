@@ -11,6 +11,7 @@ import {
   setNoAuth,
   setStorage,
   giveSeed,
+  openSignup,
 } from "../Redux/actions/actions";
 import { DragDropContext } from "react-beautiful-dnd";
 
@@ -59,7 +60,8 @@ function FarmPage() {
       })
       .then((res) => {
         dispatch(setNoAuth());
-        return history.push("/");
+        dispatch(openSignup(false));
+        return history.push("/signin");
       })
       .catch((err) => alert(err));
   };

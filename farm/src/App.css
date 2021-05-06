@@ -192,13 +192,16 @@
 .Storage_Part {
   display: flex;
   border: 1px solid #c4c4c4;
+  border-radius: 5px;
   flex-direction: column;
   padding: 10px;
   margin: 10px;
-  min-width: 15%;
+  /* min-width: 15%; */
+  width: 15vw;
+  /* max-width: 15%; */
   background-color: #f6f8fa;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 .Storage_Seed {
   background-color: #ffffff;
@@ -782,6 +785,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .Mypage_Body {
@@ -796,6 +800,7 @@
 .Mypage_Farmlist {
   flex: 3;
   background-color: #ffffff;
+  overflow: auto;
 }
 
 .Farmer_Info {
@@ -831,6 +836,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 12em;
   margin-top: 0;
+  overflow: auto;
 }
 
 .Farm_Item {
@@ -1085,4 +1091,11 @@
   margin-left: 10px;
   color: #1c723e;
   font-weight: bold;
+}
+
+.Storage_Empty {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 3%;
 }
