@@ -560,6 +560,10 @@
 .Seed_Board:hover {
   background: rgba(149, 149, 149, 0.5);
 }
+.Add_Seed:hover {
+  background: #ffffff;
+  padding: 10px;
+}
 .Farmer_List {
   position: absolute;
   background: #ffffff;
@@ -663,7 +667,9 @@
 .Add_Crop_Field:hover {
   background: #dddedf;
 }
-
+.On_Add:hover {
+  background: #f6f8fa;
+}
 .Add_Crop_Text {
   text-align: center;
 }
