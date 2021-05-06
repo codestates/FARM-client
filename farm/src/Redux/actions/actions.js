@@ -42,6 +42,7 @@ export const addCrops = (id, name, icon, idx) => {
   };
 };
 export const changeCropsName = (crops_id, newName) => {
+  console.log(newName);
   return {
     type: CHANGE_CROPS_NAME,
     payload: {
