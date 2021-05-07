@@ -1,0 +1,12 @@
+{
+  "id": 7,
+  "username": "test01",
+  "email": "test@test.com",
+  "projectList": [
+    {
+      "id": 12,
+      "name": "부자가 될꺼야!",
+      "img": "url..."
+    }
+  ]
+}
