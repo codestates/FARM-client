@@ -52,7 +52,13 @@
 * Stack : NODE js, EXPRESS, MYSql, Sequelize, React-Hooks
 * Contributions :
   * Back
-    1. 
+    1. users 엔드포인트 구현
+    2. crop 엔드포인트 구현
+    3. storage 엔드포인트 구현
+    4. API 문서 작성
+  * Front
+    1. 랜딩 페이지
+    2. Farmpage Seed 삭제 기능
 
 
 ### 김민석: Back-End
@@ -61,7 +67,12 @@
 * Stack : NODE js, EXPRESS, MYSql, Sequelize, React-Hooks
 * Contributions :
   * Back
-    1. 
+    1. farm 엔드포인트 구현
+    2. seed 엔드포인트 구현
+    3. 데이터베이스 스키마 작성
+    4. AWS 배포
+  * Front
+    1. Farmpage Crop 이름 업데이트 기능
 
 ***
 ## 🖋 프로젝트 기획
@@ -142,6 +153,55 @@
 ## API 문서
 * 링크 : [Farm Web API](https://farm-2.gitbook.io/farm-web-api/)
 * PDF 파일 : [Farm Web API.pdf](https://github.com/codestates/FARM-client/files/6431043/Farm.Web.API.pdf)
+
+### API 설계
+* User, Farm, Crop, Seed, Storage의 다섯가지 분기로 나누어 전송
+* GET, POST, PUT, DELETE 의 CRUD를 모두 구현
+
+### API 상세
+
+* User
+
+|METHOD|ENDPOINT|USAGE|
+|------|--------|----------|
+|GET|/users/info|Get User Information|
+|GET|/users/farminfo|Get User's Farm Info|
+|GET|/users/signout|Log out|
+|POST|/users/signin|Log In|
+|POST|/users/signup|Sign Up|
+
+* Farm
+
+|METHOD|ENDPOINT|USAGE|
+|------|--------|----------|
+|GET|/farm/userinfo|Get Farm's User Info|
+|POST|/farm/create|Create New Farm|
+|POST|/farm/invite|Invite New Member to the Farm|
+
+* Crop
+
+|METHOD|ENDPOINT|USAGE|
+|------|--------|----------|
+|GET|/crop/info/:farmid|Get Farm's Crop List|
+|POST|/crop/create|Create New Crop
+|GET|/crop/kinds|Get All Kinds List
+|PUT|/crop/update|Update Crop's Name
+
+* Seed
+
+|METHOD|ENDPOINT|USAGE|
+|------|--------|----------|
+|GET|/seed/info/:farmid|Get User's Seed List
+|POST|/seed/create|Create New Seed
+|POST|/seed/assign|Assign Seed
+|POST|/seed/harvest|Harvest Seed
+|DELETE|/seed/delete|Delete Seed
+
+* Storage
+
+|METHOD|ENDPOINT|USAGE|
+|------|--------|----------|
+|GET|/storage/info|Get Storage's Seed List
 
 ## Final App View
 ### 랜딩 페이지
