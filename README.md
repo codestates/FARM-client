@@ -1,3 +1,6 @@
+## 🖋 배포 Link
+https://farmworks.site
+***
 ## 🖋 프로젝트 소개
 * LOGO
 
@@ -18,7 +21,18 @@
 
 
 ***
-
+## 🖋 Final App View
+### 랜딩 페이지
+![랜딩페이지](https://user-images.githubusercontent.com/77534023/117255144-42872000-ae84-11eb-8c21-acfd8a4c93c7.gif)
+### 로그인&회원가입
+![로그인 회원가입](https://user-images.githubusercontent.com/77534023/117255156-49ae2e00-ae84-11eb-8f76-7ba2eb9ad5f0.gif)
+### 마이페이지
+![마이페이지](https://user-images.githubusercontent.com/77534023/117255158-49ae2e00-ae84-11eb-8efd-442cfe74fdf6.gif)
+### 농장 - 작물 추가 및 씨앗 추가
+![팜페이지](https://user-images.githubusercontent.com/77534023/117255161-4adf5b00-ae84-11eb-9b40-3d1a091cdd8e.gif)
+### 곳간
+![곳간](https://user-images.githubusercontent.com/77534023/117255166-4b77f180-ae84-11eb-9740-ca4f33c2a32a.gif)
+***
 ## 🖋 팀 소개
 ### 팀 이름 : SweatGuys (열심히 땀흘리며 살아온 네 명의 남자들)
 ### 팀원 소개
@@ -149,8 +163,6 @@
 
 <img width="1427" alt="스크린샷 2021-05-06 오전 9 36 07" src="https://user-images.githubusercontent.com/77534023/117226098-d5a56300-ae4e-11eb-809e-6d2882b0ffc1.png">
 
-## 🖋 프로젝트 결과물
-
 ## API 문서
 * 링크 : [Farm Web API](https://farm-2.gitbook.io/farm-web-api/)
 * PDF 파일 : [Farm Web API.pdf](https://github.com/codestates/FARM-client/files/6431043/Farm.Web.API.pdf)
@@ -204,18 +216,6 @@
 |------|--------|----------|
 |GET|/storage/info|Get Storage's Seed List
 
-## Final App View
-### 랜딩 페이지
-![랜딩페이지](https://user-images.githubusercontent.com/77534023/117255144-42872000-ae84-11eb-8c21-acfd8a4c93c7.gif)
-### 로그인&회원가입
-![로그인 회원가입](https://user-images.githubusercontent.com/77534023/117255156-49ae2e00-ae84-11eb-8f76-7ba2eb9ad5f0.gif)
-### 마이페이지
-![마이페이지](https://user-images.githubusercontent.com/77534023/117255158-49ae2e00-ae84-11eb-8efd-442cfe74fdf6.gif)
-### 농장 - 작물 추가 및 씨앗 추가
-![팜페이지](https://user-images.githubusercontent.com/77534023/117255161-4adf5b00-ae84-11eb-9b40-3d1a091cdd8e.gif)
-### 곳간
-![곳간](https://user-images.githubusercontent.com/77534023/117255166-4b77f180-ae84-11eb-9740-ca4f33c2a32a.gif)
 
-## 배포 Link
-https://farmworks.site
-***
+
+
